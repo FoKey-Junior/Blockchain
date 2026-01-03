@@ -6,21 +6,20 @@ void Api::start_server(unsigned short const port) {
     crow::SimpleApp app;
 
     CROW_ROUTE(app, "/api")([](){
-            Wallet alice;
+        Wallet alice;
           Wallet bob;
 
           float amount = 10;
 
-              // 1. Создаём транзакцию
             Transaction tx(
-                alice.get_address_bytes(),  // sender
-                bob.get_address_bytes(),    // receiver
+                alice.get_address_bytes(),
+                bob.get_address_bytes(),
                 amount
             );
 
             tx.sign(alice.get_private_key());
 
-            if (tx.verify(alice.get_public_key())) {
+            if (!tx.verify(alice.get_public_key())) {
                 std::cout << "Signature valid!\n";
             } else {
                 std::cout << "Signature INVALID!\n";

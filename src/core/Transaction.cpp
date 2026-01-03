@@ -41,8 +41,7 @@ void Transaction::print() const {
 
     std::cout << "Sender:   ";   print_hex(sender, sizeof(sender));   std::cout << "\n";
     std::cout << "Receiver: ";   print_hex(receiver, sizeof(receiver)); std::cout << "\n";
-    std::cout << "Amount:   " << amount << "\n";
-    std::cout << "Tx hash:  ";   print_hex(address, sizeof(address));  std::cout << "\n";
+    std::cout << "Hash:  ";   print_hex(address, sizeof(address));  std::cout << "\n";
     std::cout << "Signature:";    print_hex(signature, sizeof(signature)); std::cout << "\n";
 }
 
