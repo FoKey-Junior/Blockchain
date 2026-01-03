@@ -17,6 +17,10 @@ public:
     uint64_t balance = 1000;
 
     Wallet();
+    const unsigned char* get_private_key() const { return private_key; }
+    const unsigned char* get_public_key() const { return public_key; }
+    const unsigned char* get_address_bytes() const { return address_bytes; }
+    const std::string& get_address() const { return address; }
     void print_wallet_data() const;
     ~Wallet();
 };

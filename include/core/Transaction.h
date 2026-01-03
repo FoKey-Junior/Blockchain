@@ -4,6 +4,7 @@
 #include <sodium.h>
 #include <iostream>
 #include <cstring>
+#include <iomanip>
 
 class Transaction {
 public:
@@ -19,8 +20,9 @@ public:
         const uint64_t amount
     );
 
-    //void sign(const unsigned char* sender_private_key);
-    //void verify(const unsigned char* public_key);
+    void sign(const unsigned char* sender_private_key);
+    bool verify(const unsigned char* sender_public_key) const;
+    void print() const;
 
     ~Transaction();
 };

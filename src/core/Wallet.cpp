@@ -13,7 +13,7 @@ Wallet::Wallet() {
 
     address = swap.str();
     print_wallet_data();
-    //Transaction transaction(address_bytes, address_bytes, 900);
+    Transaction transaction(address_bytes, address_bytes, 900);
 };
 
 void Wallet::print_wallet_data() const {
