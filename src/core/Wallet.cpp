@@ -3,7 +3,7 @@
 
 Wallet::Wallet() {
     time_creation = std::chrono::system_clock::now();
-    crypto_box_keypair(private_key, public_key);
+    crypto_sign_keypair(public_key, private_key);
     crypto_generichash(address_bytes, sizeof(address_bytes), public_key, sizeof(public_key), nullptr, 0);
     std::ostringstream swap;
 
@@ -13,7 +13,6 @@ Wallet::Wallet() {
 
     address = swap.str();
     print_wallet_data();
-    Transaction transaction(address_bytes, address_bytes, 900);
 };
 
 void Wallet::print_wallet_data() const {

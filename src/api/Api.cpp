@@ -4,29 +4,31 @@
 
 void Api::start_server(unsigned short const port) {
     crow::SimpleApp app;
+    app.loglevel(crow::LogLevel::Warning);
+
+    CROW_ROUTE(app, "/favicon.ico")([]() {
+        return crow::response(200, "");
+    });
 
     CROW_ROUTE(app, "/api")([](){
         Wallet alice;
-          Wallet bob;
+        Wallet bob;
 
-          float amount = 10;
+        float amount = 250;
 
-            Transaction tx(
-                alice.get_address_bytes(),
-                bob.get_address_bytes(),
-                amount
-            );
+        Transaction tx(alice.get_address_bytes(), bob.get_address_bytes(), 100);
+        tx.sign(alice.get_private_key());
 
-            tx.sign(alice.get_private_key());
-
-            if (!tx.verify(alice.get_public_key())) {
-                std::cout << "Signature valid!\n";
-            } else {
-                std::cout << "Signature INVALID!\n";
-            }
-
-            tx.print();
-
+        if (tx.verify(alice.get_public_key())) {
+            alice.balance -= amount;
+            bob.balance += amount;
+            std::cout << "Signature valid!\n";
+        } else {
+            std::cout << "Signature INVALID!\n";
+        }
+        tx.print();
+        std::cout << "Balance " << alice.get_address() << ": " << alice.balance << std::endl;
+        std::cout << "Balance " << bob.get_address() << ": " << bob.balance << std::endl;
 
         return "server working properly";
     });

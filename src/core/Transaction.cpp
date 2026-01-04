@@ -25,7 +25,7 @@ void Transaction::sign(const unsigned char* sender_private_key) {
     if (crypto_sign_detached(signature, &sig_len, address, sizeof(address), sender_private_key) != 0) {
         throw std::runtime_error("Failed to sign transaction!");
     }
-};
+}
 
 bool Transaction::verify(const unsigned char* sender_public_key) const {
     return crypto_sign_verify_detached(signature, address, sizeof(address), sender_public_key) == 0;
@@ -42,7 +42,7 @@ void Transaction::print() const {
     std::cout << "Sender:   ";   print_hex(sender, sizeof(sender));   std::cout << "\n";
     std::cout << "Receiver: ";   print_hex(receiver, sizeof(receiver)); std::cout << "\n";
     std::cout << "Hash:  ";   print_hex(address, sizeof(address));  std::cout << "\n";
-    std::cout << "Signature:";    print_hex(signature, sizeof(signature)); std::cout << "\n";
+    std::cout << "Signature:";    print_hex(signature, sizeof(signature)); std::cout << "\n\n" << std::dec;
 }
 
 Transaction::~Transaction() {

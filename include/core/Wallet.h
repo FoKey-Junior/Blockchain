@@ -7,8 +7,8 @@
 #include <string>
 
 class Wallet {
-    unsigned char public_key[crypto_box_PUBLICKEYBYTES] = {};
-    unsigned char private_key[crypto_box_SECRETKEYBYTES] = {};
+    unsigned char public_key[crypto_sign_PUBLICKEYBYTES] = {};
+    unsigned char private_key[crypto_sign_SECRETKEYBYTES] = {};
     unsigned char address_bytes[crypto_generichash_BYTES] = {};
 
 public:
