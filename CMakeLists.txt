@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include_directories(
         /nix/store/l3imlvck1bdrca8ys5k12hskh6fbzsxn-crow-1.2.1.2/include
         /nix/store/zmljpwxaq8a8w9v0mm94s0qf9v9nw3m3-asio-1.24.0/include
+        /nix/store/qlrwfphpz9y711mlhp2mvkwb74r8ggwc-rocksdb-10.5.1/include/rocksdb
         /nix/store/jkqv0zwpjfqz8pigppgc18gmj3pqziyw-nixos-25.11.2679.9ef261221d1e/nixos/pkgs/development/libraries/sqlite/include
         /nix/store/iwdrbfqmbxd62d50sg2ixx6lq40xm5pm-libsodium-1.0.20-dev/include
         include
