@@ -10,13 +10,14 @@ void Api::start_server(unsigned short const port) {
         return crow::response(200, "");
     });
 
+
     CROW_ROUTE(app, "/api")([](){
         Wallet alice;
         Wallet bob;
 
-        float amount = 250;
+        uint64_t amount = 250;
 
-        Transaction tx(alice.get_address_bytes(), bob.get_address_bytes(), 100);
+        Transaction tx(alice.get_address_bytes(), bob.get_address_bytes(), amount);
         tx.sign(alice.get_private_key());
 
         if (tx.verify(alice.get_public_key())) {
@@ -36,10 +37,6 @@ void Api::start_server(unsigned short const port) {
     CROW_ROUTE(app, "/api/new/wallet")([](){
         Wallet wallet;
         return "the new wallet has been successfully created";
-    });
-
-    CROW_ROUTE(app, "/api/new/transaction")([]() {
-        return "the transaction was created successfully";
     });
 
     app.port(port).run();

@@ -1,6 +1,7 @@
 #ifndef BLOCKCHAIN_WALLET_H
 #define BLOCKCHAIN_WALLET_H
 
+
 #include <sodium.h>
 #include <iostream>
 #include <chrono>

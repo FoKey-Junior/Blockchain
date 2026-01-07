@@ -1,5 +1,5 @@
-#ifndef BLOCKCHAIN_TRANSACTION_H
-#define BLOCKCHAIN_TRANSACTION_H
+#ifndef BLOCKCHAIN_BLOCK_H
+#define BLOCKCHAIN_BLOCK_H
 
 
 #include <iostream>
@@ -7,26 +7,30 @@
 #include <cstring>
 #include <chrono>
 
-class Transaction {
+#include <iomanip>
+#include <ctime>
+
+class Block {
+    unsigned char address[crypto_generichash_BYTES] = {};
+    unsigned char previous_address[crypto_generichash_BYTES] = {};
+
     unsigned char sender[crypto_generichash_BYTES] = {};
     unsigned char receiver[crypto_generichash_BYTES] = {};
-    unsigned char address[crypto_generichash_BYTES] = {};
-    unsigned char signature[crypto_sign_BYTES] = {};
     std::chrono::system_clock::time_point time_creation;
     uint64_t amount;
 
 public:
-    Transaction(
+    Block(
+        const unsigned char* address_data,
+        const unsigned char* previous_address_data,
+
         const unsigned char* sender_data,
         const unsigned char* receiver_data,
+        const std::chrono::system_clock::time_point time_creation,
         const uint64_t amount
     );
 
-    void sign(const unsigned char* sender_private_key);
-    bool verify(const unsigned char* sender_public_key) const;
     void print() const;
-
-    ~Transaction();
 };
 
 

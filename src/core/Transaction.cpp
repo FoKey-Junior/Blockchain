@@ -1,22 +1,28 @@
 #include "../../include/core/Transaction.h"
+#include "../../include/core/Block.h"
 
 Transaction::Transaction(
     const unsigned char* sender_data,
     const unsigned char* receiver_data,
-    const uint64_t amount
-    ) : amount(amount) {
+    uint64_t amount
+) : amount(amount) {
 
-    std::memcpy(sender, sender_data, crypto_generichash_BYTES);
-    std::memcpy(receiver, receiver_data, crypto_generichash_BYTES);
+    std::memcpy(this->sender, sender_data, crypto_generichash_BYTES);
+    std::memcpy(this->receiver, receiver_data, crypto_generichash_BYTES);
 
     crypto_generichash_state state;
     crypto_generichash_init(&state, nullptr, 0, crypto_generichash_BYTES);
 
-    crypto_generichash_update(&state, sender, crypto_generichash_BYTES);
-    crypto_generichash_update(&state, receiver, crypto_generichash_BYTES);
-    crypto_generichash_update(&state, reinterpret_cast<const unsigned char*>(&amount),sizeof(amount));
+    crypto_generichash_update(&state, this->sender, crypto_generichash_BYTES);
+    crypto_generichash_update(&state, this->receiver, crypto_generichash_BYTES);
+    crypto_generichash_update(
+        &state,
+        reinterpret_cast<const unsigned char*>(&this->amount),
+        sizeof(this->amount)
+    );
 
-    crypto_generichash_final(&state, address, crypto_generichash_BYTES);
+    crypto_generichash_final(&state, this->address, crypto_generichash_BYTES);
+    time_creation = std::chrono::system_clock::now();
 }
 
 void Transaction::sign(const unsigned char* sender_private_key) {
@@ -28,6 +34,7 @@ void Transaction::sign(const unsigned char* sender_private_key) {
 }
 
 bool Transaction::verify(const unsigned char* sender_public_key) const {
+    Block block(address, address, sender, receiver, time_creation, amount);
     return crypto_sign_verify_detached(signature, address, sizeof(address), sender_public_key) == 0;
 }
 

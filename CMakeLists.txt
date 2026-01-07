@@ -19,6 +19,12 @@ add_executable(blockchain
         include/core/Wallet.h
         src/core/Transaction.cpp
         include/core/Transaction.h
+        src/core/Miner.cpp
+        include/core/Miner.h
+        src/core/Block.cpp
+        include/core/Block.h
+        src/core/Blockchain.cpp
+        include/core/Blockchain.h
 )
 
 target_link_libraries(blockchain
