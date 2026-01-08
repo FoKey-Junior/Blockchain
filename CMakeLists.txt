@@ -26,6 +26,8 @@ add_executable(blockchain
         include/core/Block.h
         src/core/Blockchain.cpp
         include/core/Blockchain.h
+        src/core/Mempool.cpp
+        include/core/Mempool.h
 )
 
 target_link_libraries(blockchain
