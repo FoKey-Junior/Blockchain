@@ -2,6 +2,7 @@
 #include "../../include/core/Wallet.h"
 #include "../../include/core/Transaction.h"
 #include "../../include/core/Mempool.h"
+#include "crow.h"
 
 void Api::start_server(unsigned short const port) {
     Mempool mempool;
@@ -36,6 +37,15 @@ void Api::start_server(unsigned short const port) {
 
         transaction->print();
         return "Transaction added to mempool";
+    });
+
+    CROW_ROUTE(app, "/api/mempool")([&mempool](){
+        auto txs = mempool.get_transactions_for_mining(10); // max 10
+        std::string result;
+        for (const auto& tx : txs) {
+            result += tx->get_hash_hex() + "\n"; // нужно реализовать get_hash_hex() в Transaction
+        }
+        return result.empty() ? "Mempool empty" : result;
     });
 
     CROW_ROUTE(app, "/api/new/wallet")([](){

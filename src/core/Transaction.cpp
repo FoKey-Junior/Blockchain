@@ -1,4 +1,8 @@
 #include "../../include/core/Transaction.h"
+#include <chrono>
+#include <cstring>
+#include <iomanip>
+#include <iostream>
 
 Transaction::Transaction(
     const unsigned char* sender_data,
@@ -6,54 +10,61 @@ Transaction::Transaction(
     uint64_t amount
 ) : amount(amount) {
 
-    std::memcpy(this->sender, sender_data, crypto_generichash_BYTES);
-    std::memcpy(this->receiver, receiver_data, crypto_generichash_BYTES);
+    std::memcpy(sender, sender_data, crypto_generichash_BYTES);
+    std::memcpy(receiver, receiver_data, crypto_generichash_BYTES);
 
-    crypto_generichash_state state;
-    crypto_generichash_init(&state, nullptr, 0, crypto_generichash_BYTES);
-
-    crypto_generichash_update(&state, this->sender, crypto_generichash_BYTES);
-    crypto_generichash_update(&state, this->receiver, crypto_generichash_BYTES);
-    crypto_generichash_update(
-        &state,
-        reinterpret_cast<const unsigned char*>(&this->amount),
-        sizeof(this->amount)
+    timestamp = static_cast<uint64_t>(
+        std::chrono::duration_cast<std::chrono::seconds>(
+            std::chrono::system_clock::now().time_since_epoch()
+        ).count()
     );
 
-    crypto_generichash_final(&state, this->address, crypto_generichash_BYTES);
-    time_creation = std::chrono::system_clock::now();
+    crypto_generichash_state state;
+    crypto_generichash_init(&state, nullptr, 0, sizeof(hash));
+    crypto_generichash_update(&state, sender, sizeof(sender));
+    crypto_generichash_update(&state, receiver, sizeof(receiver));
+    crypto_generichash_update(&state,
+                              reinterpret_cast<const unsigned char*>(&amount),
+                              sizeof(amount));
+    crypto_generichash_update(&state,
+                              reinterpret_cast<const unsigned char*>(&timestamp),
+                              sizeof(timestamp));
+    crypto_generichash_final(&state, hash, sizeof(hash));
 }
 
 void Transaction::sign(const unsigned char* sender_private_key) {
-    unsigned long long sig_len;
-
-    if (crypto_sign_detached(signature, &sig_len, address, sizeof(address), sender_private_key) != 0) {
-        throw std::runtime_error("Failed to sign transaction!");
+    unsigned long long sig_len = 0;
+    if (crypto_sign_detached(signature, &sig_len,
+                             hash, sizeof(hash),
+                             sender_private_key) != 0) {
+        std::abort();
     }
 }
 
-bool Transaction::verify(const unsigned char* sender_public_key) const {
-    //Block block(address, address, sender, receiver, time_creation, amount);
-    return crypto_sign_verify_detached(signature, address, sizeof(address), sender_public_key) == 0;
+bool Transaction::verify(const unsigned char* sender_public_key) const noexcept {
+    return crypto_sign_verify_detached(
+        signature, hash, sizeof(hash), sender_public_key
+    ) == 0;
+}
+
+std::string Transaction::get_hash_hex() const {
+    static const char* hex = "0123456789abcdef";
+    std::string out;
+    out.reserve(sizeof(hash) * 2);
+    for (unsigned char b : hash) {
+        out.push_back(hex[b >> 4]);
+        out.push_back(hex[b & 0x0F]);
+    }
+    return out;
 }
 
 void Transaction::print() const {
-    auto print_hex = [](const unsigned char* data, size_t len) {
-        for (size_t i = 0; i < len; i++) {
-            std::cout << std::hex << std::setw(2) << std::setfill('0')
-                      << static_cast<int>(data[i]);
-        }
-    };
-
-    std::cout << "Sender:   ";   print_hex(sender, sizeof(sender));   std::cout << "\n";
-    std::cout << "Receiver: ";   print_hex(receiver, sizeof(receiver)); std::cout << "\n";
-    std::cout << "Hash:  ";   print_hex(address, sizeof(address));  std::cout << "\n";
-    std::cout << "Signature:";    print_hex(signature, sizeof(signature)); std::cout << "\n\n" << std::dec;
+    std::cout << "TX hash: " << get_hash_hex() << "\n";
 }
 
 Transaction::~Transaction() {
     sodium_memzero(sender, sizeof(sender));
     sodium_memzero(receiver, sizeof(receiver));
-    sodium_memzero(address, sizeof(address));
+    sodium_memzero(hash, sizeof(hash));
     sodium_memzero(signature, sizeof(signature));
 }
