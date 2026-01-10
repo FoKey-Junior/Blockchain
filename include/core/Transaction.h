@@ -22,6 +22,12 @@ public:
         const uint64_t amount
     );
 
+    std::array<unsigned char, crypto_generichash_BYTES> get_address_array() const {
+        std::array<unsigned char, crypto_generichash_BYTES> arr{};
+        std::memcpy(arr.data(), address, crypto_generichash_BYTES);
+        return arr;
+    }
+
     void sign(const unsigned char* sender_private_key);
     bool verify(const unsigned char* sender_public_key) const;
     void print() const;

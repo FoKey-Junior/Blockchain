@@ -1,5 +1,4 @@
 #include "../../include/core/Transaction.h"
-#include "../../include/core/Block.h"
 
 Transaction::Transaction(
     const unsigned char* sender_data,
@@ -34,7 +33,7 @@ void Transaction::sign(const unsigned char* sender_private_key) {
 }
 
 bool Transaction::verify(const unsigned char* sender_public_key) const {
-    Block block(address, address, sender, receiver, time_creation, amount);
+    //Block block(address, address, sender, receiver, time_creation, amount);
     return crypto_sign_verify_detached(signature, address, sizeof(address), sender_public_key) == 0;
 }
 
