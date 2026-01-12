@@ -7,12 +7,10 @@
 
 class Mempool {
 public:
-    void submit(Transaction transaction);
-    bool hasTransactions() const;
-    std::vector<Transaction> collect(size_t max);
-
-private:
     std::vector<Transaction> pool;
+
+    void add_transaction(const Transaction& transaction);
+    Transaction pop_transaction() const;
 };
 
 

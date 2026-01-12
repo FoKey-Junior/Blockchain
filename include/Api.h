@@ -1,6 +1,7 @@
 #ifndef BLOCKCHAIN_API_H
 #define BLOCKCHAIN_API_H
 
+#include <thread>
 #include "crow.h"
 
 class Api {
