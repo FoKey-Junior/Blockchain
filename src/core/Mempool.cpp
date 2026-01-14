@@ -1,10 +1,52 @@
 #include "../../include/core/Mempool.h"
+#include <ranges>
+#include <algorithm>
+#include <cstring>
 
-void Mempool::add_transaction(const Transaction& transaction) {
-    pool.push_back(transaction);
+bool Mempool::add_transaction(const Transaction& transaction) {
+    std::scoped_lock lock(mutex_);
+
+    if (std::ranges::any_of(pool_, [&transaction](const Transaction& current_transaction) {
+        return std::memcmp(
+            current_transaction.get_address_bytes(),
+            transaction.get_address_bytes(),
+            crypto_generichash_BYTES) == 0;
+        }) || pool_.size() >= MAX_MEMPOOL_SIZE) {
+
+        return false;
+        }
+
+    pool_.push_back(transaction);
+    return true;
 }
 
-Transaction Mempool::pop_transaction() const {
-    if (pool.empty()) throw std::runtime_error("Mempool is empty");
-    return pool[0];
+bool Mempool::remove_transaction(const Transaction& transaction) {
+    std::scoped_lock lock(mutex_);
+
+    auto transaction_iterator = std::ranges::find_if(pool_, [&transaction](const Transaction& current_transaction) {
+        return std::memcmp(
+            current_transaction.get_address_bytes(),
+            transaction.get_address_bytes(),
+            crypto_generichash_BYTES) == 0;
+    });
+
+    if (transaction_iterator != pool_.end()) {
+        pool_.erase(transaction_iterator);
+        return true;
+    }
+
+    return false;
 }
+
+std::optional<Transaction> Mempool::pop_transaction() {
+    std::scoped_lock lock(mutex_);
+
+    if (pool_.empty()) {
+        return std::nullopt;
+    } else {
+        Transaction transaction = pool_.front();
+        pool_.pop_front();
+        return transaction;
+    }
+}
+

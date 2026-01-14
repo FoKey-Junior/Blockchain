@@ -26,6 +26,8 @@ public:
     bool verify(const unsigned char* sender_public_key) const;
     void print() const;
 
+    const unsigned char* get_address_bytes() const { return address; }
+
     ~Transaction();
 };
 
