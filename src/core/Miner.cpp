@@ -3,11 +3,15 @@
 Miner::Miner(std::vector<Transaction>& mempool) : pool(mempool) {}
 
 void Miner::run() {
+    int score = 0;
+
     while (true) {
+        score++;
+
         if (!pool.empty()) {
-            std::cout << "\n\n\nНе пуст\n\n\n";
+            std::cout << score << ". Не пуст\n";
         } else {
-            std::cout << "\n\n\nПуст\n\n\n";
+            std::cout << score << ". Пуст\n";
 
         }
 

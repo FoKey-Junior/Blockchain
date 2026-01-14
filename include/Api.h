@@ -2,6 +2,7 @@
 #define BLOCKCHAIN_API_H
 
 #include <thread>
+#include <vector>
 #include "crow.h"
 
 class Api {

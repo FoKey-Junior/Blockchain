@@ -35,12 +35,18 @@ void Api::start_server(unsigned short const port) {
 
     CROW_ROUTE(app, "/api/new/miner")([&mempool](){
         std::thread th([&mempool](){
-            Miner miner(mempool.pool); // ✅ теперь pool виден
+            Miner miner(mempool.pool);
             miner.run();
         });
         th.detach();
 
         return "miner started";
+    });
+
+
+    CROW_ROUTE(app, "/api/new/miner/pop")([&mempool](){
+        mempool.pool.pop_back();
+        return "pop back";
     });
 
 
