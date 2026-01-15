@@ -20,22 +20,23 @@ bool Mempool::add_transaction(const Transaction& transaction) {
     return true;
 }
 
-bool Mempool::remove_transaction(const Transaction& transaction) {
+bool Mempool::remove_transaction(const unsigned char* address_bytes) {
     std::scoped_lock lock(mutex_);
 
-    auto transaction_iterator = std::ranges::find_if(pool_, [&transaction](const Transaction& current_transaction) {
+    auto it = std::ranges::find_if(pool_, [&](const Transaction& tx) {
         return std::memcmp(
-            current_transaction.get_address_bytes(),
-            transaction.get_address_bytes(),
-            crypto_generichash_BYTES) == 0;
+            tx.get_address_bytes(),
+            address_bytes,
+            crypto_generichash_BYTES
+        ) == 0;
     });
 
-    if (transaction_iterator != pool_.end()) {
-        pool_.erase(transaction_iterator);
-        return true;
+    if (it == pool_.end()) {
+        return false;
     }
 
-    return false;
+    pool_.erase(it);
+    return true;
 }
 
 std::optional<Transaction> Mempool::pop_transaction() {

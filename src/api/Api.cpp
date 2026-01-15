@@ -32,15 +32,20 @@ void Api::start_server(unsigned short const port) {
 
         return "miner started";
     });
+    CROW_ROUTE(app, "/api/mempool/pop")
+    ([&mempool](const crow::request& req) {
+        auto txid = req.url_params.get("txid");
+        if (!txid) {
+            return crow::response(400, "txid required");
+        }
 
-    CROW_ROUTE(app, "/api/new/miner/pop")([&mempool](){
-        Wallet alice;
-        Wallet bob;
-        uint64_t amount = 250;
-        Transaction transaction(alice.get_address_bytes(), bob.get_address_bytes(), amount);
+        bool removed = mempool.remove_transaction(
+            reinterpret_cast<const unsigned char*>(txid)
+        );
 
-        bool removed = mempool.remove_transaction(transaction);
-        return removed ? "transaction removed" : "transaction not found";
+        return removed
+            ? crow::response(200, "transaction removed")
+            : crow::response(404, "transaction not found");
     });
 
     CROW_ROUTE(app, "/api/new/wallet")([](){

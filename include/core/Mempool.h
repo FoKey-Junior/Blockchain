@@ -15,7 +15,7 @@ class Mempool {
 
 public:
     bool add_transaction(const Transaction& transaction);
-    bool remove_transaction(const Transaction& transaction);
+    bool remove_transaction(const unsigned char* transaction);
     std::optional<Transaction> pop_transaction();
 };
 
