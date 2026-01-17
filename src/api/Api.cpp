@@ -1,5 +1,5 @@
-#include "../../include/Api.h"
-#include "../../include/core/Wallet.h"
+#include "../../include/api/Api.h"
+#include "../../include/core/User.h"
 #include "../../include/core/Transaction.h"
 #include "../../include/core/Mempool.h"
 #include "../../include/core/Miner.h"
@@ -7,23 +7,19 @@
 void Api::start_server(unsigned short const port) {
     crow::SimpleApp app;
     Mempool mempool;
+    User alice;
+    User bob;
     app.loglevel(crow::LogLevel::Warning);
 
     CROW_ROUTE(app, "/favicon.ico")([]() {
         return crow::response(200, "");
     });
 
-    CROW_ROUTE(app, "/api/new/miner")([&mempool](){
-        Wallet alice;
-        Wallet bob;
-        uint64_t amount = 250;
-
-        Transaction transaction(alice.get_address_bytes(), bob.get_address_bytes(), amount);
+    CROW_ROUTE(app, "/api/new/miner")([&mempool, &alice, &bob](){
+        Transaction transaction(alice.get_address_bytes(), bob.get_address_bytes());
         transaction.sign(alice.get_private_key());
 
         if (transaction.verify(alice.get_public_key())) {
-            alice.balance -= amount;
-            bob.balance += amount;
             mempool.add_transaction(transaction);
             std::cout << "Signature valid!\n";
         }
@@ -32,6 +28,7 @@ void Api::start_server(unsigned short const port) {
 
         return "miner started";
     });
+
     CROW_ROUTE(app, "/api/mempool/pop")
     ([&mempool](const crow::request& req) {
         auto txid = req.url_params.get("txid");
@@ -48,10 +45,11 @@ void Api::start_server(unsigned short const port) {
             : crow::response(404, "transaction not found");
     });
 
-    CROW_ROUTE(app, "/api/new/wallet")([](){
-        Wallet wallet;
+    CROW_ROUTE(app, "/api/new/user")([](){
+        User user;
         return "the new wallet has been successfully created";
     });
+
 
     app.port(port).run();
 }

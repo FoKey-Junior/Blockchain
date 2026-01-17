@@ -5,9 +5,8 @@ Block::Block(
     const unsigned char* previous_address_data,
     const unsigned char* sender_data,
     const unsigned char* receiver_data,
-    std::chrono::system_clock::time_point time_creation,
-    uint64_t amount
-) : time_creation(time_creation), amount(amount) {
+    std::chrono::system_clock::time_point time_creation
+) : time_creation(time_creation) {
 
     std::memcpy(this->address, address_data, crypto_generichash_BYTES);
     std::memcpy(this->previous_address, previous_address_data, crypto_generichash_BYTES);
@@ -49,8 +48,6 @@ void Block::print() const {
     std::cout << "Time:             "
               << std::put_time(std::localtime(&t), "%Y-%m-%d %H:%M:%S")
               << "\n";
-
-    std::cout << "Amount:           " << amount << "\n";
 
     std::cout << "===============================================\n";
 }

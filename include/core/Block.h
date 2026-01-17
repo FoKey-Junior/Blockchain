@@ -17,7 +17,6 @@ class Block {
     unsigned char sender[crypto_generichash_BYTES] = {};
     unsigned char receiver[crypto_generichash_BYTES] = {};
     std::chrono::system_clock::time_point time_creation;
-    uint64_t amount;
 
 public:
     Block(
@@ -26,8 +25,7 @@ public:
 
         const unsigned char* sender_data,
         const unsigned char* receiver_data,
-        const std::chrono::system_clock::time_point time_creation,
-        const uint64_t amount
+        std::chrono::system_clock::time_point time_creation
     );
 
     void print() const;
