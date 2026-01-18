@@ -23,4 +23,4 @@ private slots:
 private:
     Ui::StartWindow *ui;
 };
-#endif // START_WINDOW_H
+#endif

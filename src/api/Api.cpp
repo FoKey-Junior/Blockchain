@@ -6,10 +6,8 @@
 
 void Api::start_server(unsigned short const port) {
     crow::SimpleApp app;
-    Mempool mempool;
-    User alice;
-    User bob;
     app.loglevel(crow::LogLevel::Warning);
+    Mempool mempool;
 
     CROW_ROUTE(app, "/favicon.ico")([]() {
         return crow::response(200, "");
@@ -49,7 +47,6 @@ void Api::start_server(unsigned short const port) {
         User user;
         return "the new wallet has been successfully created";
     });
-
 
     app.port(port).run();
 }

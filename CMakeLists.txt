@@ -42,6 +42,7 @@ set(SOURCES
         src/core/Block.cpp
         src/core/Blockchain.cpp
         src/core/Mempool.cpp
+        src/core/SendingFile.cpp
 )
 
 set(HEADERS
@@ -54,6 +55,7 @@ set(HEADERS
         include/core/Block.h
         include/core/Blockchain.h
         include/core/Mempool.h
+        include/core/SendingFile.h
 )
 
 add_executable(Blockchain

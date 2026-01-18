@@ -16,7 +16,7 @@ StartWindow::~StartWindow()
 
 void StartWindow::on_participant_clicked()
 {
-    MainWindow *w = new MainWindow();
-    w->show();
+    MainWindow *window = new MainWindow;
+    window->show();
     close();
 }

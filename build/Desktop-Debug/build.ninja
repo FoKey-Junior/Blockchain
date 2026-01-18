@@ -148,6 +148,15 @@ build CMakeFiles/Blockchain.dir/src/core/Mempool.cpp.o: CXX_COMPILER__Blockchain
   OBJECT_DIR = CMakeFiles/Blockchain.dir
   OBJECT_FILE_DIR = CMakeFiles/Blockchain.dir/src/core
 
+build CMakeFiles/Blockchain.dir/src/core/SendingFile.cpp.o: CXX_COMPILER__Blockchain_unscanned_Debug /Users/dmitrij/projects/blockchain/src/core/SendingFile.cpp || cmake_object_order_depends_target_Blockchain
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/Blockchain.dir/src/core/SendingFile.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++2b -arch arm64 -fcolor-diagnostics
+  INCLUDES = -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include -I/Users/dmitrij/projects/blockchain/include -I/Users/dmitrij/projects/blockchain/include/windows -I/opt/homebrew/include -I/usr/local/include/asio -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug -I/opt/homebrew/Cellar/libsodium/1.0.20/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers -iframework /Users/dmitrij/Qt/6.10.1/macos/lib -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers -isystem /Users/dmitrij/Qt/6.10.1/macos/mkspecs/macx-clang -isystem /Users/dmitrij/Qt/6.10.1/macos/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/Blockchain.dir
+  OBJECT_FILE_DIR = CMakeFiles/Blockchain.dir/src/core
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Blockchain
@@ -156,7 +165,7 @@ build CMakeFiles/Blockchain.dir/src/core/Mempool.cpp.o: CXX_COMPILER__Blockchain
 #############################################
 # Link the executable Blockchain
 
-build Blockchain: CXX_EXECUTABLE_LINKER__Blockchain_Debug CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.o CMakeFiles/Blockchain.dir/src/main.cpp.o CMakeFiles/Blockchain.dir/src/windows/start_window.cpp.o CMakeFiles/Blockchain.dir/src/windows/main_window.cpp.o CMakeFiles/Blockchain.dir/src/api/Api.cpp.o CMakeFiles/Blockchain.dir/src/core/User.cpp.o CMakeFiles/Blockchain.dir/src/core/Transaction.cpp.o CMakeFiles/Blockchain.dir/src/core/Miner.cpp.o CMakeFiles/Blockchain.dir/src/core/Block.cpp.o CMakeFiles/Blockchain.dir/src/core/Blockchain.cpp.o CMakeFiles/Blockchain.dir/src/core/Mempool.cpp.o | /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Versions/A/QtWidgets /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libsqlite3.tbd /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Versions/A/QtGui /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/QtCore || Blockchain_autogen Blockchain_autogen_timestamp_deps
+build Blockchain: CXX_EXECUTABLE_LINKER__Blockchain_Debug CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.o CMakeFiles/Blockchain.dir/src/main.cpp.o CMakeFiles/Blockchain.dir/src/windows/start_window.cpp.o CMakeFiles/Blockchain.dir/src/windows/main_window.cpp.o CMakeFiles/Blockchain.dir/src/api/Api.cpp.o CMakeFiles/Blockchain.dir/src/core/User.cpp.o CMakeFiles/Blockchain.dir/src/core/Transaction.cpp.o CMakeFiles/Blockchain.dir/src/core/Miner.cpp.o CMakeFiles/Blockchain.dir/src/core/Block.cpp.o CMakeFiles/Blockchain.dir/src/core/Blockchain.cpp.o CMakeFiles/Blockchain.dir/src/core/Mempool.cpp.o CMakeFiles/Blockchain.dir/src/core/SendingFile.cpp.o | /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Versions/A/QtWidgets /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libsqlite3.tbd /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Versions/A/QtGui /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/QtCore || Blockchain_autogen Blockchain_autogen_timestamp_deps
   CONFIG = Debug
   FLAGS = -DQT_QML_DEBUG -g -arch arm64
   LINK_FLAGS = -Wl,-search_paths_first -Wl,-headerpad_max_install_names

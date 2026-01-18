@@ -397,6 +397,12 @@
 			null
 		],
 		[
+			"/Users/dmitrij/projects/blockchain/include/core/SendingFile.h",
+			"MU",
+			"TNQXAZC2F3/moc_SendingFile.cpp",
+			null
+		],
+		[
 			"/Users/dmitrij/projects/blockchain/include/core/Transaction.h",
 			"MU",
 			"TNQXAZC2F3/moc_Transaction.cpp",
@@ -495,6 +501,11 @@
 		],
 		[ "/Users/dmitrij/projects/blockchain/src/core/Mempool.cpp", "MU", null ],
 		[ "/Users/dmitrij/projects/blockchain/src/core/Miner.cpp", "MU", null ],
+		[
+			"/Users/dmitrij/projects/blockchain/src/core/SendingFile.cpp",
+			"MU",
+			null
+		],
 		[
 			"/Users/dmitrij/projects/blockchain/src/core/Transaction.cpp",
 			"MU",

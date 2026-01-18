@@ -5,15 +5,14 @@
 #include <QApplication>
 
 int main(int argc, char *argv[]) {
-    std::thread client_api([](){
+    std::thread local_api([](){
         (Api::start_server(4000));
     });
+    local_api.detach();
 
-    QApplication a(argc, argv);
+    QApplication app(argc, argv);
     StartWindow window;
     window.show();
-    int ret = a.exec();
 
-    client_api.join();
-    return ret;
+    return app.exec();
 }
