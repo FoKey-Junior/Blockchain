@@ -4,7 +4,7 @@
 Transaction::Transaction(
     const unsigned char* sender_,
     const unsigned char* receiver_,
-    std::unordered_map<std::string, FileMetadata>& files_
+    const std::unordered_map<std::string, FileMetadata>& files_
     ) : files(files_) {
 
     std::memcpy(this->sender, sender_, crypto_generichash_BYTES);

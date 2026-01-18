@@ -15,19 +15,19 @@ void Api::start_server(unsigned short const port) {
         return crow::response(200, "");
     });
 
-    CROW_ROUTE(app, "/api/new/miner")([&mempool, &alice, &bob](){
-        Transaction transaction(alice.get_address_bytes(), bob.get_address_bytes());
-        transaction.sign(alice.get_private_key());
+    // CROW_ROUTE(app, "/api/new/miner")([&mempool, &alice, &bob](){
+    //     Transaction transaction(alice.get_address_bytes(), bob.get_address_bytes());
+    //     transaction.sign(alice.get_private_key());
 
-        if (transaction.verify(alice.get_public_key())) {
-            mempool.add_transaction(transaction);
-            std::cout << "Signature valid!\n";
-        }
+    //     if (transaction.verify(alice.get_public_key())) {
+    //         mempool.add_transaction(transaction);
+    //         std::cout << "Signature valid!\n";
+    //     }
 
-        transaction.print();
+    //     transaction.print();
 
-        return "miner started";
-    });
+    //     return "miner started";
+    // });
 
     CROW_ROUTE(app, "/api/mempool/pop")
     ([&mempool](const crow::request& req) {
