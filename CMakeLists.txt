@@ -32,30 +32,30 @@ link_directories(${SQLite3_LIBRARY_DIRS})
 
 set(SOURCES
         src/main.cpp
-        src/windows/start_window.cpp
-        src/windows/main_window.cpp
+        src/ui/start_window.cpp
+        src/ui/main_window.cpp
 
         src/api/Api.cpp
-        src/core/User.cpp
-        src/core/Transaction.cpp
-        src/core/Miner.cpp
-        src/core/Block.cpp
-        src/core/Blockchain.cpp
-        src/core/Mempool.cpp
-        src/core/SendingFile.cpp
+        src/blockchain/User.cpp
+        src/blockchain/Transaction.cpp
+        src/blockchain/Miner.cpp
+        src/blockchain/Block.cpp
+        src/blockchain/Blockchain.cpp
+        src/blockchain/Mempool.cpp
+        src/file_sharing/sending.cpp
 )
 
 set(HEADERS
         include/windows/start_window.h
         include/windows/main_window.h
         include/api/Api.h
-        include/core/User.h
-        include/core/Transaction.h
-        include/core/Miner.h
-        include/core/Block.h
-        include/core/Blockchain.h
-        include/core/Mempool.h
-        include/core/SendingFile.h
+        include/blockchain/User.h
+        include/blockchain/Transaction.h
+        include/blockchain/Miner.h
+        include/blockchain/Block.h
+        include/blockchain/Blockchain.h
+        include/blockchain/Mempool.h
+        include/file_sharing/sending.h
 )
 
 add_executable(Blockchain

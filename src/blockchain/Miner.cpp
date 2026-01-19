@@ -1,3 +1,3 @@
-#include "../../include/core/Miner.h"
+#include "../../include/blockchain/Miner.h"
 
 Miner::Miner(std::vector<Transaction>& mempool) : pool(mempool) {}

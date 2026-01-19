@@ -1,9 +1,9 @@
-#ifndef MAIN_WINDOW_H
-#define MAIN_WINDOW_H
+#ifndef BLOCKCHAIN_SENDINGFILE_H
+#define BLOCKCHAIN_SENDINGFILE_H
 
 
-#include <QWidget>
 #include <sodium.h>
+#include <iostream>
 #include <string>
 #include <vector>
 #include <unordered_map>
@@ -11,29 +11,21 @@
 #include "../../include/blockchain/User.h"
 #include "../../include/blockchain/Transaction.h"
 
-namespace Ui {
-    class MainWindow;
-}
-
-class MainWindow : public QWidget
-{
-    Q_OBJECT
-    Ui::MainWindow *ui;
-
-    User user;
+class Sending {
     unsigned char sender_address[crypto_generichash_BYTES] = {};
     unsigned char receiver_address[crypto_generichash_BYTES] = {};
     std::unordered_map<std::string, FileMetadata> files;
     std::vector<std::string> file_names = {};
     std::vector<std::string> file_paths = {};
 
-private slots:
-    void on_file_selection_clicked();
-    void on_sending_files_clicked();
-
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    Sending(
+        const unsigned char* sender_address_,
+        const unsigned char* receiver_address_,
+        std::vector<std::string>&& file_names_,
+        std::vector<std::string>&& file_paths_
+    );
 };
+
 
 #endif

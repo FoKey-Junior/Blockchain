@@ -1,5 +1,5 @@
-#include "../../include/core/Transaction.h"
-#include "../../include/core/Block.h"
+#include "../../include/blockchain/Transaction.h"
+#include "../../include/blockchain/Block.h"
 
 Transaction::Transaction(
     const unsigned char* sender_,

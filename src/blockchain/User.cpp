@@ -1,5 +1,5 @@
-#include "../../include/core/User.h"
-#include "../../include/core/Transaction.h"
+#include "../../include/blockchain/User.h"
+#include "../../include/blockchain/Transaction.h"
 
 User::User() {
     time_creation = std::chrono::system_clock::now();
@@ -22,18 +22,7 @@ void User::print_wallet_data() const {
         }
     };
 
-    std::cout << "Private key:   ";
-    print_hex(private_key, sizeof(private_key));
-    std::cout << "\n";
-
-    std::cout << "Public key:    ";
-    print_hex(public_key, sizeof(public_key));
-    std::cout << "\n";
-
-    std::cout << std::dec << "Address:       " << address << "\n";
-
     const std::time_t t = std::chrono::system_clock::to_time_t(time_creation);
-    std::cout << "Created at:    " << std::ctime(&t);
 };
 
 User::~User() {

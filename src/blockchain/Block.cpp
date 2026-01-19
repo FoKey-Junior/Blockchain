@@ -1,4 +1,4 @@
-#include "../../include/core/Block.h"
+#include "../../include/blockchain/Block.h"
 
 Block::Block(
     const unsigned char* address_data,

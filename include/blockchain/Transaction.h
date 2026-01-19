@@ -9,7 +9,7 @@
 #include <unordered_map>
 
 struct FileMetadata {
-    std::array<unsigned char, crypto_generichash_BYTES> meta_data;
+    std::array<unsigned char, crypto_hash_sha256_BYTES> meta_data;
 };
 
 class Transaction {

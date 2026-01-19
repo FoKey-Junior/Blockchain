@@ -1,8 +1,8 @@
 #include "../../include/api/Api.h"
-#include "../../include/core/User.h"
-#include "../../include/core/Transaction.h"
-#include "../../include/core/Mempool.h"
-#include "../../include/core/Miner.h"
+#include "../../include/blockchain/User.h"
+#include "../../include/blockchain/Transaction.h"
+#include "../../include/blockchain/Mempool.h"
+#include "../../include/blockchain/Miner.h"
 
 void Api::start_server(unsigned short const port) {
     crow::SimpleApp app;
