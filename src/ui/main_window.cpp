@@ -56,7 +56,7 @@ void MainWindow::on_sending_files_clicked()
 
     std::memcpy(sender_address, user.get_address_bytes(), sizeof(sender_address));
     std::memcpy(receiver_address, receiver_address_swap.constData(), crypto_generichash_BYTES);
-    Sending sending(sender_address, receiver_address, std::move(file_names), std::move(file_paths));
+    Sending sending(sender_address, receiver_address, std::move(file_names), std::move(file_paths), user);
 }
 
 MainWindow::~MainWindow() {

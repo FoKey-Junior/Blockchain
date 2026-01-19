@@ -373,45 +373,45 @@
 			null
 		],
 		[
-			"/Users/dmitrij/projects/blockchain/include/core/Block.h",
+			"/Users/dmitrij/projects/blockchain/include/blockchain/Block.h",
 			"MU",
-			"TNQXAZC2F3/moc_Block.cpp",
+			"6DPA6SJUON/moc_Block.cpp",
 			null
 		],
 		[
-			"/Users/dmitrij/projects/blockchain/include/core/Blockchain.h",
+			"/Users/dmitrij/projects/blockchain/include/blockchain/Blockchain.h",
 			"MU",
-			"TNQXAZC2F3/moc_Blockchain.cpp",
+			"6DPA6SJUON/moc_Blockchain.cpp",
 			null
 		],
 		[
-			"/Users/dmitrij/projects/blockchain/include/core/Mempool.h",
+			"/Users/dmitrij/projects/blockchain/include/blockchain/Mempool.h",
 			"MU",
-			"TNQXAZC2F3/moc_Mempool.cpp",
+			"6DPA6SJUON/moc_Mempool.cpp",
 			null
 		],
 		[
-			"/Users/dmitrij/projects/blockchain/include/core/Miner.h",
+			"/Users/dmitrij/projects/blockchain/include/blockchain/Miner.h",
 			"MU",
-			"TNQXAZC2F3/moc_Miner.cpp",
+			"6DPA6SJUON/moc_Miner.cpp",
 			null
 		],
 		[
-			"/Users/dmitrij/projects/blockchain/include/core/SendingFile.h",
+			"/Users/dmitrij/projects/blockchain/include/blockchain/Transaction.h",
 			"MU",
-			"TNQXAZC2F3/moc_SendingFile.cpp",
+			"6DPA6SJUON/moc_Transaction.cpp",
 			null
 		],
 		[
-			"/Users/dmitrij/projects/blockchain/include/core/Transaction.h",
+			"/Users/dmitrij/projects/blockchain/include/blockchain/User.h",
 			"MU",
-			"TNQXAZC2F3/moc_Transaction.cpp",
+			"6DPA6SJUON/moc_User.cpp",
 			null
 		],
 		[
-			"/Users/dmitrij/projects/blockchain/include/core/User.h",
+			"/Users/dmitrij/projects/blockchain/include/file_sharing/sending.h",
 			"MU",
-			"TNQXAZC2F3/moc_User.cpp",
+			"V4ZJ5DYXPP/moc_sending.cpp",
 			null
 		],
 		[
@@ -493,33 +493,49 @@
 	"SOURCES" : 
 	[
 		[ "/Users/dmitrij/projects/blockchain/src/api/Api.cpp", "MU", null ],
-		[ "/Users/dmitrij/projects/blockchain/src/core/Block.cpp", "MU", null ],
 		[
-			"/Users/dmitrij/projects/blockchain/src/core/Blockchain.cpp",
-			"MU",
-			null
-		],
-		[ "/Users/dmitrij/projects/blockchain/src/core/Mempool.cpp", "MU", null ],
-		[ "/Users/dmitrij/projects/blockchain/src/core/Miner.cpp", "MU", null ],
-		[
-			"/Users/dmitrij/projects/blockchain/src/core/SendingFile.cpp",
+			"/Users/dmitrij/projects/blockchain/src/blockchain/Block.cpp",
 			"MU",
 			null
 		],
 		[
-			"/Users/dmitrij/projects/blockchain/src/core/Transaction.cpp",
+			"/Users/dmitrij/projects/blockchain/src/blockchain/Blockchain.cpp",
 			"MU",
 			null
 		],
-		[ "/Users/dmitrij/projects/blockchain/src/core/User.cpp", "MU", null ],
+		[
+			"/Users/dmitrij/projects/blockchain/src/blockchain/Mempool.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/dmitrij/projects/blockchain/src/blockchain/Miner.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/dmitrij/projects/blockchain/src/blockchain/Transaction.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/dmitrij/projects/blockchain/src/blockchain/User.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/dmitrij/projects/blockchain/src/file_sharing/sending.cpp",
+			"MU",
+			null
+		],
 		[ "/Users/dmitrij/projects/blockchain/src/main.cpp", "MU", null ],
 		[
-			"/Users/dmitrij/projects/blockchain/src/windows/main_window.cpp",
+			"/Users/dmitrij/projects/blockchain/src/ui/main_window.cpp",
 			"MU",
 			null
 		],
 		[
-			"/Users/dmitrij/projects/blockchain/src/windows/start_window.cpp",
+			"/Users/dmitrij/projects/blockchain/src/ui/start_window.cpp",
 			"MU",
 			null
 		]

@@ -9,7 +9,6 @@
 #include <unordered_map>
 
 #include "../../include/blockchain/User.h"
-#include "../../include/blockchain/Transaction.h"
 
 namespace Ui {
     class MainWindow;
@@ -23,7 +22,6 @@ class MainWindow : public QWidget
     User user;
     unsigned char sender_address[crypto_generichash_BYTES] = {};
     unsigned char receiver_address[crypto_generichash_BYTES] = {};
-    std::unordered_map<std::string, FileMetadata> files;
     std::vector<std::string> file_names = {};
     std::vector<std::string> file_paths = {};
 
@@ -33,7 +31,7 @@ private slots:
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    ~MainWindow() override;
 };
 
 #endif

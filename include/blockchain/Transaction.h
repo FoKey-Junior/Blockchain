@@ -1,15 +1,14 @@
 #ifndef BLOCKCHAIN_TRANSACTION_H
 #define BLOCKCHAIN_TRANSACTION_H
 
-
-#include <iostream>
 #include <sodium.h>
+#include <iostream>
 #include <cstring>
 #include <chrono>
 #include <unordered_map>
 
 struct FileMetadata {
-    std::array<unsigned char, crypto_hash_sha256_BYTES> meta_data;
+    std::array<unsigned char, crypto_hash_sha256_BYTES> content;
 };
 
 class Transaction {
@@ -24,7 +23,7 @@ public:
     Transaction(
         const unsigned char* sender_,
         const unsigned char* receiver_,
-        const std::unordered_map<std::string, FileMetadata>& files_
+        std::unordered_map<std::string, FileMetadata> files_
     );
 
     void sign(const unsigned char* sender_private_key);

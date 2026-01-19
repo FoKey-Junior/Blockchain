@@ -14,7 +14,7 @@ bool Mempool::add_transaction(const Transaction& transaction) {
         }) || pool_.size() >= MAX_MEMPOOL_SIZE) {
 
         return false;
-        }
+    }
 
     pool_.push_back(transaction);
     return true;
@@ -42,12 +42,12 @@ bool Mempool::remove_transaction(const unsigned char* address_bytes) {
 std::optional<Transaction> Mempool::pop_transaction() {
     std::scoped_lock lock(mutex_);
 
-    if (pool_.empty()) {
-        return std::nullopt;
-    } else {
+    if (!pool_.empty()) {
         Transaction transaction = pool_.front();
         pool_.pop_front();
         return transaction;
+    } else {
+        return std::nullopt;
     }
 }
 

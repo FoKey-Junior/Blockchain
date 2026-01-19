@@ -1,10 +1,15 @@
+#include <sodium.h>
+#include <unordered_map>
+#include <iostream>
+#include <cstring>
+
 #include "../../include/blockchain/Transaction.h"
 #include "../../include/blockchain/Block.h"
 
 Transaction::Transaction(
     const unsigned char* sender_,
     const unsigned char* receiver_,
-    const std::unordered_map<std::string, FileMetadata>& files_
+    std::unordered_map<std::string, FileMetadata> files_
     ) : files(files_) {
 
     std::memcpy(this->sender, sender_, crypto_generichash_BYTES);
@@ -27,22 +32,8 @@ void Transaction::sign(const unsigned char* sender_private_key) {
 }
 
 bool Transaction::verify(const unsigned char* sender_public_key) const {
-    Block block(address, address, sender, receiver, time_creation);
+    // Block block(address, address, sender, receiver, time_creation);
     return crypto_sign_verify_detached(signature, address, sizeof(address), sender_public_key) == 0;
-}
-
-void Transaction::print() const {
-    auto print_hex = [](const unsigned char* data, size_t len) {
-        for (size_t i = 0; i < len; i++) {
-            std::cout << std::hex << std::setw(2) << std::setfill('0')
-                      << static_cast<int>(data[i]);
-        }
-    };
-
-    std::cout << "Sender:   ";   print_hex(sender, sizeof(sender));   std::cout << "\n";
-    std::cout << "Receiver: ";   print_hex(receiver, sizeof(receiver)); std::cout << "\n";
-    std::cout << "Hash:  ";   print_hex(address, sizeof(address));  std::cout << "\n";
-    std::cout << "Signature:";    print_hex(signature, sizeof(signature)); std::cout << "\n\n" << std::dec;
 }
 
 Transaction::~Transaction() {
