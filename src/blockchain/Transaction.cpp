@@ -36,6 +36,8 @@ bool Transaction::verify(const unsigned char* sender_public_key) const {
     return crypto_sign_verify_detached(signature, address, sizeof(address), sender_public_key) == 0;
 }
 
+const unsigned char * Transaction::get_address_bytes() const { return address; }
+
 Transaction::~Transaction() {
     sodium_memzero(sender, sizeof(sender));
     sodium_memzero(receiver, sizeof(receiver));

@@ -1,10 +1,16 @@
 #include "../include/api/Api.h"
 #include "../include/windows/start_window.h"
 
-#include <thread>
 #include <QApplication>
+#include <sodium.h>
+#include <thread>
+#include <asio.hpp>
 
 int main(int argc, char *argv[]) {
+    if (sodium_init() < 0) {
+        throw std::runtime_error("libsodium init failed");
+    }
+
     std::thread local_api([](){
         (Api::start_server(4000));
     });

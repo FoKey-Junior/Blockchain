@@ -12,6 +12,11 @@ void Api::start_server(unsigned short const port) {
     CROW_ROUTE(app, "/favicon.ico")([]() {
         return crow::response(200, "");
     });
+
+    CROW_ROUTE(app, "/api/get/list_miners")([&mempool](){
+        return "miner started";
+    });
+
     //
     // CROW_ROUTE(app, "/api/new/miner")([&mempool, &alice, &bob](){
     //     Transaction transaction(alice.get_address_bytes(), bob.get_address_bytes());

@@ -1,3 +1,6 @@
+#include <iostream>
+#include <iomanip>
+
 #include "../../include/blockchain/User.h"
 #include "../../include/blockchain/Transaction.h"
 

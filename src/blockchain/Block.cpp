@@ -1,53 +1,17 @@
 #include "../../include/blockchain/Block.h"
 
 Block::Block(
-    const unsigned char* address_data,
-    const unsigned char* previous_address_data,
-    const unsigned char* sender_data,
-    const unsigned char* receiver_data,
-    std::chrono::system_clock::time_point time_creation
-) : time_creation(time_creation) {
-
-    std::memcpy(this->address, address_data, crypto_generichash_BYTES);
-    std::memcpy(this->previous_address, previous_address_data, crypto_generichash_BYTES);
-    std::memcpy(this->sender, sender_data, crypto_generichash_BYTES);
-    std::memcpy(this->receiver, receiver_data, crypto_generichash_BYTES);
-
-    print();
-}
+    const unsigned char* address_,
+    const unsigned char* previous_address_,
+    const unsigned char* sender_,
+    const unsigned char* receiver_,
+    std::chrono::system_clock::time_point time_creation_,
+    const std::unordered_map<std::string, FileMetadata>& files_
+) : time_creation(time_creation_), files(files_) {
+    std::memcpy(this->address, address_, crypto_generichash_BYTES);
+    std::memcpy(this->previous_address, previous_address_, crypto_generichash_BYTES);
+    std::memcpy(this->sender, sender_, crypto_generichash_BYTES);
+    std::memcpy(this->receiver, receiver_, crypto_generichash_BYTES);
 
 
-static void print_hex(const unsigned char* data, size_t size) {
-    for (size_t i = 0; i < size; ++i) {
-        std::cout << std::hex << std::setw(2) << std::setfill('0')
-                  << static_cast<int>(data[i]);
-    }
-    std::cout << std::dec;
-}
-
-void Block::print() const {
-    std::cout << "\n==================== BLOCK ====================\n";
-
-    std::cout << "Address:          ";
-    print_hex(address, crypto_generichash_BYTES);
-    std::cout << "\n";
-
-    std::cout << "Previous address: ";
-    print_hex(previous_address, crypto_generichash_BYTES);
-    std::cout << "\n";
-
-    std::cout << "Sender:           ";
-    print_hex(sender, crypto_generichash_BYTES);
-    std::cout << "\n";
-
-    std::cout << "Receiver:         ";
-    print_hex(receiver, crypto_generichash_BYTES);
-    std::cout << "\n";
-
-    std::time_t t = std::chrono::system_clock::to_time_t(time_creation);
-    std::cout << "Time:             "
-              << std::put_time(std::localtime(&t), "%Y-%m-%d %H:%M:%S")
-              << "\n";
-
-    std::cout << "===============================================\n";
 }
