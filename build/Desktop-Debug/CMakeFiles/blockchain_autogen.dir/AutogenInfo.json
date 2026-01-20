@@ -415,6 +415,30 @@
 			null
 		],
 		[
+			"/Users/dmitrij/projects/blockchain/include/network/CryptoUtils.h",
+			"MU",
+			"D7R3QBVKFK/moc_CryptoUtils.cpp",
+			null
+		],
+		[
+			"/Users/dmitrij/projects/blockchain/include/network/Message.h",
+			"MU",
+			"D7R3QBVKFK/moc_Message.cpp",
+			null
+		],
+		[
+			"/Users/dmitrij/projects/blockchain/include/network/Node.h",
+			"MU",
+			"D7R3QBVKFK/moc_Node.cpp",
+			null
+		],
+		[
+			"/Users/dmitrij/projects/blockchain/include/network/Peer.h",
+			"MU",
+			"D7R3QBVKFK/moc_Peer.cpp",
+			null
+		],
+		[
 			"/Users/dmitrij/projects/blockchain/include/windows/main_window.h",
 			"MU",
 			"JC67YXOMDV/moc_main_window.cpp",
@@ -430,7 +454,7 @@
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
 	"INCLUDE_DIR" : "/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include",
 	"MOC_COMPILATION_FILE" : "/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/mocs_compilation.cpp",
-	"MOC_DEFINITIONS" : [ "QT_CORE_LIB", "QT_GUI_LIB", "QT_WIDGETS_LIB" ],
+	"MOC_DEFINITIONS" : [ "ASIO_STANDALONE", "QT_CORE_LIB", "QT_GUI_LIB", "QT_WIDGETS_LIB" ],
 	"MOC_DEPEND_FILTERS" : 
 	[
 		[
@@ -443,7 +467,7 @@
 		"/Users/dmitrij/projects/blockchain/include",
 		"/Users/dmitrij/projects/blockchain/include/windows",
 		"/opt/homebrew/include",
-		"/usr/local/include/asio",
+		"/usr/local/include",
 		"/Users/dmitrij/projects/blockchain/build/Desktop-Debug",
 		"/opt/homebrew/Cellar/libsodium/1.0.20/include",
 		"/Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers",
@@ -529,6 +553,13 @@
 			null
 		],
 		[ "/Users/dmitrij/projects/blockchain/src/main.cpp", "MU", null ],
+		[
+			"/Users/dmitrij/projects/blockchain/src/network/CryptoUtils.cpp",
+			"MU",
+			null
+		],
+		[ "/Users/dmitrij/projects/blockchain/src/network/Node.cpp", "MU", null ],
+		[ "/Users/dmitrij/projects/blockchain/src/network/Peer.cpp", "MU", null ],
 		[
 			"/Users/dmitrij/projects/blockchain/src/ui/main_window.cpp",
 			"MU",

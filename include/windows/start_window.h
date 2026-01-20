@@ -20,6 +20,8 @@ public:
 private slots:
     void on_participant_clicked();
 
+    void on_miner_clicked();
+
 private:
     Ui::StartWindow *ui;
 };

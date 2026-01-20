@@ -1,12 +1,23 @@
-#ifndef BLOCKCHAIN_BLOCKCHAIN_H
-#define BLOCKCHAIN_BLOCKCHAIN_H
+#ifndef BLOCKCHAIN_H
+#define BLOCKCHAIN_H
 
-
+#include <vector>
+#include <unordered_map>
+#include <chrono>
+#include <string>
 #include "Block.h"
+#include "Transaction.h"
 
 class Blockchain {
+private:
+    std::vector<Block> chain;
 
+public:
+    Blockchain(const unsigned char* my_address);
+
+    void add_block(const Block& block);
+    bool validate_chain() const;
+    const Block& last_block() const;
 };
-
 
 #endif

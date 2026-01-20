@@ -1,15 +1,10 @@
 #ifndef BLOCKCHAIN_TRANSACTION_H
 #define BLOCKCHAIN_TRANSACTION_H
 
-#include <sodium.h>
-#include <iostream>
-#include <cstring>
-#include <chrono>
 #include <unordered_map>
-
-struct FileMetadata {
-    std::array<unsigned char, crypto_hash_sha256_BYTES> content;
-};
+#include <chrono>
+#include <vector>
+#include "Block.h"
 
 class Transaction {
     unsigned char address[crypto_generichash_BYTES] = {};
@@ -26,13 +21,12 @@ public:
         std::unordered_map<std::string, FileMetadata> files_
     );
 
-    void sign(const unsigned char* sender_private_key);
-    bool verify(const unsigned char* sender_public_key) const;
-    void print() const;
-
-    const unsigned char* get_address_bytes() const { return address; }
-
     ~Transaction();
+
+    void sign_transaction(const unsigned char* sender_private_key);
+    bool verify_transaction(const unsigned char* sender_public_key) const;
+    [[nodiscard]] const unsigned char* get_address_bytes() const;
+    [[nodiscard]] std::vector<uint8_t> serialize() const noexcept;
 };
 
 

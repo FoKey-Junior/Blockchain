@@ -23,7 +23,14 @@ Transaction::Transaction(
     time_creation = std::chrono::system_clock::now();
 }
 
-void Transaction::sign(const unsigned char* sender_private_key) {
+Transaction::~Transaction() {
+    sodium_memzero(sender, sizeof(sender));
+    sodium_memzero(receiver, sizeof(receiver));
+    sodium_memzero(address, sizeof(address));
+    sodium_memzero(signature, sizeof(signature));
+}
+
+void Transaction::sign_transaction(const unsigned char* sender_private_key) {
     unsigned long long sig_len;
 
     if (crypto_sign_detached(signature, &sig_len, address, sizeof(address), sender_private_key) != 0) {
@@ -31,16 +38,22 @@ void Transaction::sign(const unsigned char* sender_private_key) {
     }
 }
 
-bool Transaction::verify(const unsigned char* sender_public_key) const {
-    // Block block(address, address, sender, receiver, time_creation);
+bool Transaction::verify_transaction(const unsigned char* sender_public_key) const {
     return crypto_sign_verify_detached(signature, address, sizeof(address), sender_public_key) == 0;
 }
 
 const unsigned char * Transaction::get_address_bytes() const { return address; }
 
-Transaction::~Transaction() {
-    sodium_memzero(sender, sizeof(sender));
-    sodium_memzero(receiver, sizeof(receiver));
-    sodium_memzero(address, sizeof(address));
-    sodium_memzero(signature, sizeof(signature));
+std::vector<uint8_t> Transaction::serialize() const noexcept {
+    std::vector<uint8_t> buf;
+    buf.insert(buf.end(), address, address + crypto_generichash_BYTES);
+    buf.insert(buf.end(), signature, signature + crypto_sign_BYTES);
+    buf.insert(buf.end(), sender, sender + crypto_generichash_BYTES);
+    buf.insert(buf.end(), receiver, receiver + crypto_generichash_BYTES);
+
+    for (const auto& [name, file] : files) {
+        buf.insert(buf.end(), file.content.begin(), file.content.end());
+    }
+
+    return buf;
 }

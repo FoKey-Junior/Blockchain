@@ -17,7 +17,7 @@ include_directories(
         include
         include/windows
         /opt/homebrew/include
-        /usr/local/include/asio
+        /usr/local/include
         ${CMAKE_CURRENT_BINARY_DIR}
 )
 
@@ -30,10 +30,30 @@ find_package(SQLite3 REQUIRED)
 include_directories(${SQLite3_INCLUDE_DIRS})
 link_directories(${SQLite3_LIBRARY_DIRS})
 
+
+set(HEADERS
+        include/windows/start_window.h
+        include/windows/main_window.h
+        include/windows/mining_window.h
+        include/api/Api.h
+        include/blockchain/User.h
+        include/blockchain/Transaction.h
+        include/blockchain/Miner.h
+        include/blockchain/Block.h
+        include/blockchain/Blockchain.h
+        include/blockchain/Mempool.h
+        include/file_sharing/sending.h
+        include/network/Peer.h
+        include/network/Message.h
+        include/network/CryptoUtils.h
+        include/network/Node.h
+)
+
 set(SOURCES
         src/main.cpp
         src/ui/start_window.cpp
         src/ui/main_window.cpp
+        src/ui/mining_window.cpp
 
         src/api/Api.cpp
         src/blockchain/User.cpp
@@ -43,19 +63,9 @@ set(SOURCES
         src/blockchain/Blockchain.cpp
         src/blockchain/Mempool.cpp
         src/file_sharing/sending.cpp
-)
-
-set(HEADERS
-        include/windows/start_window.h
-        include/windows/main_window.h
-        include/api/Api.h
-        include/blockchain/User.h
-        include/blockchain/Transaction.h
-        include/blockchain/Miner.h
-        include/blockchain/Block.h
-        include/blockchain/Blockchain.h
-        include/blockchain/Mempool.h
-        include/file_sharing/sending.h
+        src/network/Peer.cpp
+        src/network/CryptoUtils.cpp
+        src/network/Node.cpp
 )
 
 add_executable(Blockchain
@@ -69,6 +79,10 @@ target_link_libraries(Blockchain
         ${SQLite3_LIBRARIES}
 )
 
+target_include_directories(Blockchain PRIVATE "/opt/homebrew/include")
+target_compile_definitions(Blockchain PRIVATE ASIO_STANDALONE)
+
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(Blockchain)
 endif()
+

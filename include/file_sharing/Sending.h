@@ -5,10 +5,10 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
-#include <array>
 
-#include "../include/blockchain/User.h"
-#include "../include/blockchain/Transaction.h"
+#include "../blockchain/User.h"
+#include "../blockchain/Block.h"
+#include "../network/Node.h"
 
 class Sending {
     unsigned char sender_address[crypto_generichash_BYTES] = {};
@@ -16,7 +16,8 @@ class Sending {
     std::unordered_map<std::string, FileMetadata> files;
     std::vector<std::string> file_names;
     std::vector<std::string> file_paths;
-    User user;
+    const User& user;
+    Node& node;
 
 public:
     Sending(
@@ -24,8 +25,11 @@ public:
         const unsigned char* receiver_address_,
         std::vector<std::string>&& file_names_,
         std::vector<std::string>&& file_paths_,
-        const User &user_
+        const User &user_,
+        Node &node_
     );
+
+    void prepare_and_send();
 };
 
 #endif

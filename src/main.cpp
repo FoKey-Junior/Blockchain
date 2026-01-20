@@ -22,3 +22,29 @@ int main(int argc, char *argv[]) {
 
     return app.exec();
 }
+
+
+#include "network/Node.h"
+#include <asio.hpp>
+#include <sodium.h>
+#include <iostream>
+
+int main() {
+    if (sodium_init() < 0) {
+        std::cerr << "Failed to init libsodium\n";
+        return 1;
+    }
+
+    unsigned char pub_key[crypto_sign_PUBLICKEYBYTES];
+    unsigned char priv_key[crypto_sign_SECRETKEYBYTES];
+    crypto_sign_keypair(pub_key, priv_key);
+
+    asio::io_context io;
+
+    Node node(io, 12345, pub_key, priv_key);
+    node.start();
+
+    std::cout << "Node running on port 12345\n";
+
+    io.run();
+}

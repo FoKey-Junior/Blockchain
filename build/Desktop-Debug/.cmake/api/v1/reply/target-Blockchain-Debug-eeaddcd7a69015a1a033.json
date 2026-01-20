@@ -18,6 +18,7 @@
 			"find_package",
 			"find_dependency",
 			"_qt_internal_find_qt_dependencies",
+			"target_compile_definitions",
 			"include_directories"
 		],
 		"files" : 
@@ -42,7 +43,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 61,
+				"line" : 69,
 				"parent" : 0
 			},
 			{
@@ -54,7 +55,7 @@
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 66,
+				"line" : 74,
 				"parent" : 0
 			},
 			{
@@ -184,11 +185,17 @@
 			{
 				"command" : 8,
 				"file" : 0,
+				"line" : 81,
+				"parent" : 0
+			},
+			{
+				"command" : 9,
+				"file" : 0,
 				"line" : 16,
 				"parent" : 0
 			},
 			{
-				"command" : 8,
+				"command" : 9,
 				"file" : 0,
 				"line" : 26,
 				"parent" : 0
@@ -206,6 +213,10 @@
 			],
 			"defines" : 
 			[
+				{
+					"backtrace" : 27,
+					"define" : "ASIO_STANDALONE"
+				},
 				{
 					"backtrace" : 3,
 					"define" : "QT_CORE_LIB"
@@ -244,27 +255,27 @@
 					"path" : "/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include"
 				},
 				{
-					"backtrace" : 27,
+					"backtrace" : 28,
 					"path" : "/Users/dmitrij/projects/blockchain/include"
 				},
 				{
-					"backtrace" : 27,
+					"backtrace" : 28,
 					"path" : "/Users/dmitrij/projects/blockchain/include/windows"
 				},
 				{
-					"backtrace" : 27,
+					"backtrace" : 28,
 					"path" : "/opt/homebrew/include"
 				},
 				{
-					"backtrace" : 27,
-					"path" : "/usr/local/include/asio"
-				},
-				{
-					"backtrace" : 27,
-					"path" : "/Users/dmitrij/projects/blockchain/build/Desktop-Debug"
+					"backtrace" : 28,
+					"path" : "/usr/local/include"
 				},
 				{
 					"backtrace" : 28,
+					"path" : "/Users/dmitrij/projects/blockchain/build/Desktop-Debug"
+				},
+				{
+					"backtrace" : 29,
 					"path" : "/opt/homebrew/Cellar/libsodium/1.0.20/include"
 				},
 				{
@@ -316,7 +327,10 @@
 				8,
 				9,
 				10,
-				11
+				11,
+				12,
+				13,
+				14
 			]
 		}
 	],
@@ -443,37 +457,44 @@
 				8,
 				9,
 				10,
-				11
+				11,
+				12,
+				13,
+				14
 			]
 		},
 		{
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				12,
-				13,
-				14,
 				15,
 				16,
 				17,
 				18,
 				19,
 				20,
-				21
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				22
+				29
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				23
+				30
 			]
 		}
 	],
@@ -495,13 +516,13 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/windows/start_window.cpp",
+			"path" : "src/ui/start_window.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/windows/main_window.cpp",
+			"path" : "src/ui/main_window.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -513,43 +534,61 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/core/User.cpp",
+			"path" : "src/blockchain/User.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/core/Transaction.cpp",
+			"path" : "src/blockchain/Transaction.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/core/Miner.cpp",
+			"path" : "src/blockchain/Miner.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/core/Block.cpp",
+			"path" : "src/blockchain/Block.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/core/Blockchain.cpp",
+			"path" : "src/blockchain/Blockchain.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/core/Mempool.cpp",
+			"path" : "src/blockchain/Mempool.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/core/SendingFile.cpp",
+			"path" : "src/file_sharing/sending.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/network/Peer.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/network/CryptoUtils.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/network/Node.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -569,37 +608,57 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "include/core/User.h",
+			"path" : "include/blockchain/User.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "include/core/Transaction.h",
+			"path" : "include/blockchain/Transaction.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "include/core/Miner.h",
+			"path" : "include/blockchain/Miner.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "include/core/Block.h",
+			"path" : "include/blockchain/Block.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "include/core/Blockchain.h",
+			"path" : "include/blockchain/Blockchain.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "include/core/Mempool.h",
+			"path" : "include/blockchain/Mempool.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "include/core/SendingFile.h",
+			"path" : "include/file_sharing/sending.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "include/network/Peer.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "include/network/Message.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "include/network/CryptoUtils.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "include/network/Node.h",
 			"sourceGroupIndex" : 1
 		},
 		{

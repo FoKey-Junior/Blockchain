@@ -51,111 +51,138 @@ build cmake_object_order_depends_target_Blockchain: phony || Blockchain_autogen 
 
 build CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.o: CXX_COMPILER__Blockchain_unscanned_Debug /Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/mocs_compilation.cpp || cmake_object_order_depends_target_Blockchain
   CONFIG = Debug
-  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEFINES = -DASIO_STANDALONE -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.o.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++2b -arch arm64 -fcolor-diagnostics
-  INCLUDES = -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include -I/Users/dmitrij/projects/blockchain/include -I/Users/dmitrij/projects/blockchain/include/windows -I/opt/homebrew/include -I/usr/local/include/asio -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug -I/opt/homebrew/Cellar/libsodium/1.0.20/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers -iframework /Users/dmitrij/Qt/6.10.1/macos/lib -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers -isystem /Users/dmitrij/Qt/6.10.1/macos/mkspecs/macx-clang -isystem /Users/dmitrij/Qt/6.10.1/macos/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers
+  INCLUDES = -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include -I/Users/dmitrij/projects/blockchain/include -I/Users/dmitrij/projects/blockchain/include/windows -I/opt/homebrew/include -I/usr/local/include -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug -I/opt/homebrew/Cellar/libsodium/1.0.20/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers -iframework /Users/dmitrij/Qt/6.10.1/macos/lib -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers -isystem /Users/dmitrij/Qt/6.10.1/macos/mkspecs/macx-clang -isystem /Users/dmitrij/Qt/6.10.1/macos/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers
   OBJECT_DIR = CMakeFiles/Blockchain.dir
   OBJECT_FILE_DIR = CMakeFiles/Blockchain.dir/Blockchain_autogen
 
 build CMakeFiles/Blockchain.dir/src/main.cpp.o: CXX_COMPILER__Blockchain_unscanned_Debug /Users/dmitrij/projects/blockchain/src/main.cpp || cmake_object_order_depends_target_Blockchain
   CONFIG = Debug
-  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEFINES = -DASIO_STANDALONE -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles/Blockchain.dir/src/main.cpp.o.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++2b -arch arm64 -fcolor-diagnostics
-  INCLUDES = -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include -I/Users/dmitrij/projects/blockchain/include -I/Users/dmitrij/projects/blockchain/include/windows -I/opt/homebrew/include -I/usr/local/include/asio -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug -I/opt/homebrew/Cellar/libsodium/1.0.20/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers -iframework /Users/dmitrij/Qt/6.10.1/macos/lib -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers -isystem /Users/dmitrij/Qt/6.10.1/macos/mkspecs/macx-clang -isystem /Users/dmitrij/Qt/6.10.1/macos/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers
+  INCLUDES = -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include -I/Users/dmitrij/projects/blockchain/include -I/Users/dmitrij/projects/blockchain/include/windows -I/opt/homebrew/include -I/usr/local/include -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug -I/opt/homebrew/Cellar/libsodium/1.0.20/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers -iframework /Users/dmitrij/Qt/6.10.1/macos/lib -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers -isystem /Users/dmitrij/Qt/6.10.1/macos/mkspecs/macx-clang -isystem /Users/dmitrij/Qt/6.10.1/macos/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers
   OBJECT_DIR = CMakeFiles/Blockchain.dir
   OBJECT_FILE_DIR = CMakeFiles/Blockchain.dir/src
 
 build CMakeFiles/Blockchain.dir/src/ui/start_window.cpp.o: CXX_COMPILER__Blockchain_unscanned_Debug /Users/dmitrij/projects/blockchain/src/ui/start_window.cpp || cmake_object_order_depends_target_Blockchain
   CONFIG = Debug
-  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEFINES = -DASIO_STANDALONE -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles/Blockchain.dir/src/ui/start_window.cpp.o.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++2b -arch arm64 -fcolor-diagnostics
-  INCLUDES = -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include -I/Users/dmitrij/projects/blockchain/include -I/Users/dmitrij/projects/blockchain/include/windows -I/opt/homebrew/include -I/usr/local/include/asio -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug -I/opt/homebrew/Cellar/libsodium/1.0.20/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers -iframework /Users/dmitrij/Qt/6.10.1/macos/lib -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers -isystem /Users/dmitrij/Qt/6.10.1/macos/mkspecs/macx-clang -isystem /Users/dmitrij/Qt/6.10.1/macos/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers
+  INCLUDES = -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include -I/Users/dmitrij/projects/blockchain/include -I/Users/dmitrij/projects/blockchain/include/windows -I/opt/homebrew/include -I/usr/local/include -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug -I/opt/homebrew/Cellar/libsodium/1.0.20/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers -iframework /Users/dmitrij/Qt/6.10.1/macos/lib -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers -isystem /Users/dmitrij/Qt/6.10.1/macos/mkspecs/macx-clang -isystem /Users/dmitrij/Qt/6.10.1/macos/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers
   OBJECT_DIR = CMakeFiles/Blockchain.dir
   OBJECT_FILE_DIR = CMakeFiles/Blockchain.dir/src/ui
 
 build CMakeFiles/Blockchain.dir/src/ui/main_window.cpp.o: CXX_COMPILER__Blockchain_unscanned_Debug /Users/dmitrij/projects/blockchain/src/ui/main_window.cpp || cmake_object_order_depends_target_Blockchain
   CONFIG = Debug
-  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEFINES = -DASIO_STANDALONE -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles/Blockchain.dir/src/ui/main_window.cpp.o.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++2b -arch arm64 -fcolor-diagnostics
-  INCLUDES = -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include -I/Users/dmitrij/projects/blockchain/include -I/Users/dmitrij/projects/blockchain/include/windows -I/opt/homebrew/include -I/usr/local/include/asio -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug -I/opt/homebrew/Cellar/libsodium/1.0.20/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers -iframework /Users/dmitrij/Qt/6.10.1/macos/lib -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers -isystem /Users/dmitrij/Qt/6.10.1/macos/mkspecs/macx-clang -isystem /Users/dmitrij/Qt/6.10.1/macos/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers
+  INCLUDES = -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include -I/Users/dmitrij/projects/blockchain/include -I/Users/dmitrij/projects/blockchain/include/windows -I/opt/homebrew/include -I/usr/local/include -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug -I/opt/homebrew/Cellar/libsodium/1.0.20/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers -iframework /Users/dmitrij/Qt/6.10.1/macos/lib -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers -isystem /Users/dmitrij/Qt/6.10.1/macos/mkspecs/macx-clang -isystem /Users/dmitrij/Qt/6.10.1/macos/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers
   OBJECT_DIR = CMakeFiles/Blockchain.dir
   OBJECT_FILE_DIR = CMakeFiles/Blockchain.dir/src/ui
 
 build CMakeFiles/Blockchain.dir/src/api/Api.cpp.o: CXX_COMPILER__Blockchain_unscanned_Debug /Users/dmitrij/projects/blockchain/src/api/Api.cpp || cmake_object_order_depends_target_Blockchain
   CONFIG = Debug
-  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEFINES = -DASIO_STANDALONE -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles/Blockchain.dir/src/api/Api.cpp.o.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++2b -arch arm64 -fcolor-diagnostics
-  INCLUDES = -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include -I/Users/dmitrij/projects/blockchain/include -I/Users/dmitrij/projects/blockchain/include/windows -I/opt/homebrew/include -I/usr/local/include/asio -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug -I/opt/homebrew/Cellar/libsodium/1.0.20/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers -iframework /Users/dmitrij/Qt/6.10.1/macos/lib -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers -isystem /Users/dmitrij/Qt/6.10.1/macos/mkspecs/macx-clang -isystem /Users/dmitrij/Qt/6.10.1/macos/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers
+  INCLUDES = -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include -I/Users/dmitrij/projects/blockchain/include -I/Users/dmitrij/projects/blockchain/include/windows -I/opt/homebrew/include -I/usr/local/include -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug -I/opt/homebrew/Cellar/libsodium/1.0.20/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers -iframework /Users/dmitrij/Qt/6.10.1/macos/lib -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers -isystem /Users/dmitrij/Qt/6.10.1/macos/mkspecs/macx-clang -isystem /Users/dmitrij/Qt/6.10.1/macos/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers
   OBJECT_DIR = CMakeFiles/Blockchain.dir
   OBJECT_FILE_DIR = CMakeFiles/Blockchain.dir/src/api
 
 build CMakeFiles/Blockchain.dir/src/blockchain/User.cpp.o: CXX_COMPILER__Blockchain_unscanned_Debug /Users/dmitrij/projects/blockchain/src/blockchain/User.cpp || cmake_object_order_depends_target_Blockchain
   CONFIG = Debug
-  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEFINES = -DASIO_STANDALONE -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles/Blockchain.dir/src/blockchain/User.cpp.o.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++2b -arch arm64 -fcolor-diagnostics
-  INCLUDES = -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include -I/Users/dmitrij/projects/blockchain/include -I/Users/dmitrij/projects/blockchain/include/windows -I/opt/homebrew/include -I/usr/local/include/asio -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug -I/opt/homebrew/Cellar/libsodium/1.0.20/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers -iframework /Users/dmitrij/Qt/6.10.1/macos/lib -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers -isystem /Users/dmitrij/Qt/6.10.1/macos/mkspecs/macx-clang -isystem /Users/dmitrij/Qt/6.10.1/macos/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers
+  INCLUDES = -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include -I/Users/dmitrij/projects/blockchain/include -I/Users/dmitrij/projects/blockchain/include/windows -I/opt/homebrew/include -I/usr/local/include -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug -I/opt/homebrew/Cellar/libsodium/1.0.20/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers -iframework /Users/dmitrij/Qt/6.10.1/macos/lib -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers -isystem /Users/dmitrij/Qt/6.10.1/macos/mkspecs/macx-clang -isystem /Users/dmitrij/Qt/6.10.1/macos/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers
   OBJECT_DIR = CMakeFiles/Blockchain.dir
   OBJECT_FILE_DIR = CMakeFiles/Blockchain.dir/src/blockchain
 
 build CMakeFiles/Blockchain.dir/src/blockchain/Transaction.cpp.o: CXX_COMPILER__Blockchain_unscanned_Debug /Users/dmitrij/projects/blockchain/src/blockchain/Transaction.cpp || cmake_object_order_depends_target_Blockchain
   CONFIG = Debug
-  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEFINES = -DASIO_STANDALONE -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles/Blockchain.dir/src/blockchain/Transaction.cpp.o.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++2b -arch arm64 -fcolor-diagnostics
-  INCLUDES = -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include -I/Users/dmitrij/projects/blockchain/include -I/Users/dmitrij/projects/blockchain/include/windows -I/opt/homebrew/include -I/usr/local/include/asio -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug -I/opt/homebrew/Cellar/libsodium/1.0.20/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers -iframework /Users/dmitrij/Qt/6.10.1/macos/lib -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers -isystem /Users/dmitrij/Qt/6.10.1/macos/mkspecs/macx-clang -isystem /Users/dmitrij/Qt/6.10.1/macos/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers
+  INCLUDES = -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include -I/Users/dmitrij/projects/blockchain/include -I/Users/dmitrij/projects/blockchain/include/windows -I/opt/homebrew/include -I/usr/local/include -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug -I/opt/homebrew/Cellar/libsodium/1.0.20/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers -iframework /Users/dmitrij/Qt/6.10.1/macos/lib -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers -isystem /Users/dmitrij/Qt/6.10.1/macos/mkspecs/macx-clang -isystem /Users/dmitrij/Qt/6.10.1/macos/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers
   OBJECT_DIR = CMakeFiles/Blockchain.dir
   OBJECT_FILE_DIR = CMakeFiles/Blockchain.dir/src/blockchain
 
 build CMakeFiles/Blockchain.dir/src/blockchain/Miner.cpp.o: CXX_COMPILER__Blockchain_unscanned_Debug /Users/dmitrij/projects/blockchain/src/blockchain/Miner.cpp || cmake_object_order_depends_target_Blockchain
   CONFIG = Debug
-  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEFINES = -DASIO_STANDALONE -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles/Blockchain.dir/src/blockchain/Miner.cpp.o.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++2b -arch arm64 -fcolor-diagnostics
-  INCLUDES = -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include -I/Users/dmitrij/projects/blockchain/include -I/Users/dmitrij/projects/blockchain/include/windows -I/opt/homebrew/include -I/usr/local/include/asio -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug -I/opt/homebrew/Cellar/libsodium/1.0.20/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers -iframework /Users/dmitrij/Qt/6.10.1/macos/lib -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers -isystem /Users/dmitrij/Qt/6.10.1/macos/mkspecs/macx-clang -isystem /Users/dmitrij/Qt/6.10.1/macos/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers
+  INCLUDES = -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include -I/Users/dmitrij/projects/blockchain/include -I/Users/dmitrij/projects/blockchain/include/windows -I/opt/homebrew/include -I/usr/local/include -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug -I/opt/homebrew/Cellar/libsodium/1.0.20/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers -iframework /Users/dmitrij/Qt/6.10.1/macos/lib -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers -isystem /Users/dmitrij/Qt/6.10.1/macos/mkspecs/macx-clang -isystem /Users/dmitrij/Qt/6.10.1/macos/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers
   OBJECT_DIR = CMakeFiles/Blockchain.dir
   OBJECT_FILE_DIR = CMakeFiles/Blockchain.dir/src/blockchain
 
 build CMakeFiles/Blockchain.dir/src/blockchain/Block.cpp.o: CXX_COMPILER__Blockchain_unscanned_Debug /Users/dmitrij/projects/blockchain/src/blockchain/Block.cpp || cmake_object_order_depends_target_Blockchain
   CONFIG = Debug
-  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEFINES = -DASIO_STANDALONE -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles/Blockchain.dir/src/blockchain/Block.cpp.o.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++2b -arch arm64 -fcolor-diagnostics
-  INCLUDES = -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include -I/Users/dmitrij/projects/blockchain/include -I/Users/dmitrij/projects/blockchain/include/windows -I/opt/homebrew/include -I/usr/local/include/asio -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug -I/opt/homebrew/Cellar/libsodium/1.0.20/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers -iframework /Users/dmitrij/Qt/6.10.1/macos/lib -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers -isystem /Users/dmitrij/Qt/6.10.1/macos/mkspecs/macx-clang -isystem /Users/dmitrij/Qt/6.10.1/macos/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers
+  INCLUDES = -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include -I/Users/dmitrij/projects/blockchain/include -I/Users/dmitrij/projects/blockchain/include/windows -I/opt/homebrew/include -I/usr/local/include -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug -I/opt/homebrew/Cellar/libsodium/1.0.20/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers -iframework /Users/dmitrij/Qt/6.10.1/macos/lib -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers -isystem /Users/dmitrij/Qt/6.10.1/macos/mkspecs/macx-clang -isystem /Users/dmitrij/Qt/6.10.1/macos/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers
   OBJECT_DIR = CMakeFiles/Blockchain.dir
   OBJECT_FILE_DIR = CMakeFiles/Blockchain.dir/src/blockchain
 
 build CMakeFiles/Blockchain.dir/src/blockchain/Blockchain.cpp.o: CXX_COMPILER__Blockchain_unscanned_Debug /Users/dmitrij/projects/blockchain/src/blockchain/Blockchain.cpp || cmake_object_order_depends_target_Blockchain
   CONFIG = Debug
-  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEFINES = -DASIO_STANDALONE -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles/Blockchain.dir/src/blockchain/Blockchain.cpp.o.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++2b -arch arm64 -fcolor-diagnostics
-  INCLUDES = -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include -I/Users/dmitrij/projects/blockchain/include -I/Users/dmitrij/projects/blockchain/include/windows -I/opt/homebrew/include -I/usr/local/include/asio -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug -I/opt/homebrew/Cellar/libsodium/1.0.20/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers -iframework /Users/dmitrij/Qt/6.10.1/macos/lib -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers -isystem /Users/dmitrij/Qt/6.10.1/macos/mkspecs/macx-clang -isystem /Users/dmitrij/Qt/6.10.1/macos/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers
+  INCLUDES = -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include -I/Users/dmitrij/projects/blockchain/include -I/Users/dmitrij/projects/blockchain/include/windows -I/opt/homebrew/include -I/usr/local/include -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug -I/opt/homebrew/Cellar/libsodium/1.0.20/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers -iframework /Users/dmitrij/Qt/6.10.1/macos/lib -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers -isystem /Users/dmitrij/Qt/6.10.1/macos/mkspecs/macx-clang -isystem /Users/dmitrij/Qt/6.10.1/macos/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers
   OBJECT_DIR = CMakeFiles/Blockchain.dir
   OBJECT_FILE_DIR = CMakeFiles/Blockchain.dir/src/blockchain
 
 build CMakeFiles/Blockchain.dir/src/blockchain/Mempool.cpp.o: CXX_COMPILER__Blockchain_unscanned_Debug /Users/dmitrij/projects/blockchain/src/blockchain/Mempool.cpp || cmake_object_order_depends_target_Blockchain
   CONFIG = Debug
-  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEFINES = -DASIO_STANDALONE -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles/Blockchain.dir/src/blockchain/Mempool.cpp.o.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++2b -arch arm64 -fcolor-diagnostics
-  INCLUDES = -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include -I/Users/dmitrij/projects/blockchain/include -I/Users/dmitrij/projects/blockchain/include/windows -I/opt/homebrew/include -I/usr/local/include/asio -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug -I/opt/homebrew/Cellar/libsodium/1.0.20/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers -iframework /Users/dmitrij/Qt/6.10.1/macos/lib -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers -isystem /Users/dmitrij/Qt/6.10.1/macos/mkspecs/macx-clang -isystem /Users/dmitrij/Qt/6.10.1/macos/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers
+  INCLUDES = -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include -I/Users/dmitrij/projects/blockchain/include -I/Users/dmitrij/projects/blockchain/include/windows -I/opt/homebrew/include -I/usr/local/include -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug -I/opt/homebrew/Cellar/libsodium/1.0.20/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers -iframework /Users/dmitrij/Qt/6.10.1/macos/lib -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers -isystem /Users/dmitrij/Qt/6.10.1/macos/mkspecs/macx-clang -isystem /Users/dmitrij/Qt/6.10.1/macos/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers
   OBJECT_DIR = CMakeFiles/Blockchain.dir
   OBJECT_FILE_DIR = CMakeFiles/Blockchain.dir/src/blockchain
 
 build CMakeFiles/Blockchain.dir/src/file_sharing/sending.cpp.o: CXX_COMPILER__Blockchain_unscanned_Debug /Users/dmitrij/projects/blockchain/src/file_sharing/sending.cpp || cmake_object_order_depends_target_Blockchain
   CONFIG = Debug
-  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEFINES = -DASIO_STANDALONE -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles/Blockchain.dir/src/file_sharing/sending.cpp.o.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++2b -arch arm64 -fcolor-diagnostics
-  INCLUDES = -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include -I/Users/dmitrij/projects/blockchain/include -I/Users/dmitrij/projects/blockchain/include/windows -I/opt/homebrew/include -I/usr/local/include/asio -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug -I/opt/homebrew/Cellar/libsodium/1.0.20/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers -iframework /Users/dmitrij/Qt/6.10.1/macos/lib -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers -isystem /Users/dmitrij/Qt/6.10.1/macos/mkspecs/macx-clang -isystem /Users/dmitrij/Qt/6.10.1/macos/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers
+  INCLUDES = -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include -I/Users/dmitrij/projects/blockchain/include -I/Users/dmitrij/projects/blockchain/include/windows -I/opt/homebrew/include -I/usr/local/include -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug -I/opt/homebrew/Cellar/libsodium/1.0.20/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers -iframework /Users/dmitrij/Qt/6.10.1/macos/lib -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers -isystem /Users/dmitrij/Qt/6.10.1/macos/mkspecs/macx-clang -isystem /Users/dmitrij/Qt/6.10.1/macos/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers
   OBJECT_DIR = CMakeFiles/Blockchain.dir
   OBJECT_FILE_DIR = CMakeFiles/Blockchain.dir/src/file_sharing
+
+build CMakeFiles/Blockchain.dir/src/network/Peer.cpp.o: CXX_COMPILER__Blockchain_unscanned_Debug /Users/dmitrij/projects/blockchain/src/network/Peer.cpp || cmake_object_order_depends_target_Blockchain
+  CONFIG = Debug
+  DEFINES = -DASIO_STANDALONE -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/Blockchain.dir/src/network/Peer.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++2b -arch arm64 -fcolor-diagnostics
+  INCLUDES = -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include -I/Users/dmitrij/projects/blockchain/include -I/Users/dmitrij/projects/blockchain/include/windows -I/opt/homebrew/include -I/usr/local/include -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug -I/opt/homebrew/Cellar/libsodium/1.0.20/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers -iframework /Users/dmitrij/Qt/6.10.1/macos/lib -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers -isystem /Users/dmitrij/Qt/6.10.1/macos/mkspecs/macx-clang -isystem /Users/dmitrij/Qt/6.10.1/macos/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/Blockchain.dir
+  OBJECT_FILE_DIR = CMakeFiles/Blockchain.dir/src/network
+
+build CMakeFiles/Blockchain.dir/src/network/CryptoUtils.cpp.o: CXX_COMPILER__Blockchain_unscanned_Debug /Users/dmitrij/projects/blockchain/src/network/CryptoUtils.cpp || cmake_object_order_depends_target_Blockchain
+  CONFIG = Debug
+  DEFINES = -DASIO_STANDALONE -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/Blockchain.dir/src/network/CryptoUtils.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++2b -arch arm64 -fcolor-diagnostics
+  INCLUDES = -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include -I/Users/dmitrij/projects/blockchain/include -I/Users/dmitrij/projects/blockchain/include/windows -I/opt/homebrew/include -I/usr/local/include -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug -I/opt/homebrew/Cellar/libsodium/1.0.20/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers -iframework /Users/dmitrij/Qt/6.10.1/macos/lib -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers -isystem /Users/dmitrij/Qt/6.10.1/macos/mkspecs/macx-clang -isystem /Users/dmitrij/Qt/6.10.1/macos/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/Blockchain.dir
+  OBJECT_FILE_DIR = CMakeFiles/Blockchain.dir/src/network
+
+build CMakeFiles/Blockchain.dir/src/network/Node.cpp.o: CXX_COMPILER__Blockchain_unscanned_Debug /Users/dmitrij/projects/blockchain/src/network/Node.cpp || cmake_object_order_depends_target_Blockchain
+  CONFIG = Debug
+  DEFINES = -DASIO_STANDALONE -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/Blockchain.dir/src/network/Node.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++2b -arch arm64 -fcolor-diagnostics
+  INCLUDES = -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug/Blockchain_autogen/include -I/Users/dmitrij/projects/blockchain/include -I/Users/dmitrij/projects/blockchain/include/windows -I/opt/homebrew/include -I/usr/local/include -I/Users/dmitrij/projects/blockchain/build/Desktop-Debug -I/opt/homebrew/Cellar/libsodium/1.0.20/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers -iframework /Users/dmitrij/Qt/6.10.1/macos/lib -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers -isystem /Users/dmitrij/Qt/6.10.1/macos/mkspecs/macx-clang -isystem /Users/dmitrij/Qt/6.10.1/macos/include -isystem /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/Blockchain.dir
+  OBJECT_FILE_DIR = CMakeFiles/Blockchain.dir/src/network
 
 
 # =============================================================================
@@ -165,7 +192,7 @@ build CMakeFiles/Blockchain.dir/src/file_sharing/sending.cpp.o: CXX_COMPILER__Bl
 #############################################
 # Link the executable Blockchain
 
-build Blockchain: CXX_EXECUTABLE_LINKER__Blockchain_Debug CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.o CMakeFiles/Blockchain.dir/src/main.cpp.o CMakeFiles/Blockchain.dir/src/ui/start_window.cpp.o CMakeFiles/Blockchain.dir/src/ui/main_window.cpp.o CMakeFiles/Blockchain.dir/src/api/Api.cpp.o CMakeFiles/Blockchain.dir/src/blockchain/User.cpp.o CMakeFiles/Blockchain.dir/src/blockchain/Transaction.cpp.o CMakeFiles/Blockchain.dir/src/blockchain/Miner.cpp.o CMakeFiles/Blockchain.dir/src/blockchain/Block.cpp.o CMakeFiles/Blockchain.dir/src/blockchain/Blockchain.cpp.o CMakeFiles/Blockchain.dir/src/blockchain/Mempool.cpp.o CMakeFiles/Blockchain.dir/src/file_sharing/sending.cpp.o | /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Versions/A/QtWidgets /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libsqlite3.tbd /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Versions/A/QtGui /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/QtCore || Blockchain_autogen Blockchain_autogen_timestamp_deps
+build Blockchain: CXX_EXECUTABLE_LINKER__Blockchain_Debug CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.o CMakeFiles/Blockchain.dir/src/main.cpp.o CMakeFiles/Blockchain.dir/src/ui/start_window.cpp.o CMakeFiles/Blockchain.dir/src/ui/main_window.cpp.o CMakeFiles/Blockchain.dir/src/api/Api.cpp.o CMakeFiles/Blockchain.dir/src/blockchain/User.cpp.o CMakeFiles/Blockchain.dir/src/blockchain/Transaction.cpp.o CMakeFiles/Blockchain.dir/src/blockchain/Miner.cpp.o CMakeFiles/Blockchain.dir/src/blockchain/Block.cpp.o CMakeFiles/Blockchain.dir/src/blockchain/Blockchain.cpp.o CMakeFiles/Blockchain.dir/src/blockchain/Mempool.cpp.o CMakeFiles/Blockchain.dir/src/file_sharing/sending.cpp.o CMakeFiles/Blockchain.dir/src/network/Peer.cpp.o CMakeFiles/Blockchain.dir/src/network/CryptoUtils.cpp.o CMakeFiles/Blockchain.dir/src/network/Node.cpp.o | /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Versions/A/QtWidgets /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libsqlite3.tbd /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Versions/A/QtGui /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/QtCore || Blockchain_autogen Blockchain_autogen_timestamp_deps
   CONFIG = Debug
   FLAGS = -DQT_QML_DEBUG -g -arch arm64
   LINK_FLAGS = -Wl,-search_paths_first -Wl,-headerpad_max_install_names
