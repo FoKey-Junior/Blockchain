@@ -1,69 +1,43 @@
 #include "mining_window.h"
 #include "./ui_mining_window.h"
 
+#include "../../include/blockchain/User.h"
+#include "../../include/blockchain/Blockchain.h"
+#include "../../include/blockchain/Miner.h"
+#include "../../include/blockchain/Transaction.h"
+#include "../../include/network/Node.h"
+
 #include <asio.hpp>
-#include <sodium.h>
+#include <thread>
 #include <iostream>
 
-#include "network/Node.h"
-#include "blockchain/Blockchain.h"
-#include "blockchain/Miner.h"
-#include "blockchain/Mempool.h"
-#include "blockchain/User.h"
-
-
 MiningWindow::MiningWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MiningWindow)
+    : QMainWindow(parent), ui(new Ui::MiningWindow)
 {
     ui->setupUi(this);
 
-    // 🔐 Личность майнера
     User miner_user;
 
-    asio::io_context io;
+    io_context = std::make_unique<asio::io_context>();
+    node = std::make_unique<Node>(*io_context, 12345, miner_user.get_public_key(), miner_user.get_private_key());
 
-    // 🌐 Узел сети
-    Node node(
-        io,
-        12345,                         // порт
-        miner_user.get_public_key(),
-        miner_user.get_private_key()
-    );
+    mempool_vec = std::make_unique<std::vector<Transaction>>();
+    blockchain = std::make_unique<Blockchain>(miner_user.get_address_bytes());
+    miner = std::make_unique<Miner>(*mempool_vec);
+    miner->set_blockchain(blockchain.get());
 
-    // ⛓ Блокчейн
-    Blockchain blockchain;
+    node->set_mempool(mempool_vec.get());
+    node->set_blockchain(blockchain.get());
+    node->set_miner(miner.get());
 
-    // 📦 Mempool
-    Mempool mempool;
+    node->start();
 
-    // ⛏ Майнер
-    Miner miner(
-        miner_user,
-        blockchain,
-        mempool,
-        node
-    );
-
-    // 🔌 Связи
-    node.set_mempool(&mempool);
-    node.set_blockchain(&blockchain);
-    node.set_miner(&miner);
-
-    // ▶ Запуск
-    node.start();
-
-    std::thread mining_thread([&] {
-        miner.start_mining();
-    });
+    std::thread([this]() { miner->start_mining(); }).detach();
+    std::thread([this]() { io_context->run(); }).detach();
 
     std::cout << "Miner node started\n";
-
-    io.run();
-    mining_thread.join();
 }
 
-MiningWindow::~MiningWindow()
-{
+MiningWindow::~MiningWindow() {
     delete ui;
 }

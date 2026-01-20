@@ -15,7 +15,7 @@ private:
 public:
     Blockchain(const unsigned char* my_address);
 
-    void add_block(const Block& block);
+    void add_block(const std::vector<Transaction>& transactions);
     bool validate_chain() const;
     const Block& last_block() const;
 };

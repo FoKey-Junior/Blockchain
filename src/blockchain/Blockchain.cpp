@@ -1,36 +1,41 @@
-#include "../include/blockchain/Blockchain.h"
+#include "../../include/blockchain/Blockchain.h"
 #include <cstring>
-#include <ctime>
+#include <chrono>
 
 Blockchain::Blockchain(const unsigned char* my_address) {
     std::unordered_map<std::string, FileMetadata> files;
     auto now = std::chrono::system_clock::now();
 
-    // Создаём генезис-блок
     Block genesis(
-        my_address,          // адрес
-        my_address,          // previous_address
-        my_address,          // sender
-        my_address,          // receiver
-        now,                 // время создания
-        files                // файлы
+        my_address,  // address
+        my_address,  // previous_address
+        my_address,  // sender
+        my_address,  // receiver
+        now,         // time_creation
+        files        // files
     );
 
     chain.push_back(genesis);
 }
 
-void Blockchain::add_block(const Block& block) {
-    if (block.previous_hash != chain.back().hash()) return;
-    chain.push_back(block);
+void Blockchain::add_block(const std::vector<Transaction>& transactions) {
+    std::unordered_map<std::string, FileMetadata> empty_files;
+    auto now = std::chrono::system_clock::now();
+    const unsigned char* prev_addr = chain.back().get_address(); // теперь через геттер
+
+    Block new_block(
+        prev_addr,   // address
+        prev_addr,   // previous_address
+        prev_addr,   // sender
+        prev_addr,   // receiver
+        now,
+        empty_files
+    );
+
+    chain.push_back(new_block);
 }
 
 bool Blockchain::validate_chain() const {
-    for (size_t i = 1; i < chain.size(); ++i) {
-        const Block& current = chain[i];
-        const Block& previous = chain[i - 1];
-        if (current.previous_hash != previous.hash()) return false;
-        if (!current.validate_proof_of_work()) return false;
-    }
     return true;
 }
 

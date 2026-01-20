@@ -66,6 +66,7 @@ set(SOURCES
         src/network/Peer.cpp
         src/network/CryptoUtils.cpp
         src/network/Node.cpp
+        src/main_server.cpp
 )
 
 add_executable(Blockchain

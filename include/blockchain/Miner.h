@@ -15,10 +15,8 @@ private:
 public:
     explicit Miner(std::vector<Transaction>& mempool_);
 
-    // Сеттер для блокчейна
     void set_blockchain(Blockchain* bc) { blockchain = bc; }
 
-    // Запуск майнинга
     void start_mining();
 };
 
