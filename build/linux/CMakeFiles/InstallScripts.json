@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/dmitrij/projects/blockchain/build/linux/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
