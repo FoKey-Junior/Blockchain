@@ -1,3 +1,5 @@
+#include <cstring>
+#include <sodium.h>
 #include "../../include/blockchain/Block.h"
 
 Block::Block(
