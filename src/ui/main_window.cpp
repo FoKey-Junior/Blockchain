@@ -7,6 +7,8 @@
 #include "../file_sharing/Sending.h"
 
 #include <thread>
+#include <chrono>
+#include <iostream>
 
 MainWindow::MainWindow(QWidget *parent)
     : QWidget(parent)
@@ -15,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
     , io_context()
     , node(
         io_context,
-        12345,
+        12345, // локальный порт клиента (можно любой свободный)
         user.get_public_key(),
         user.get_private_key()
       )
@@ -28,11 +30,18 @@ MainWindow::MainWindow(QWidget *parent)
         "</div>"
     );
 
+    // Запускаем Node (своё слушание)
     node.start();
 
+    // Запускаем io_context в отдельном потоке
     std::thread([this]() {
         io_context.run();
     }).detach();
+
+    // Подключаемся к серверу через публичный метод Node
+    node.connect_to_server("4.tcp.eu.ngrok.io", 12204);
+
+    std::cout << "Client node started and connecting to server\n";
 }
 
 MainWindow::~MainWindow()
@@ -88,5 +97,10 @@ void MainWindow::on_sending_files_clicked()
         node
     );
 
+    // Маленькая пауза, чтобы TCP соединение успело установиться
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+
     sending.prepare_and_send();
+
+    std::cout << "Transaction sent to server\n";
 }

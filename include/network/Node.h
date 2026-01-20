@@ -57,6 +57,8 @@ public:
     void broadcast_message(const Message& msg) noexcept;
     void add_transaction(const std::vector<uint8_t>& tx) noexcept;
     void process_mempool() noexcept;
+
+    void connect_to_server(const std::string& host, uint16_t port) noexcept;
 };
 
 #endif

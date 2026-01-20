@@ -1,3 +1,0 @@
-/home/user/Documents/projects/blockchain/build/CMakeFiles/server.dir
-/home/user/Documents/projects/blockchain/build/CMakeFiles/edit_cache.dir
-/home/user/Documents/projects/blockchain/build/CMakeFiles/rebuild_cache.dir

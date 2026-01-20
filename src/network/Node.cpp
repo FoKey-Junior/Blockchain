@@ -128,3 +128,22 @@ Message Node::deserialize_message(const std::vector<uint8_t>& buf) const noexcep
     }
     return msg;
 }
+
+
+void Node::connect_to_server(const std::string& host, uint16_t port) noexcept {
+    auto socket = std::make_shared<asio::ip::tcp::socket>(io_context_);
+    asio::ip::tcp::resolver resolver(io_context_);
+    auto endpoints = resolver.resolve(host, std::to_string(port));
+
+    asio::async_connect(*socket, endpoints,
+        [this, socket](const std::error_code& ec, const asio::ip::tcp::endpoint&) {
+            if (!ec) {
+                handle_connection(socket); // <- вызываем приватный метод внутри Node
+                std::cout << "Connected to server\n";
+            } else {
+                std::cerr << "Failed to connect: " << ec.message() << "\n";
+            }
+        }
+    );
+}
+
