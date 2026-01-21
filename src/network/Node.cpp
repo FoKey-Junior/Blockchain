@@ -176,9 +176,38 @@ void Node::handle_message(MessageType type, const std::vector<uint8_t>& payload)
         }
         case MessageType::NEW_BLOCK: {
             // Обрабатываем новый блок от другого майнера
-            // Для простоты просто логируем, можно добавить синхронизацию блокчейна
             std::cout << "[Node] Received NEW_BLOCK message from peer\n";
-            // TODO: Добавить десериализацию и проверку блока
+            
+            // В текущей реализации отправляется только адрес блока
+            // Для полной синхронизации нужно будет отправлять полный блок
+            // Пока добавляем простой блок с полученным адресом
+            if (payload.size() >= crypto_generichash_BYTES && blockchain) {
+                unsigned char block_address[crypto_generichash_BYTES];
+                std::memcpy(block_address, payload.data(), crypto_generichash_BYTES);
+                
+                // Получаем адрес предыдущего блока
+                const unsigned char* prev_addr = blockchain->last_block().get_address();
+                unsigned char sender_addr[crypto_generichash_BYTES] = {};
+                unsigned char receiver_addr[crypto_generichash_BYTES] = {};
+                std::memcpy(sender_addr, prev_addr, crypto_generichash_BYTES);
+                std::memcpy(receiver_addr, prev_addr, crypto_generichash_BYTES);
+                
+                // Создаем новый блок
+                auto now = std::chrono::system_clock::now();
+                std::unordered_map<std::string, FileMetadata> empty_files;
+                Block new_block(block_address, prev_addr, sender_addr, receiver_addr, now, empty_files);
+                
+                // Добавляем блок в блокчейн
+                blockchain->add_block_direct(new_block);
+                std::cout << "[Node] ✓ New block added to blockchain! Total blocks: " << blockchain->size() << "\n";
+                
+                // Вызываем callback для обновления UI
+                if (on_blockchain_updated) {
+                    on_blockchain_updated();
+                }
+            } else {
+                std::cout << "[Node] Warning: Invalid block payload size or blockchain not set\n";
+            }
             break;
         }
         case MessageType::TX_PROCESSED: {

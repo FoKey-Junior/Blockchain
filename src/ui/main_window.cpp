@@ -37,6 +37,14 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Устанавливаем блокчейн в Node
     node.set_blockchain(&local_blockchain);
+    
+    // Устанавливаем callback для обновления view при получении новых блоков
+    node.set_on_blockchain_updated([this]() {
+        // Обновляем view в главном потоке через QTimer::singleShot
+        QTimer::singleShot(0, this, [this]() {
+            update_blockchain_view();
+        });
+    });
 
     // Запускаем Node (своё слушание)
     node.start();

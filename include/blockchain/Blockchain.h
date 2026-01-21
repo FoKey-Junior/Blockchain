@@ -16,6 +16,7 @@ public:
     Blockchain(const unsigned char* my_address);
 
     void add_block(const std::vector<Transaction>& transactions);
+    void add_block_direct(const Block& block);  // Добавление блока напрямую
     bool validate_chain() const;
     const Block& last_block() const;
     const std::vector<Block>& get_chain() const { return chain; }

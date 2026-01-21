@@ -31,6 +31,7 @@ private:
     std::vector<Transaction>* mempool = nullptr;
     Blockchain* blockchain = nullptr;
     Miner* miner = nullptr;
+    std::function<void()> on_blockchain_updated = nullptr;  // Callback при обновлении блокчейна
 
     std::deque<std::vector<uint8_t>> mempool_;
     std::mutex mempool_mutex_;
@@ -56,6 +57,7 @@ public:
         }
     }
     void set_blockchain(Blockchain* bc) { blockchain = bc; }
+    void set_on_blockchain_updated(std::function<void()> callback) { on_blockchain_updated = callback; }
     void set_miner(Miner* m) { 
         miner = m; 
         if (m) {

@@ -35,6 +35,10 @@ void Blockchain::add_block(const std::vector<Transaction>& transactions) {
     chain.push_back(new_block);
 }
 
+void Blockchain::add_block_direct(const Block& block) {
+    chain.push_back(block);
+}
+
 bool Blockchain::validate_chain() const {
     return true;
 }
