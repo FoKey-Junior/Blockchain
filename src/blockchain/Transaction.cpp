@@ -58,6 +58,9 @@ bool Transaction::verify_transaction(const unsigned char* sender_public_key) con
 }
 
 const unsigned char * Transaction::get_address_bytes() const { return address; }
+const unsigned char * Transaction::get_sender() const { return sender; }
+const unsigned char * Transaction::get_receiver() const { return receiver; }
+const std::unordered_map<std::string, FileMetadata>& Transaction::get_files() const { return files; }
 
 std::vector<uint8_t> Transaction::serialize() const noexcept {
     std::vector<uint8_t> buf;

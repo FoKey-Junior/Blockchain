@@ -6,6 +6,8 @@
 #include <chrono>
 #include <array>
 #include <string>
+#include <vector>
+#include <optional>
 
 struct FileMetadata {
     std::array<unsigned char, crypto_hash_sha256_BYTES> content;
@@ -29,10 +31,15 @@ public:
           const std::unordered_map<std::string, FileMetadata>& files_);
 
     const unsigned char* get_address() const { return address; }
+    const unsigned char* get_previous_address() const { return previous_address; }
     const unsigned char* get_sender() const { return sender; }
     const unsigned char* get_receiver() const { return receiver; }
     const std::unordered_map<std::string, FileMetadata>& get_files() const { return files; }
     const std::chrono::system_clock::time_point& get_time() const { return time_creation; }
+    
+    // Сериализация/десериализация блока
+    [[nodiscard]] std::vector<uint8_t> serialize() const noexcept;
+    static std::optional<Block> deserialize(const std::vector<uint8_t>& data) noexcept;
 };
 
 #endif

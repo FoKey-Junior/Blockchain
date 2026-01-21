@@ -178,28 +178,43 @@ void Node::handle_message(MessageType type, const std::vector<uint8_t>& payload)
             // Обрабатываем новый блок от другого майнера
             std::cout << "[Node] Received NEW_BLOCK message from peer, payload size: " << payload.size() << "\n";
             
-            // В текущей реализации отправляется только адрес блока
-            // Для полной синхронизации нужно будет отправлять полный блок
-            // Пока добавляем простой блок с полученным адресом
-            if (payload.size() >= crypto_generichash_BYTES && blockchain) {
-                unsigned char block_address[crypto_generichash_BYTES];
-                std::memcpy(block_address, payload.data(), crypto_generichash_BYTES);
+            // Десериализуем полный блок
+            auto block_opt = Block::deserialize(payload);
+            if (block_opt.has_value() && blockchain) {
+                const Block& new_block = block_opt.value();
                 
-                // Получаем адрес предыдущего блока
+                // Проверяем, что предыдущий адрес совпадает с последним блоком в цепочке
                 const unsigned char* prev_addr = blockchain->last_block().get_address();
-                unsigned char sender_addr[crypto_generichash_BYTES] = {};
-                unsigned char receiver_addr[crypto_generichash_BYTES] = {};
-                std::memcpy(sender_addr, prev_addr, crypto_generichash_BYTES);
-                std::memcpy(receiver_addr, prev_addr, crypto_generichash_BYTES);
+                const unsigned char* received_prev_addr = new_block.get_previous_address();
                 
-                // Создаем новый блок
-                auto now = std::chrono::system_clock::now();
-                std::unordered_map<std::string, FileMetadata> empty_files;
-                Block new_block(block_address, prev_addr, sender_addr, receiver_addr, now, empty_files);
+                if (std::memcmp(prev_addr, received_prev_addr, crypto_generichash_BYTES) != 0) {
+                    std::cout << "[Node] Warning: Block's previous address doesn't match last block in chain, skipping\n";
+                    break;
+                }
                 
                 // Добавляем блок в блокчейн
                 blockchain->add_block_direct(new_block);
                 std::cout << "[Node] ✓ New block added to blockchain! Total blocks: " << blockchain->size() << "\n";
+                
+                // Выводим информацию о блоке
+                std::cout << "[Node] Block address: ";
+                const unsigned char* addr = new_block.get_address();
+                for (int i = 0; i < 8; ++i) {
+                    printf("%02x", addr[i]);
+                }
+                std::cout << "...\n";
+                std::cout << "[Node] Block sender: ";
+                const unsigned char* sender = new_block.get_sender();
+                for (int i = 0; i < 8; ++i) {
+                    printf("%02x", sender[i]);
+                }
+                std::cout << "...\n";
+                std::cout << "[Node] Block receiver: ";
+                const unsigned char* receiver = new_block.get_receiver();
+                for (int i = 0; i < 8; ++i) {
+                    printf("%02x", receiver[i]);
+                }
+                std::cout << "...\n";
                 
                 // Вызываем callback для обновления UI
                 if (on_blockchain_updated) {
@@ -212,7 +227,7 @@ void Node::handle_message(MessageType type, const std::vector<uint8_t>& payload)
                 if (!blockchain) {
                     std::cout << "[Node] Warning: Blockchain not set in Node\n";
                 } else {
-                    std::cout << "[Node] Warning: Invalid block payload size: " << payload.size() << " (expected at least " << crypto_generichash_BYTES << ")\n";
+                    std::cout << "[Node] Warning: Failed to deserialize block from payload (size: " << payload.size() << " bytes)\n";
                 }
             }
             break;
@@ -277,11 +292,8 @@ void Node::connect_to_server(const std::string& host, uint16_t port) noexcept {
 
 // Рассылка блока другим майнерам
 void Node::broadcast_block(const Block& block) noexcept {
-    // Для простоты сериализуем только адрес блока
-    // В полной реализации нужно сериализовать весь блок
-    std::vector<uint8_t> block_data;
-    const unsigned char* addr = block.get_address();
-    block_data.insert(block_data.end(), addr, addr + crypto_generichash_BYTES);
+    // Сериализуем полный блок
+    std::vector<uint8_t> block_data = block.serialize();
     
     Message msg;
     msg.type = MessageType::NEW_BLOCK;
@@ -289,7 +301,7 @@ void Node::broadcast_block(const Block& block) noexcept {
     msg.payload = CryptoUtils::sign_message(block_data, priv_key_);
     
     broadcast_message(msg);
-    std::cout << "[Node] Broadcasted new block\n";
+    std::cout << "[Node] Broadcasted new block (serialized size: " << block_data.size() << " bytes)\n";
 }
 // Уведомление клиентов о завершении обработки транзакций
 void Node::notify_tx_processed(const std::vector<Transaction>& txs) noexcept {

@@ -1,6 +1,7 @@
 #include "../../include/blockchain/Blockchain.h"
 #include <cstring>
 #include <chrono>
+#include <sodium.h>
 
 Blockchain::Blockchain(const unsigned char* my_address) {
     std::unordered_map<std::string, FileMetadata> files;
@@ -19,17 +20,42 @@ Blockchain::Blockchain(const unsigned char* my_address) {
 }
 
 void Blockchain::add_block(const std::vector<Transaction>& transactions) {
-    std::unordered_map<std::string, FileMetadata> empty_files;
+    if (transactions.empty()) {
+        return; // Не создаем блок без транзакций
+    }
+    
     auto now = std::chrono::system_clock::now();
-    const unsigned char* prev_addr = chain.back().get_address(); // теперь через геттер
-
+    const unsigned char* prev_addr = chain.back().get_address();
+    
+    // Собираем все файлы из транзакций
+    std::unordered_map<std::string, FileMetadata> files;
+    for (const auto& tx : transactions) {
+        const auto& tx_files = tx.get_files();
+        files.insert(tx_files.begin(), tx_files.end());
+    }
+    
+    // Генерируем адрес блока на основе предыдущего блока и транзакций
+    unsigned char block_address[crypto_generichash_BYTES];
+    crypto_generichash_state state;
+    crypto_generichash_init(&state, nullptr, 0, crypto_generichash_BYTES);
+    crypto_generichash_update(&state, prev_addr, crypto_generichash_BYTES);
+    for (const auto& tx : transactions) {
+        const unsigned char* tx_addr = tx.get_address_bytes();
+        crypto_generichash_update(&state, tx_addr, crypto_generichash_BYTES);
+    }
+    crypto_generichash_final(&state, block_address, crypto_generichash_BYTES);
+    
+    // Используем данные из первой транзакции для sender и receiver
+    const unsigned char* sender_addr = transactions[0].get_sender();
+    const unsigned char* receiver_addr = transactions[0].get_receiver();
+    
     Block new_block(
-        prev_addr,   // address
-        prev_addr,   // previous_address
-        prev_addr,   // sender
-        prev_addr,   // receiver
+        block_address,   // address - новый хеш на основе предыдущего блока и транзакций
+        prev_addr,       // previous_address
+        sender_addr,     // sender из первой транзакции
+        receiver_addr,   // receiver из первой транзакции
         now,
-        empty_files
+        files
     );
 
     chain.push_back(new_block);

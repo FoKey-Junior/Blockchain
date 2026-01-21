@@ -37,6 +37,9 @@ public:
     void sign_transaction(const unsigned char* sender_private_key);
     bool verify_transaction(const unsigned char* sender_public_key) const;
     [[nodiscard]] const unsigned char* get_address_bytes() const;
+    [[nodiscard]] const unsigned char* get_sender() const;
+    [[nodiscard]] const unsigned char* get_receiver() const;
+    [[nodiscard]] const std::unordered_map<std::string, FileMetadata>& get_files() const;
     [[nodiscard]] std::vector<uint8_t> serialize() const noexcept;
     static std::optional<Transaction> deserialize(const std::vector<uint8_t>& data) noexcept;
 };
