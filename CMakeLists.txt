@@ -6,123 +6,223 @@ project(Blockchain VERSION 0.1 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Проверяем платформу
-if(APPLE)
-    message(STATUS "Configuring for macOS GUI")
+# Общие настройки для всех платформ
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
 
-    # Пути к Qt
-    set(CMAKE_PREFIX_PATH "/Users/dmitrij/Qt/6.10.1/macos/lib/cmake")
-    set(CMAKE_AUTOUIC ON)
-    set(CMAKE_AUTOMOC ON)
-    set(CMAKE_AUTORCC ON)
+# Поиск зависимостей (работает на всех платформах)
+find_package(PkgConfig REQUIRED)
 
-    # Qt Widgets
-    find_package(QT NAMES Qt6 REQUIRED COMPONENTS Widgets)
-    find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+# libsodium
+pkg_check_modules(SODIUM REQUIRED libsodium)
+if(NOT SODIUM_FOUND)
+    # Fallback: пробуем найти через find_package
+    find_library(SODIUM_LIBRARIES NAMES sodium)
+    find_path(SODIUM_INCLUDE_DIRS NAMES sodium.h PATHS /usr/include /usr/local/include /opt/homebrew/include)
+endif()
 
-    # Заголовки и исходники GUI
-    include_directories(
-            include
-            include/windows
+# SQLite3
+find_package(SQLite3 REQUIRED)
+if(NOT SQLite3_FOUND)
+    pkg_check_modules(SQLITE3 REQUIRED sqlite3)
+    set(SQLite3_LIBRARIES ${SQLITE3_LIBRARIES})
+    set(SQLite3_INCLUDE_DIRS ${SQLITE3_INCLUDE_DIRS})
+endif()
+
+# ASIO (header-only, используем переменную окружения или стандартные пути)
+find_path(ASIO_INCLUDE_DIR asio.hpp
+    PATHS
+        $ENV{ASIO_ROOT}/include
+        /usr/include
+        /usr/local/include
+        /opt/homebrew/include
+        ${CMAKE_SOURCE_DIR}/third_party/asio/include
+)
+
+if(ASIO_INCLUDE_DIR)
+    message(STATUS "Found ASIO at: ${ASIO_INCLUDE_DIR}")
+else()
+    # ASIO может быть установлен через brew/vcpkg или быть header-only
+    # Попробуем найти в стандартных местах
+    find_path(ASIO_INCLUDE_DIR asio.hpp
+        PATHS
             /opt/homebrew/include
             /usr/local/include
-            ${CMAKE_CURRENT_BINARY_DIR}
+            /usr/include
+    )
+endif()
+
+# Crow (header-only библиотека)
+find_path(CROW_INCLUDE_DIR crow.h
+    PATHS
+        $ENV{CROW_ROOT}/include
+        /usr/include
+        /usr/local/include
+        /opt/homebrew/include
+        /usr/include/crow
+        ${CMAKE_SOURCE_DIR}/third_party/crow/include
+)
+
+if(CROW_INCLUDE_DIR)
+    message(STATUS "Found Crow at: ${CROW_INCLUDE_DIR}")
+else()
+    message(WARNING "Crow not found in standard locations, trying alternative paths")
+    find_path(CROW_INCLUDE_DIR crow/crow.h
+        PATHS
+            /usr/include
+            /usr/local/include
+            /opt/homebrew/include
+    )
+    if(NOT CROW_INCLUDE_DIR)
+        message(STATUS "Crow will be searched at compile time (may be in system include paths)")
+    endif()
+endif()
+
+# Проверяем платформу
+if(APPLE)
+    message(STATUS "Configuring for macOS")
+    
+    # Qt - пробуем найти автоматически или через переменную окружения
+    if(DEFINED ENV{QT_DIR})
+        set(CMAKE_PREFIX_PATH "$ENV{QT_DIR}/lib/cmake" ${CMAKE_PREFIX_PATH})
+    elseif(EXISTS "$ENV{HOME}/Qt/6.10.1/macos/lib/cmake")
+        set(CMAKE_PREFIX_PATH "$ENV{HOME}/Qt/6.10.1/macos/lib/cmake" ${CMAKE_PREFIX_PATH})
+    elseif(EXISTS "/opt/homebrew/opt/qt@6/lib/cmake")
+        set(CMAKE_PREFIX_PATH "/opt/homebrew/opt/qt@6/lib/cmake" ${CMAKE_PREFIX_PATH})
+    endif()
+    
+    # Qt Widgets - обязателен для GUI версии
+    find_package(QT NAMES Qt6 Qt5 QUIET COMPONENTS Widgets)
+    if(NOT QT_FOUND)
+        message(FATAL_ERROR "Qt not found! Please install Qt6 or Qt5. You can:\n"
+            "  - Install via Homebrew: brew install qt@6\n"
+            "  - Set QT_DIR environment variable: export QT_DIR=/path/to/Qt\n"
+            "  - Or install Qt from https://www.qt.io/download")
+    endif()
+    find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+    message(STATUS "Found Qt ${QT_VERSION_MAJOR}")
+    
+    # Стандартные пути для macOS
+    set(PLATFORM_INCLUDE_DIRS
+        /opt/homebrew/include
+        /usr/local/include
     )
 
-    find_package(PkgConfig REQUIRED)
-    pkg_check_modules(SODIUM REQUIRED libsodium)
-    include_directories(${SODIUM_INCLUDE_DIRS})
-    link_directories(${SODIUM_LIBRARY_DIRS})
-
-    find_package(SQLite3 REQUIRED)
-    include_directories(${SQLite3_INCLUDE_DIRS})
-    link_directories(${SQLite3_LIBRARY_DIRS})
-
-    set(HEADERS
-            include/windows/start_window.h
-            include/windows/main_window.h
-            include/windows/mining_window.h
-            include/api/Api.h
-            include/blockchain/User.h
-            include/blockchain/Transaction.h
-            include/blockchain/Miner.h
-            include/blockchain/Block.h
-            include/blockchain/Blockchain.h
-            include/blockchain/Mempool.h
-            include/file_sharing/sending.h
-            include/network/Peer.h
-            include/network/Message.h
-            include/network/CryptoUtils.h
-            include/network/Node.h
+    # Заголовки GUI (только для macOS)
+    set(GUI_HEADERS
+        include/windows/start_window.h
+        include/windows/main_window.h
+        include/windows/mining_window.h
+    )
+    
+    # GUI источники (только для macOS)
+    set(GUI_SOURCES
+        src/main.cpp
+        src/ui/start_window.cpp
+        src/ui/main_window.cpp
+        src/ui/mining_window.cpp
     )
 
-    set(SOURCES
-            src/main.cpp
-            src/ui/start_window.cpp
-            src/ui/main_window.cpp
-            src/ui/mining_window.cpp
-            src/api/Api.cpp
-            src/blockchain/User.cpp
-            src/blockchain/Transaction.cpp
-            src/blockchain/Miner.cpp
-            src/blockchain/Block.cpp
-            src/blockchain/Blockchain.cpp
-            src/blockchain/Mempool.cpp
-            src/file_sharing/sending.cpp
-            src/network/Peer.cpp
-            src/network/CryptoUtils.cpp
-            src/network/Node.cpp
+elseif(UNIX AND NOT APPLE)
+    message(STATUS "Configuring for Linux (Debian/Ubuntu)")
+    
+    # Стандартные пути для Debian/Ubuntu
+    set(PLATFORM_INCLUDE_DIRS
+        /usr/include
+        /usr/local/include
     )
+    
+    # Qt не требуется для серверной версии
+    set(BUILD_GUI OFF)
+endif()
 
-    add_executable(Blockchain
-            ${SOURCES}
-            ${HEADERS}
-    )
+# Общие заголовки
+set(COMMON_HEADERS
+    include/api/Api.h
+    include/api/ApiRegistry.h
+    include/blockchain/User.h
+    include/blockchain/Transaction.h
+    include/blockchain/Miner.h
+    include/blockchain/Block.h
+    include/blockchain/Blockchain.h
+    include/blockchain/Mempool.h
+    include/file_sharing/Sending.h
+    include/network/Peer.h
+    include/network/Message.h
+    include/network/CryptoUtils.h
+    include/network/Node.h
+)
 
-    target_link_libraries(Blockchain
-            PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
-            ${SODIUM_LIBRARIES}
-            ${SQLite3_LIBRARIES}
-    )
+# Общие источники
+set(COMMON_SOURCES
+    src/api/Api.cpp
+    src/blockchain/User.cpp
+    src/blockchain/Transaction.cpp
+    src/blockchain/Miner.cpp
+    src/blockchain/Block.cpp
+    src/blockchain/Blockchain.cpp
+    src/blockchain/Mempool.cpp
+    src/file_sharing/Sending.cpp
+    src/network/Peer.cpp
+    src/network/CryptoUtils.cpp
+    src/network/Node.cpp
+)
 
-    target_include_directories(Blockchain PRIVATE "/opt/homebrew/include")
+# Общие include директории
+list(APPEND COMMON_INCLUDE_DIRS
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_BINARY_DIR}
+    ${SODIUM_INCLUDE_DIRS}
+    ${SQLite3_INCLUDE_DIRS}
+    ${PLATFORM_INCLUDE_DIRS}
+)
+
+# Добавляем ASIO и Crow если найдены
+if(ASIO_INCLUDE_DIR)
+    list(APPEND COMMON_INCLUDE_DIRS ${ASIO_INCLUDE_DIR})
+endif()
+
+if(CROW_INCLUDE_DIR)
+    list(APPEND COMMON_INCLUDE_DIRS ${CROW_INCLUDE_DIR})
+endif()
+
+# Собираем для macOS с GUI
+if(APPLE)
+    set(HEADERS ${GUI_HEADERS} ${COMMON_HEADERS})
+    set(SOURCES ${GUI_SOURCES} ${COMMON_SOURCES})
+    
+    add_executable(Blockchain ${SOURCES} ${HEADERS})
+    
+    target_include_directories(Blockchain PRIVATE ${COMMON_INCLUDE_DIRS})
     target_compile_definitions(Blockchain PRIVATE ASIO_STANDALONE)
-
+    
+    target_link_libraries(Blockchain
+        PRIVATE 
+        Qt${QT_VERSION_MAJOR}::Widgets
+        ${SODIUM_LIBRARIES}
+        ${SQLite3_LIBRARIES}
+    )
+    
     if(QT_VERSION_MAJOR EQUAL 6)
         qt_finalize_executable(Blockchain)
     endif()
 
+# Собираем для Linux (серверная версия)
 elseif(UNIX AND NOT APPLE)
-    message(STATUS "Configuring for Linux server")
-
-    # Linux include dirs
-    include_directories(
-            /nix/store/l3imlvck1bdrca8ys5k12hskh6fbzsxn-crow-1.2.1.2/include
-            /nix/store/zmljpwxaq8a8w9v0mm94s0qf9v9nw3m3-asio-1.24.0/include
-            /nix/store/qlrwfphpz9y711mlhp2mvkwb74r8ggwc-rocksdb-10.5.1/include/rocksdb
-            /nix/store/jkqv0zwpjfqz8pigppgc18gmj3pqziyw-nixos-25.11.2679.9ef261221d1e/nixos/pkgs/development/libraries/sqlite/include
-            /nix/store/iwdrbfqmbxd62d50sg2ixx6lq40xm5pm-libsodium-1.0.20-dev/include
-            include
-    )
-
-    set(SOURCES
-            src/main_server.cpp
-            src/blockchain/Block.cpp
-            src/blockchain/Blockchain.cpp
-            src/blockchain/Transaction.cpp
-            src/blockchain/User.cpp
-            src/blockchain/Miner.cpp
-            src/network/Node.cpp
-            src/network/Peer.cpp
-            src/network/CryptoUtils.cpp
-    )
-
-    add_executable(server ${SOURCES})
-
+    set(SOURCES ${COMMON_SOURCES} src/main_server.cpp)
+    set(HEADERS ${COMMON_HEADERS})
+    
+    add_executable(server ${SOURCES} ${HEADERS})
+    
+    target_include_directories(server PRIVATE ${COMMON_INCLUDE_DIRS})
+    target_compile_definitions(server PRIVATE ASIO_STANDALONE)
+    
     target_link_libraries(server
-            /nix/store/3d0pz2rax1v3b05lwjqlm4zi6dklnhs5-libsodium-1.0.20/lib/libsodium.so
-            /nix/store/l30c488dws7z5mazacqsmj25izb9jlp2-sqlite-3.50.4/lib/libsqlite3.so
-            pthread
+        PRIVATE
+        ${SODIUM_LIBRARIES}
+        ${SQLite3_LIBRARIES}
+        pthread
     )
 
 else()
