@@ -32,6 +32,7 @@ public:
     const unsigned char* get_sender() const { return sender; }
     const unsigned char* get_receiver() const { return receiver; }
     const std::unordered_map<std::string, FileMetadata>& get_files() const { return files; }
+    const std::chrono::system_clock::time_point& get_time() const { return time_creation; }
 };
 
 #endif

@@ -76,6 +76,7 @@ public:
     void broadcast_block(const Block& block) noexcept;
     void notify_tx_processed(const std::vector<Transaction>& txs) noexcept;
     std::mutex* get_mempool_mutex() { return &mempool_mutex_; }
+    Blockchain* get_blockchain() { return blockchain; }
 };
 
 #endif

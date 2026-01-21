@@ -56,7 +56,7 @@
        <enum>Qt::LayoutDirection::LeftToRight</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_1">
        <attribute name="title">
@@ -333,7 +333,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
           <number>15</number>
          </property>
          <item>
-          <widget class="QTextBrowser" name="textBrowser">
+          <widget class="QTextBrowser" name="blockchain_viewing_1">
            <property name="html">
             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -459,7 +459,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
           <number>15</number>
          </property>
          <item>
-          <widget class="QTextBrowser" name="textBrowser_4">
+          <widget class="QTextBrowser" name="blockchain_viewing_2">
            <property name="html">
             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
