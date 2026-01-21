@@ -1,4 +1,6 @@
 #include "../../include/network/Node.h"
+#include "../../include/blockchain/Transaction.h"
+#include "../../include/blockchain/Blockchain.h"
 #include <iostream>
 #include <cstring>
 
@@ -31,7 +33,7 @@ void Node::handle_connection(std::shared_ptr<asio::ip::tcp::socket> socket) noex
 
 // Чтение сообщений
 void Node::read_message(std::shared_ptr<asio::ip::tcp::socket> socket) noexcept {
-    auto buf = std::make_shared<std::vector<uint8_t>>(2048);
+    auto buf = std::make_shared<std::vector<uint8_t>>(8192); // Увеличиваем буфер для блоков
     socket->async_read_some(asio::buffer(*buf), [this, buf, socket](auto ec, std::size_t length) {
         if (!ec && length > 0) {
             buf->resize(length);
@@ -40,9 +42,7 @@ void Node::read_message(std::shared_ptr<asio::ip::tcp::socket> socket) noexcept 
             std::vector<uint8_t> unsigned_payload;
             if (CryptoUtils::verify_message(msg.payload, msg.sender_pub_key.data(), unsigned_payload)) {
                 if (!unsigned_payload.empty()) {
-                    std::lock_guard<std::mutex> lock(mempool_mutex_);
-                    mempool_.push_back(unsigned_payload);
-                    process_mempool();
+                    handle_message(msg.type, unsigned_payload);
                 }
             }
 
@@ -96,7 +96,7 @@ void Node::add_transaction(const std::vector<uint8_t>& tx) noexcept {
     process_mempool();
 }
 
-// Обработка мемпула
+// Обработка мемпула - рассылка транзакций другим пирам
 void Node::process_mempool() noexcept {
     while (!mempool_.empty()) {
         auto tx = mempool_.front();
@@ -111,9 +111,51 @@ void Node::process_mempool() noexcept {
     }
 }
 
+// Обработка входящих сообщений
+void Node::handle_message(MessageType type, const std::vector<uint8_t>& payload) noexcept {
+    switch (type) {
+        case MessageType::NEW_TX: {
+            // Десериализуем транзакцию и добавляем в mempool майнера
+            auto tx_opt = Transaction::deserialize(payload);
+            if (tx_opt.has_value() && mempool) {
+                std::lock_guard<std::mutex> lock(mempool_mutex_);
+                // Проверяем, нет ли уже такой транзакции
+                bool exists = false;
+                for (const auto& existing_tx : *mempool) {
+                    if (std::memcmp(existing_tx.get_address_bytes(), 
+                                   tx_opt->get_address_bytes(),
+                                   crypto_generichash_BYTES) == 0) {
+                        exists = true;
+                        break;
+                    }
+                }
+                if (!exists) {
+                    mempool->push_back(tx_opt.value());
+                    std::cout << "[Node] Added transaction to mempool\n";
+                }
+            }
+            break;
+        }
+        case MessageType::NEW_BLOCK: {
+            // Обрабатываем новый блок от другого майнера
+            // Для простоты просто логируем, можно добавить синхронизацию блокчейна
+            std::cout << "[Node] Received NEW_BLOCK message\n";
+            // TODO: Добавить десериализацию и проверку блока
+            break;
+        }
+        case MessageType::HELLO:
+        case MessageType::PING:
+        case MessageType::PONG:
+        case MessageType::PEER_LIST:
+            // Обработка других типов сообщений
+            break;
+    }
+}
+
 // Сериализация
 std::vector<uint8_t> Node::serialize_message(const Message& msg) const noexcept {
     std::vector<uint8_t> buf;
+    buf.push_back(static_cast<uint8_t>(msg.type));
     buf.insert(buf.end(), msg.sender_pub_key.begin(), msg.sender_pub_key.end());
     buf.insert(buf.end(), msg.payload.begin(), msg.payload.end());
     return buf;
@@ -122,9 +164,10 @@ std::vector<uint8_t> Node::serialize_message(const Message& msg) const noexcept 
 // Десериализация
 Message Node::deserialize_message(const std::vector<uint8_t>& buf) const noexcept {
     Message msg;
-    if (buf.size() >= crypto_sign_PUBLICKEYBYTES) {
-        std::memcpy(msg.sender_pub_key.data(), buf.data(), crypto_sign_PUBLICKEYBYTES);
-        msg.payload.assign(buf.begin() + crypto_sign_PUBLICKEYBYTES, buf.end());
+    if (buf.size() >= 1 + crypto_sign_PUBLICKEYBYTES) {
+        msg.type = static_cast<MessageType>(buf[0]);
+        std::memcpy(msg.sender_pub_key.data(), buf.data() + 1, crypto_sign_PUBLICKEYBYTES);
+        msg.payload.assign(buf.begin() + 1 + crypto_sign_PUBLICKEYBYTES, buf.end());
     }
     return msg;
 }
@@ -147,3 +190,19 @@ void Node::connect_to_server(const std::string& host, uint16_t port) noexcept {
     );
 }
 
+// Рассылка блока другим майнерам
+void Node::broadcast_block(const Block& block) noexcept {
+    // Для простоты сериализуем только адрес блока
+    // В полной реализации нужно сериализовать весь блок
+    std::vector<uint8_t> block_data;
+    const unsigned char* addr = block.get_address();
+    block_data.insert(block_data.end(), addr, addr + crypto_generichash_BYTES);
+    
+    Message msg;
+    msg.type = MessageType::NEW_BLOCK;
+    std::memcpy(msg.sender_pub_key.data(), pub_key_, crypto_sign_PUBLICKEYBYTES);
+    msg.payload = CryptoUtils::sign_message(block_data, priv_key_);
+    
+    broadcast_message(msg);
+    std::cout << "[Node] Broadcasted new block\n";
+}

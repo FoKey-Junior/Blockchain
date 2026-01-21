@@ -4,6 +4,7 @@
 #include <unordered_map>
 #include <chrono>
 #include <vector>
+#include <optional>
 #include "Block.h"
 
 class Transaction {
@@ -13,6 +14,16 @@ class Transaction {
     unsigned char sender[crypto_generichash_BYTES] = {};
     unsigned char receiver[crypto_generichash_BYTES] = {};
     std::unordered_map<std::string, FileMetadata> files;
+
+    // Приватный конструктор для десериализации
+    Transaction(
+        const unsigned char* address_,
+        const unsigned char* signature_,
+        const unsigned char* sender_,
+        const unsigned char* receiver_,
+        std::unordered_map<std::string, FileMetadata> files_,
+        std::chrono::system_clock::time_point time_
+    );
 
 public:
     Transaction(
@@ -27,6 +38,7 @@ public:
     bool verify_transaction(const unsigned char* sender_public_key) const;
     [[nodiscard]] const unsigned char* get_address_bytes() const;
     [[nodiscard]] std::vector<uint8_t> serialize() const noexcept;
+    static std::optional<Transaction> deserialize(const std::vector<uint8_t>& data) noexcept;
 };
 
 

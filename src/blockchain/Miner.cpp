@@ -1,4 +1,5 @@
 #include "../../include/blockchain/Miner.h"
+#include "../../include/network/Node.h"
 #include <thread>
 #include <iostream>
 #include <chrono>
@@ -10,16 +11,31 @@ void Miner::start_mining() {
         while (true) {
             std::vector<Transaction> txs;
             {
-                std::lock_guard<std::mutex> lock(mempool_mutex);
-                if (!mempool.empty()) {
-                    txs = mempool;
-                    mempool.clear();
+                if (mempool_mutex_ptr) {
+                    std::lock_guard<std::mutex> lock(*mempool_mutex_ptr);
+                    if (!mempool.empty()) {
+                        txs = mempool;
+                        mempool.clear();
+                    }
+                } else {
+                    // Если мьютекс не установлен, используем небезопасный доступ (для обратной совместимости)
+                    if (!mempool.empty()) {
+                        txs = mempool;
+                        mempool.clear();
+                    }
                 }
             }
 
             if (!txs.empty() && blockchain) {
                 std::cout << "[Miner] Mining a block with " << txs.size() << " transactions...\n";
                 blockchain->add_block(txs);
+                const Block& new_block = blockchain->last_block();
+                
+                // Рассылаем блок другим майнерам через Node
+                if (node_ptr) {
+                    node_ptr->broadcast_block(new_block);
+                }
+                
                 std::this_thread::sleep_for(std::chrono::seconds(1)); // имитация PoW
             } else {
                 std::this_thread::sleep_for(std::chrono::milliseconds(200));

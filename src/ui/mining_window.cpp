@@ -6,10 +6,13 @@
 #include "../../include/blockchain/Miner.h"
 #include "../../include/blockchain/Transaction.h"
 #include "../../include/network/Node.h"
+#include "../../include/api/ApiRegistry.h"
 
 #include <asio.hpp>
 #include <thread>
 #include <iostream>
+#include <string>
+#include <chrono>
 
 MiningWindow::MiningWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MiningWindow)
@@ -34,6 +37,14 @@ MiningWindow::MiningWindow(QWidget *parent)
 
     std::thread([this]() { miner->start_mining(); }).detach();
     std::thread([this]() { io_context->run(); }).detach();
+
+    // Регистрируем майнера в API
+    std::thread([this]() {
+        std::this_thread::sleep_for(std::chrono::seconds(1)); // Ждем запуска API
+        // Регистрируем майнера локально (можно также отправить HTTP запрос)
+        ApiRegistry::register_miner("127.0.0.1", 12345);
+        std::cout << "[MiningWindow] Miner registered in API\n";
+    }).detach();
 
     std::cout << "Miner node started\n";
 }

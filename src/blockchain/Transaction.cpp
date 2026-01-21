@@ -6,6 +6,21 @@
 #include "../../include/blockchain/Transaction.h"
 #include "../../include/blockchain/Block.h"
 
+// Приватный конструктор для десериализации
+Transaction::Transaction(
+    const unsigned char* address_,
+    const unsigned char* signature_,
+    const unsigned char* sender_,
+    const unsigned char* receiver_,
+    std::unordered_map<std::string, FileMetadata> files_,
+    std::chrono::system_clock::time_point time_
+) : files(files_), time_creation(time_) {
+    std::memcpy(this->address, address_, crypto_generichash_BYTES);
+    std::memcpy(this->signature, signature_, crypto_sign_BYTES);
+    std::memcpy(this->sender, sender_, crypto_generichash_BYTES);
+    std::memcpy(this->receiver, receiver_, crypto_generichash_BYTES);
+}
+
 Transaction::Transaction(
     const unsigned char* sender_,
     const unsigned char* receiver_,
@@ -56,4 +71,39 @@ std::vector<uint8_t> Transaction::serialize() const noexcept {
     }
 
     return buf;
+}
+
+std::optional<Transaction> Transaction::deserialize(const std::vector<uint8_t>& data) noexcept {
+    constexpr size_t min_size = crypto_generichash_BYTES * 3 + crypto_sign_BYTES;
+    if (data.size() < min_size) {
+        return std::nullopt;
+    }
+
+    try {
+        size_t offset = 0;
+        unsigned char addr[crypto_generichash_BYTES];
+        unsigned char sig[crypto_sign_BYTES];
+        unsigned char send[crypto_generichash_BYTES];
+        unsigned char recv[crypto_generichash_BYTES];
+
+        std::memcpy(addr, data.data() + offset, crypto_generichash_BYTES);
+        offset += crypto_generichash_BYTES;
+        
+        std::memcpy(sig, data.data() + offset, crypto_sign_BYTES);
+        offset += crypto_sign_BYTES;
+        
+        std::memcpy(send, data.data() + offset, crypto_generichash_BYTES);
+        offset += crypto_generichash_BYTES;
+        
+        std::memcpy(recv, data.data() + offset, crypto_generichash_BYTES);
+
+        std::unordered_map<std::string, FileMetadata> files;
+        auto time = std::chrono::system_clock::now();
+        
+        Transaction tx(addr, sig, send, recv, files, time);
+        
+        return tx;
+    } catch (...) {
+        return std::nullopt;
+    }
 }

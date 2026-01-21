@@ -39,7 +39,7 @@ MainWindow::MainWindow(QWidget *parent)
     }).detach();
 
     // Подключаемся к серверу через публичный метод Node
-    node.connect_to_server("4.tcp.eu.ngrok.io", 12204);
+    node.connect_to_server("213.176.117.68", 12345);
 
     std::cout << "Client node started and connecting to server\n";
 }
