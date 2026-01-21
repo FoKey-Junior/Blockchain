@@ -131,10 +131,7 @@ void Node::handle_message(MessageType type, const std::vector<uint8_t>& payload)
                 }
                 if (!exists) {
                     mempool->push_back(tx_opt.value());
-                    std::cout << "[Node] ✓ New transaction received and added to mempool\n";
-                    std::cout << "[Node] Transaction will be processed by miner shortly...\n";
-                } else {
-                    std::cout << "[Node] Transaction already exists in mempool, skipping\n";
+                    std::cout << "[Node] Added transaction to mempool\n";
                 }
             }
             break;
@@ -142,14 +139,8 @@ void Node::handle_message(MessageType type, const std::vector<uint8_t>& payload)
         case MessageType::NEW_BLOCK: {
             // Обрабатываем новый блок от другого майнера
             // Для простоты просто логируем, можно добавить синхронизацию блокчейна
-            std::cout << "[Node] Received NEW_BLOCK message from peer\n";
+            std::cout << "[Node] Received NEW_BLOCK message\n";
             // TODO: Добавить десериализацию и проверку блока
-            break;
-        }
-        case MessageType::TX_PROCESSED: {
-            // Уведомление от майнера о том, что транзакция обработана
-            std::cout << "[Node] ✓ Transaction processed successfully by miner!\n";
-            std::cout << "[Node] Your transaction has been included in a block\n";
             break;
         }
         case MessageType::HELLO:
@@ -214,32 +205,4 @@ void Node::broadcast_block(const Block& block) noexcept {
     
     broadcast_message(msg);
     std::cout << "[Node] Broadcasted new block\n";
-}
-// Уведомление клиентов о завершении обработки транзакций
-void Node::notify_tx_processed(const std::vector<Transaction>& txs) noexcept {
-    if (txs.empty()) {
-        return;
-    }
-    
-    // Создаем уведомление о каждой обработанной транзакции
-    for (const auto& tx : txs) {
-        // Сериализуем адрес транзакции для уведомления
-        std::vector<uint8_t> tx_data;
-        const unsigned char* tx_addr = tx.get_address_bytes();
-        tx_data.insert(tx_data.end(), tx_addr, tx_addr + crypto_generichash_BYTES);
-        
-        Message msg;
-        msg.type = MessageType::TX_PROCESSED;
-        std::memcpy(msg.sender_pub_key.data(), pub_key_, crypto_sign_PUBLICKEYBYTES);
-        msg.payload = CryptoUtils::sign_message(tx_data, priv_key_);
-        
-        // Отправляем уведомление всем подключенным пирам (клиентам и майнерам)
-        std::lock_guard<std::mutex> lock(peers_mutex_);
-        if (!peers_.empty()) {
-            std::cout << "[Node] Notifying " << peers_.size() << " peer(s) about processed transaction\n";
-            broadcast_message(msg);
-        } else {
-            std::cout << "[Node] No peers connected to notify\n";
-        }
-    }
 }

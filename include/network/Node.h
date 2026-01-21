@@ -74,6 +74,7 @@ public:
 
     void connect_to_server(const std::string& host, uint16_t port) noexcept;
     void broadcast_block(const Block& block) noexcept;
+    void notify_tx_processed(const std::vector<Transaction>& txs) noexcept;
     std::mutex* get_mempool_mutex() { return &mempool_mutex_; }
 };
 

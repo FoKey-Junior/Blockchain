@@ -13,7 +13,8 @@ enum class MessageType : uint8_t {
     PONG,
     NEW_BLOCK,
     NEW_TX,
-    PEER_LIST
+    PEER_LIST,
+    TX_PROCESSED  // Уведомление об обработке транзакции
 };
 
 struct Message {

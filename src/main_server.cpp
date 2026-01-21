@@ -42,7 +42,10 @@ int main() {
     });
     mining_thread.detach();
 
+    std::cout << "========================================\n";
     std::cout << "Server node started on port 12345\n";
+    std::cout << "Waiting for connections...\n";
+    std::cout << "========================================\n";
 
     // Запуск io_context (сеть)
     io.run();

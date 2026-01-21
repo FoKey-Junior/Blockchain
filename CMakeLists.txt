@@ -15,11 +15,46 @@ set(CMAKE_AUTORCC ON)
 find_package(PkgConfig REQUIRED)
 
 # libsodium
-pkg_check_modules(SODIUM REQUIRED libsodium)
-if(NOT SODIUM_FOUND)
-    # Fallback: пробуем найти через find_package
-    find_library(SODIUM_LIBRARIES NAMES sodium)
-    find_path(SODIUM_INCLUDE_DIRS NAMES sodium.h PATHS /usr/include /usr/local/include /opt/homebrew/include)
+pkg_check_modules(SODIUM libsodium)
+if(SODIUM_FOUND)
+    # Используем найденные значения из pkg-config
+    message(STATUS "Found libsodium via pkg-config")
+    message(STATUS "  Libraries: ${SODIUM_LIBRARIES}")
+    message(STATUS "  Library dirs: ${SODIUM_LIBRARY_DIRS}")
+    message(STATUS "  Include dirs: ${SODIUM_INCLUDE_DIRS}")
+    # Добавляем пути к библиотекам
+    if(SODIUM_LIBRARY_DIRS)
+        link_directories(${SODIUM_LIBRARY_DIRS})
+    endif()
+else()
+    # Fallback: пробуем найти вручную
+    message(STATUS "libsodium not found via pkg-config, searching manually...")
+    find_library(SODIUM_LIB_FOUND 
+        NAMES sodium libsodium
+        PATHS 
+            /opt/homebrew/lib
+            /usr/local/lib
+            /usr/lib
+    )
+    find_path(SODIUM_INCLUDE_FOUND 
+        NAMES sodium.h
+        PATHS 
+            /opt/homebrew/include
+            /usr/local/include
+            /usr/include
+    )
+    if(SODIUM_LIB_FOUND AND SODIUM_INCLUDE_FOUND)
+        set(SODIUM_LIBRARIES ${SODIUM_LIB_FOUND})
+        set(SODIUM_INCLUDE_DIRS ${SODIUM_INCLUDE_FOUND})
+        get_filename_component(SODIUM_LIBRARY_DIRS ${SODIUM_LIB_FOUND} DIRECTORY)
+        link_directories(${SODIUM_LIBRARY_DIRS})
+        message(STATUS "Found libsodium manually: ${SODIUM_LIBRARIES}")
+        set(SODIUM_FOUND TRUE)
+    else()
+        message(FATAL_ERROR "libsodium not found! Please install it:\n"
+            "  macOS: brew install libsodium\n"
+            "  Linux: apt-get install libsodium-dev")
+    endif()
 endif()
 
 # SQLite3
@@ -180,6 +215,7 @@ set(API_SOURCES
 # Общие include директории
 list(APPEND COMMON_INCLUDE_DIRS
     ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/windows
     ${CMAKE_CURRENT_BINARY_DIR}
     ${SODIUM_INCLUDE_DIRS}
     ${SQLite3_INCLUDE_DIRS}
@@ -218,6 +254,11 @@ if(APPLE)
         ${SODIUM_LIBRARIES}
         ${SQLite3_LIBRARIES}
     )
+    
+    # На macOS нужно явно указать пути к библиотекам
+    if(APPLE AND SODIUM_LIBRARY_DIRS)
+        target_link_directories(Blockchain PRIVATE ${SODIUM_LIBRARY_DIRS})
+    endif()
     
     if(QT_VERSION_MAJOR EQUAL 6)
         qt_finalize_executable(Blockchain)
