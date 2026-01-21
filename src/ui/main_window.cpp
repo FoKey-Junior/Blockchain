@@ -198,6 +198,24 @@ void MainWindow::update_blockchain_view() {
     const auto& chain = blockchain_to_show->get_chain();
     std::cout << "[MainWindow] Updating blockchain view, total blocks: " << chain.size() << "\n";
     
+    // Отладочная информация
+    if (chain.size() > 0) {
+        std::cout << "[MainWindow] First block address: ";
+        const unsigned char* first_addr = chain[0].get_address();
+        for (int i = 0; i < 8; ++i) {
+            printf("%02x", first_addr[i]);
+        }
+        std::cout << "...\n";
+        if (chain.size() > 1) {
+            std::cout << "[MainWindow] Last block address: ";
+            const unsigned char* last_addr = chain.back().get_address();
+            for (int i = 0; i < 8; ++i) {
+                printf("%02x", last_addr[i]);
+            }
+            std::cout << "...\n";
+        }
+    }
+    
     QString html1, html2;
     html1 += "<!DOCTYPE HTML><html><head><meta charset='utf-8'>";
     html1 += "<style>body { font-family: 'Segoe UI', Arial, sans-serif; padding: 10px; background: #000000; color: #ffffff; }</style>";
@@ -211,22 +229,10 @@ void MainWindow::update_blockchain_view() {
         html1 += "<div style='text-align: center; padding: 20px; color: #999;'>Блокчейн пуст</div>";
         html2 += "<div style='text-align: center; padding: 20px; color: #999;'>Блокчейн пуст</div>";
     } else {
-        // Разделяем блоки на две части
-        // Если блоков меньше 2, все идут в первый viewer
-        size_t mid = (chain.size() > 1) ? (chain.size() + 1) / 2 : chain.size();
-        
-        // Первая половина в blockchain_viewing_1
-        for (size_t i = 0; i < mid; ++i) {
+        // Оба QTextBrowser показывают одинаковый полный список всех блоков
+        for (size_t i = 0; i < chain.size(); ++i) {
             html1 += format_block_html(chain[i], i);
-        }
-        
-        // Вторая половина в blockchain_viewing_2
-        if (mid < chain.size()) {
-            for (size_t i = mid; i < chain.size(); ++i) {
-                html2 += format_block_html(chain[i], i);
-            }
-        } else {
-            html2 += "<div style='text-align: center; padding: 20px; color: #999;'>Продолжение блокчейна будет здесь</div>";
+            html2 += format_block_html(chain[i], i);
         }
     }
     
