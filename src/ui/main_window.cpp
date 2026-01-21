@@ -157,29 +157,29 @@ QString MainWindow::format_block_html(const Block& block, size_t index) const {
     time_stream << std::put_time(&tm_buf, "%H:%M %d.%m.%Y");
     QString time_str = QString::fromStdString(time_stream.str());
     
-    // Форматируем блок в красивый HTML
-    html += "<div style='margin-bottom: 15px; padding: 12px; border: 2px solid #4a90e2; border-radius: 8px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);'>";
-    html += "<div style='font-size: 14px; font-weight: bold; color: #2c3e50; margin-bottom: 8px;'>";
+    // Форматируем блок в красивый HTML с черным фоном и белым текстом
+    html += "<div style='margin-bottom: 15px; padding: 12px; border: 2px solid #555; border-radius: 8px; background: #1a1a1a;'>";
+    html += "<div style='font-size: 14px; font-weight: bold; color: #ffffff; margin-bottom: 8px;'>";
     html += "Блок #" + QString::number(index + 1);
     html += "</div>";
-    html += "<div style='font-size: 11px; color: #555; margin-bottom: 6px;'>";
-    html += "<strong>Адрес:</strong> <span style='font-family: monospace; color: #27ae60;'>" + block_address + "</span>";
+    html += "<div style='font-size: 11px; color: #cccccc; margin-bottom: 6px;'>";
+    html += "<strong>Адрес:</strong> <span style='font-family: monospace; color: #4ade80; word-break: break-all;'>" + block_address + "</span>";
     html += "</div>";
-    html += "<div style='font-size: 11px; color: #555; margin-bottom: 6px;'>";
-    html += "<strong>Отправитель:</strong> <span style='font-family: monospace; color: #3498db;'>" + sender_address.mid(0, 16) + "...</span>";
+    html += "<div style='font-size: 11px; color: #cccccc; margin-bottom: 6px;'>";
+    html += "<strong>Отправитель:</strong> <span style='font-family: monospace; color: #60a5fa; word-break: break-all;'>" + sender_address + "</span>";
     html += "</div>";
-    html += "<div style='font-size: 11px; color: #555; margin-bottom: 6px;'>";
-    html += "<strong>Получатель:</strong> <span style='font-family: monospace; color: #e74c3c;'>" + receiver_address.mid(0, 16) + "...</span>";
+    html += "<div style='font-size: 11px; color: #cccccc; margin-bottom: 6px;'>";
+    html += "<strong>Получатель:</strong> <span style='font-family: monospace; color: #f87171; word-break: break-all;'>" + receiver_address + "</span>";
     html += "</div>";
-    html += "<div style='font-size: 11px; color: #555; margin-bottom: 4px;'>";
-    html += "<strong>Время:</strong> <span style='color: #8e44ad;'>" + time_str + "</span>";
+    html += "<div style='font-size: 11px; color: #cccccc; margin-bottom: 4px;'>";
+    html += "<strong>Время:</strong> <span style='color: #a78bfa;'>" + time_str + "</span>";
     html += "</div>";
     
     // Показываем количество файлов
     const auto& files = block.get_files();
     if (!files.empty()) {
-        html += "<div style='font-size: 11px; color: #555;'>";
-        html += "<strong>Файлов в блоке:</strong> <span style='color: #16a085; font-weight: bold;'>" + QString::number(files.size()) + "</span>";
+        html += "<div style='font-size: 11px; color: #cccccc;'>";
+        html += "<strong>Файлов в блоке:</strong> <span style='color: #34d399; font-weight: bold;'>" + QString::number(files.size()) + "</span>";
         html += "</div>";
     }
     
@@ -196,35 +196,36 @@ void MainWindow::update_blockchain_view() {
     }
     
     const auto& chain = blockchain_to_show->get_chain();
+    std::cout << "[MainWindow] Updating blockchain view, total blocks: " << chain.size() << "\n";
     
     QString html1, html2;
     html1 += "<!DOCTYPE HTML><html><head><meta charset='utf-8'>";
-    html1 += "<style>body { font-family: 'Segoe UI', Arial, sans-serif; padding: 10px; background: #f8f9fa; }</style>";
+    html1 += "<style>body { font-family: 'Segoe UI', Arial, sans-serif; padding: 10px; background: #000000; color: #ffffff; }</style>";
     html1 += "</head><body>";
     
     html2 += "<!DOCTYPE HTML><html><head><meta charset='utf-8'>";
-    html2 += "<style>body { font-family: 'Segoe UI', Arial, sans-serif; padding: 10px; background: #f8f9fa; }</style>";
+    html2 += "<style>body { font-family: 'Segoe UI', Arial, sans-serif; padding: 10px; background: #000000; color: #ffffff; }</style>";
     html2 += "</head><body>";
-    
-    // Разделяем блоки на две части
-    size_t mid = chain.size() / 2;
     
     if (chain.empty()) {
         html1 += "<div style='text-align: center; padding: 20px; color: #999;'>Блокчейн пуст</div>";
         html2 += "<div style='text-align: center; padding: 20px; color: #999;'>Блокчейн пуст</div>";
     } else {
+        // Разделяем блоки на две части
+        // Если блоков меньше 2, все идут в первый viewer
+        size_t mid = (chain.size() > 1) ? (chain.size() + 1) / 2 : chain.size();
+        
         // Первая половина в blockchain_viewing_1
-        for (size_t i = 0; i < mid && i < chain.size(); ++i) {
+        for (size_t i = 0; i < mid; ++i) {
             html1 += format_block_html(chain[i], i);
         }
         
         // Вторая половина в blockchain_viewing_2
-        for (size_t i = mid; i < chain.size(); ++i) {
-            html2 += format_block_html(chain[i], i);
-        }
-        
-        // Если нет блоков во второй половине, показываем сообщение
-        if (mid >= chain.size()) {
+        if (mid < chain.size()) {
+            for (size_t i = mid; i < chain.size(); ++i) {
+                html2 += format_block_html(chain[i], i);
+            }
+        } else {
             html2 += "<div style='text-align: center; padding: 20px; color: #999;'>Продолжение блокчейна будет здесь</div>";
         }
     }

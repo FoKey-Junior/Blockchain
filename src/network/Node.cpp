@@ -176,7 +176,7 @@ void Node::handle_message(MessageType type, const std::vector<uint8_t>& payload)
         }
         case MessageType::NEW_BLOCK: {
             // Обрабатываем новый блок от другого майнера
-            std::cout << "[Node] Received NEW_BLOCK message from peer\n";
+            std::cout << "[Node] Received NEW_BLOCK message from peer, payload size: " << payload.size() << "\n";
             
             // В текущей реализации отправляется только адрес блока
             // Для полной синхронизации нужно будет отправлять полный блок
@@ -203,10 +203,17 @@ void Node::handle_message(MessageType type, const std::vector<uint8_t>& payload)
                 
                 // Вызываем callback для обновления UI
                 if (on_blockchain_updated) {
+                    std::cout << "[Node] Calling blockchain update callback...\n";
                     on_blockchain_updated();
+                } else {
+                    std::cout << "[Node] Warning: No blockchain update callback set!\n";
                 }
             } else {
-                std::cout << "[Node] Warning: Invalid block payload size or blockchain not set\n";
+                if (!blockchain) {
+                    std::cout << "[Node] Warning: Blockchain not set in Node\n";
+                } else {
+                    std::cout << "[Node] Warning: Invalid block payload size: " << payload.size() << " (expected at least " << crypto_generichash_BYTES << ")\n";
+                }
             }
             break;
         }
