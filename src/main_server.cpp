@@ -5,7 +5,6 @@
 #include "blockchain/Miner.h"
 #include "blockchain/User.h"
 #include "network/Node.h"
-#include "api/Api.h"
 
 int main() {
     // Инициализация libsodium

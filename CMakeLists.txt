@@ -137,10 +137,8 @@ elseif(UNIX AND NOT APPLE)
     set(BUILD_GUI OFF)
 endif()
 
-# Общие заголовки
+# Общие заголовки (без API, так как он требует Crow)
 set(COMMON_HEADERS
-    include/api/Api.h
-    include/api/ApiRegistry.h
     include/blockchain/User.h
     include/blockchain/Transaction.h
     include/blockchain/Miner.h
@@ -154,9 +152,14 @@ set(COMMON_HEADERS
     include/network/Node.h
 )
 
-# Общие источники
+# Заголовки API (только для macOS GUI версии)
+set(API_HEADERS
+    include/api/Api.h
+    include/api/ApiRegistry.h
+)
+
+# Общие источники (без Api.cpp, так как он требует Crow)
 set(COMMON_SOURCES
-    src/api/Api.cpp
     src/blockchain/User.cpp
     src/blockchain/Transaction.cpp
     src/blockchain/Miner.cpp
@@ -167,6 +170,11 @@ set(COMMON_SOURCES
     src/network/Peer.cpp
     src/network/CryptoUtils.cpp
     src/network/Node.cpp
+)
+
+# Источники с API (только для macOS GUI версии)
+set(API_SOURCES
+    src/api/Api.cpp
 )
 
 # Общие include директории
@@ -189,8 +197,15 @@ endif()
 
 # Собираем для macOS с GUI
 if(APPLE)
-    set(HEADERS ${GUI_HEADERS} ${COMMON_HEADERS})
-    set(SOURCES ${GUI_SOURCES} ${COMMON_SOURCES})
+    # Для macOS нужен API (требует Crow)
+    if(NOT CROW_INCLUDE_DIR)
+        message(FATAL_ERROR "Crow is required for macOS GUI version. Please install Crow:\n"
+            "  brew install crow\n"
+            "  or set CROW_ROOT environment variable")
+    endif()
+    
+    set(HEADERS ${GUI_HEADERS} ${COMMON_HEADERS} ${API_HEADERS})
+    set(SOURCES ${GUI_SOURCES} ${COMMON_SOURCES} ${API_SOURCES})
     
     add_executable(Blockchain ${SOURCES} ${HEADERS})
     
