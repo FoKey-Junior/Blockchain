@@ -1,8 +1,11 @@
 #include "../../include/network/Node.h"
 #include "../../include/blockchain/Transaction.h"
 #include "../../include/blockchain/Blockchain.h"
+#include "../../include/blockchain/Block.h"
 #include <iostream>
 #include <cstring>
+#include <unordered_map>
+#include <chrono>
 
 Node::Node(asio::io_context& io, uint16_t port,
            const unsigned char* pub_key, const unsigned char* priv_key) noexcept
@@ -187,14 +190,46 @@ void Node::handle_message(MessageType type, const std::vector<uint8_t>& payload)
                 const unsigned char* prev_addr = blockchain->last_block().get_address();
                 const unsigned char* received_prev_addr = new_block.get_previous_address();
                 
+                // Если в блокчейне только genesis блок (разные адреса клиента и сервера),
+                // добавляем genesis блок сервера и новый блок
                 if (std::memcmp(prev_addr, received_prev_addr, crypto_generichash_BYTES) != 0) {
-                    std::cout << "[Node] Warning: Block's previous address doesn't match last block in chain, skipping\n";
-                    break;
+                    if (blockchain->size() == 1) {
+                        // Синхронизируемся с сервером: добавляем genesis блок сервера и новый блок
+                        std::cout << "[Node] Syncing blockchain with server: adding server genesis block\n";
+                        
+                        // Создаем genesis блок сервера на основе previous_address нового блока
+                        unsigned char server_genesis_addr[crypto_generichash_BYTES];
+                        std::memcpy(server_genesis_addr, received_prev_addr, crypto_generichash_BYTES);
+                        
+                        std::unordered_map<std::string, FileMetadata> empty_files;
+                        auto genesis_time = std::chrono::system_clock::now() - std::chrono::hours(1);
+                        Block server_genesis(server_genesis_addr, server_genesis_addr, 
+                                           server_genesis_addr, server_genesis_addr, 
+                                           genesis_time, empty_files);
+                        
+                        // Добавляем genesis блок сервера и новый блок
+                        blockchain->add_block_direct(server_genesis);
+                        blockchain->add_block_direct(new_block);
+                        
+                        std::cout << "[Node] ✓ Blockchain synced with server! Total blocks: " << blockchain->size() << "\n";
+                    } else {
+                        std::cout << "[Node] Warning: Block's previous address doesn't match last block in chain, skipping\n";
+                        std::cout << "[Node] Current last block address: ";
+                        for (int i = 0; i < 8; ++i) {
+                            printf("%02x", prev_addr[i]);
+                        }
+                        std::cout << "\n[Node] Received previous address: ";
+                        for (int i = 0; i < 8; ++i) {
+                            printf("%02x", received_prev_addr[i]);
+                        }
+                        std::cout << "\n";
+                        break;
+                    }
+                } else {
+                    // Добавляем блок в блокчейн
+                    blockchain->add_block_direct(new_block);
+                    std::cout << "[Node] ✓ New block added to blockchain! Total blocks: " << blockchain->size() << "\n";
                 }
-                
-                // Добавляем блок в блокчейн
-                blockchain->add_block_direct(new_block);
-                std::cout << "[Node] ✓ New block added to blockchain! Total blocks: " << blockchain->size() << "\n";
                 
                 // Выводим информацию о блоке
                 std::cout << "[Node] Block address: ";
