@@ -1,12 +1,10 @@
 #include <sodium.h>
 #include <unordered_map>
-#include <iostream>
 #include <cstring>
 
 #include "../../include/blockchain/Transaction.h"
 #include "../../include/blockchain/Block.h"
 
-// Приватный конструктор для десериализации
 Transaction::Transaction(
     const unsigned char* address_,
     const unsigned char* signature_,

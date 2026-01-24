@@ -13,8 +13,8 @@ class Miner {
 private:
     std::vector<Transaction>& mempool;
     Blockchain* blockchain = nullptr;
-    std::mutex* mempool_mutex_ptr = nullptr; // Указатель на мьютекс из Node
-    Node* node_ptr = nullptr; // Указатель на Node для рассылки блоков
+    std::mutex* mempool_mutex_ptr = nullptr;
+    Node* node_ptr = nullptr;
 
 public:
     explicit Miner(std::vector<Transaction>& mempool_);

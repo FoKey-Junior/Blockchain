@@ -1476,7 +1476,7 @@ SQLite3_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: SQLite3_LIBRARY
 SQLite3_LIBRARY-ADVANCED:INTERNAL=1
 //CMAKE_INSTALL_PREFIX during last run
-_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/usr/local
+_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/tmp
 __pkg_config_arguments_PC_SQLite3:INTERNAL=QUIET;sqlite3
 __pkg_config_arguments_SODIUM:INTERNAL=libsodium
 __pkg_config_checked_PC_SQLite3:INTERNAL=1

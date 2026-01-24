@@ -15,7 +15,6 @@ class Transaction {
     unsigned char receiver[crypto_generichash_BYTES] = {};
     std::unordered_map<std::string, FileMetadata> files;
 
-    // Приватный конструктор для десериализации
     Transaction(
         const unsigned char* address_,
         const unsigned char* signature_,

@@ -56,7 +56,7 @@
        <enum>Qt::LayoutDirection::LeftToRight</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_1">
        <attribute name="title">
@@ -327,7 +327,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
           <number>15</number>
          </property>
          <property name="rightMargin">
-          <number>15</number>
+          <number>20</number>
          </property>
          <property name="bottomMargin">
           <number>15</number>

@@ -14,7 +14,7 @@ enum class MessageType : uint8_t {
     NEW_BLOCK,
     NEW_TX,
     PEER_LIST,
-    TX_PROCESSED  // Уведомление об обработке транзакции
+    TX_PROCESSED
 };
 
 struct Message {

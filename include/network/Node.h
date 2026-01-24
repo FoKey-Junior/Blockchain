@@ -31,20 +31,19 @@ private:
     std::vector<Transaction>* mempool = nullptr;
     Blockchain* blockchain = nullptr;
     Miner* miner = nullptr;
-    std::function<void()> on_blockchain_updated = nullptr;  // Callback при обновлении блокчейна
+    std::function<void()> on_blockchain_updated = nullptr;
 
     std::deque<std::vector<uint8_t>> mempool_;
     std::mutex mempool_mutex_;
     std::vector<PeerConnection> peers_;
     std::mutex peers_mutex_;
 
-    // Асинхронные внутренние методы
     void accept() noexcept;
     void handle_connection(std::shared_ptr<asio::ip::tcp::socket> socket) noexcept;
     void read_message(std::shared_ptr<asio::ip::tcp::socket> socket) noexcept;
     void handle_message(MessageType type, const std::vector<uint8_t>& payload) noexcept;
-    std::vector<uint8_t> serialize_message(const Message& msg) const noexcept;
-    Message deserialize_message(const std::vector<uint8_t>& buf) const noexcept;
+    [[nodiscard]] std::vector<uint8_t> serialize_message(const Message& msg) const noexcept;
+    [[nodiscard]] Message deserialize_message(const std::vector<uint8_t>& buf) const noexcept;
 
 public:
     Node(asio::io_context& io, uint16_t port,

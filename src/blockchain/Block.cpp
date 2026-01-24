@@ -21,13 +21,9 @@ Block::Block(
 std::vector<uint8_t> Block::serialize() const noexcept {
     std::vector<uint8_t> buf;
     
-    // Адрес блока
     buf.insert(buf.end(), address, address + crypto_generichash_BYTES);
-    // Адрес предыдущего блока
     buf.insert(buf.end(), previous_address, previous_address + crypto_generichash_BYTES);
-    // Адрес отправителя
     buf.insert(buf.end(), sender, sender + crypto_generichash_BYTES);
-    // Адрес получателя
     buf.insert(buf.end(), receiver, receiver + crypto_generichash_BYTES);
     
     // Время создания (как int64_t секунды с epoch)

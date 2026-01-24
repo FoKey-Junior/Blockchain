@@ -1,19 +1,19 @@
-#include "../../include/blockchain/Blockchain.h"
-#include <cstring>
-#include <chrono>
 #include <sodium.h>
+#include <chrono>
+
+#include "../../include/blockchain/Blockchain.h"
 
 Blockchain::Blockchain(const unsigned char* my_address) {
     std::unordered_map<std::string, FileMetadata> files;
-    auto now = std::chrono::system_clock::now();
+    const auto now = std::chrono::system_clock::now();
 
-    Block genesis(
-        my_address,  // address
-        my_address,  // previous_address
-        my_address,  // sender
-        my_address,  // receiver
-        now,         // time_creation
-        files        // files
+    const Block genesis(
+        my_address,
+        my_address,
+        my_address,
+        my_address,
+        now,
+        files
     );
 
     chain.push_back(genesis);
@@ -21,20 +21,18 @@ Blockchain::Blockchain(const unsigned char* my_address) {
 
 void Blockchain::add_block(const std::vector<Transaction>& transactions) {
     if (transactions.empty()) {
-        return; // Не создаем блок без транзакций
+        return;
     }
     
     auto now = std::chrono::system_clock::now();
     const unsigned char* prev_addr = chain.back().get_address();
     
-    // Собираем все файлы из транзакций
     std::unordered_map<std::string, FileMetadata> files;
     for (const auto& tx : transactions) {
         const auto& tx_files = tx.get_files();
         files.insert(tx_files.begin(), tx_files.end());
     }
     
-    // Генерируем адрес блока на основе предыдущего блока и транзакций
     unsigned char block_address[crypto_generichash_BYTES];
     crypto_generichash_state state;
     crypto_generichash_init(&state, nullptr, 0, crypto_generichash_BYTES);
@@ -45,15 +43,14 @@ void Blockchain::add_block(const std::vector<Transaction>& transactions) {
     }
     crypto_generichash_final(&state, block_address, crypto_generichash_BYTES);
     
-    // Используем данные из первой транзакции для sender и receiver
     const unsigned char* sender_addr = transactions[0].get_sender();
     const unsigned char* receiver_addr = transactions[0].get_receiver();
     
     Block new_block(
-        block_address,   // address - новый хеш на основе предыдущего блока и транзакций
-        prev_addr,       // previous_address
-        sender_addr,     // sender из первой транзакции
-        receiver_addr,   // receiver из первой транзакции
+        block_address,
+        prev_addr,
+        sender_addr,
+        receiver_addr,
         now,
         files
     );
@@ -65,7 +62,7 @@ void Blockchain::add_block_direct(const Block& block) {
     chain.push_back(block);
 }
 
-bool Blockchain::validate_chain() const {
+bool Blockchain::validate_chain() {
     return true;
 }
 

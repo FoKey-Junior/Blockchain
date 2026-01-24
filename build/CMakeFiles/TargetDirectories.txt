@@ -1,0 +1,5 @@
+/Users/dmitrij/projects/blockchain/build/CMakeFiles/Blockchain.dir
+/Users/dmitrij/projects/blockchain/build/CMakeFiles/edit_cache.dir
+/Users/dmitrij/projects/blockchain/build/CMakeFiles/rebuild_cache.dir
+/Users/dmitrij/projects/blockchain/build/CMakeFiles/Blockchain_autogen_timestamp_deps.dir
+/Users/dmitrij/projects/blockchain/build/CMakeFiles/Blockchain_autogen.dir
