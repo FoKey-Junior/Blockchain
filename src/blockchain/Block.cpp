@@ -84,7 +84,6 @@ std::optional<Block> Block::deserialize(const std::vector<uint8_t>& data) noexce
     std::memcpy(&file_count, data.data() + offset, sizeof(uint32_t));
     offset += sizeof(uint32_t);
     
-    // Файлы
     std::unordered_map<std::string, FileMetadata> files_map;
     for (uint32_t i = 0; i < file_count; ++i) {
         if (offset + crypto_hash_sha256_BYTES > data.size()) {
