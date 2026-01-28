@@ -1,6 +1,9 @@
 #include "../../include/network/Node.h"
 #include "../../include/blockchain/Transaction.h"
 #include "../../include/blockchain/Blockchain.h"
+#include "../../include/network/CryptoUtils.h"
+
+#include <sodium.h>
 #include <iostream>
 #include <cstring>
 
@@ -9,8 +12,8 @@ Node::Node(asio::io_context& io, uint16_t port,
     : io_context_(io),
       acceptor_(io, asio::ip::tcp::endpoint(asio::ip::tcp::v4(), port))
 {
-    std::memcpy(pub_key_, pub_key, crypto_sign_PUBLICKEYBYTES);
-    std::memcpy(priv_key_, priv_key, crypto_sign_SECRETKEYBYTES);
+    std::memcpy(public_key_, pub_key, crypto_sign_PUBLICKEYBYTES);
+    std::memcpy(private_key_, priv_key, crypto_sign_SECRETKEYBYTES);
 }
 
 void Node::start() noexcept {
@@ -27,8 +30,8 @@ void Node::accept() noexcept {
                       << socket->remote_endpoint().port() << "\n";
             
             // Добавляем нового клиента в список пиров
-            Peer peer(socket->remote_endpoint().address().to_string(), 
-                     socket->remote_endpoint().port(), pub_key_);
+            Peer peer(socket->remote_endpoint().address().to_string(),
+                     socket->remote_endpoint().port(), public_key_);
             std::lock_guard<std::mutex> lock(peers_mutex_);
             peers_.push_back(PeerConnection{peer, socket});
             std::cout << "[Node] Client added to peers list, total peers: " << peers_.size() << "\n";
@@ -83,7 +86,7 @@ void Node::connect_to_peer(const std::string& ip, uint16_t port) noexcept {
     asio::ip::tcp::endpoint ep(asio::ip::make_address(ip), port);
     socket->async_connect(ep, [this, socket, ip, port](auto ec){
         if (!ec) {
-            Peer peer(ip, port, pub_key_);
+            Peer peer(ip, port, public_key_);
             std::lock_guard<std::mutex> lock(peers_mutex_);
             peers_.push_back(PeerConnection{peer, socket});
             handle_connection(socket);
@@ -140,8 +143,8 @@ void Node::process_mempool() noexcept {
 
         Message msg;
         msg.type = MessageType::NEW_TX;
-        std::memcpy(msg.sender_pub_key.data(), pub_key_, crypto_sign_PUBLICKEYBYTES);
-        msg.payload = CryptoUtils::sign_message(tx, priv_key_);
+        std::memcpy(msg.sender_pub_key.data(), public_key_, crypto_sign_PUBLICKEYBYTES);
+        msg.payload = CryptoUtils::sign_message(tx, private_key_);
 
         std::cout << "[Node] Broadcasting NEW_TX message to peers...\n";
         broadcast_message(msg);
@@ -280,7 +283,7 @@ void Node::connect_to_server(const std::string& host, uint16_t port) noexcept {
         [this, socket, host, port](const std::error_code& ec, const asio::ip::tcp::endpoint&) {
             if (!ec) {
                 // Добавляем сервер в список пиров, чтобы можно было отправлять ему сообщения
-                Peer peer(host, port, pub_key_);
+                Peer peer(host, port, public_key_);
                 std::lock_guard<std::mutex> lock(peers_mutex_);
                 peers_.push_back(PeerConnection{peer, socket});
                 std::cout << "[Node] Connected to server " << host << ":" << port << "\n";
@@ -300,8 +303,8 @@ void Node::broadcast_block(const Block& block) noexcept {
     
     Message msg;
     msg.type = MessageType::NEW_BLOCK;
-    std::memcpy(msg.sender_pub_key.data(), pub_key_, crypto_sign_PUBLICKEYBYTES);
-    msg.payload = CryptoUtils::sign_message(block_data, priv_key_);
+    std::memcpy(msg.sender_pub_key.data(), public_key_, crypto_sign_PUBLICKEYBYTES);
+    msg.payload = CryptoUtils::sign_message(block_data, private_key_);
     
     broadcast_message(msg);
     std::cout << "[Node] Broadcasted new block (serialized size: " << block_data.size() << " bytes)\n";
@@ -321,8 +324,8 @@ void Node::notify_tx_processed(const std::vector<Transaction>& txs) noexcept {
         
         Message msg;
         msg.type = MessageType::TX_PROCESSED;
-        std::memcpy(msg.sender_pub_key.data(), pub_key_, crypto_sign_PUBLICKEYBYTES);
-        msg.payload = CryptoUtils::sign_message(tx_data, priv_key_);
+        std::memcpy(msg.sender_pub_key.data(), public_key_, crypto_sign_PUBLICKEYBYTES);
+        msg.payload = CryptoUtils::sign_message(tx_data, private_key_);
         
         // Отправляем уведомление всем подключенным пирам (клиентам и майнерам)
         std::lock_guard<std::mutex> lock(peers_mutex_);

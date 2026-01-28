@@ -7,14 +7,12 @@
 #include "../blockchain/Block.h"
 #include "Peer.h"
 #include "Message.h"
-#include "CryptoUtils.h"
 
 #include <asio.hpp>
 #include <vector>
 #include <deque>
 #include <mutex>
 #include <memory>
-#include <algorithm>
 
 struct PeerConnection {
     Peer peer;
@@ -25,8 +23,8 @@ class Node {
 private:
     asio::io_context& io_context_;
     asio::ip::tcp::acceptor acceptor_;
-    unsigned char pub_key_[crypto_sign_PUBLICKEYBYTES]{};
-    unsigned char priv_key_[crypto_sign_SECRETKEYBYTES]{};
+    unsigned char public_key_[crypto_sign_PUBLICKEYBYTES]{};
+    unsigned char private_key_[crypto_sign_SECRETKEYBYTES]{};
 
     std::vector<Transaction>* mempool = nullptr;
     Blockchain* blockchain = nullptr;
@@ -47,7 +45,7 @@ private:
 
 public:
     Node(asio::io_context& io, uint16_t port,
-         const unsigned char* pub_key, const unsigned char* priv_key) noexcept;
+         const unsigned char* public_key, const unsigned char* private_key) noexcept;
 
     void set_mempool(std::vector<Transaction>* m) { 
         mempool = m; 
@@ -56,9 +54,9 @@ public:
         }
     }
     void set_blockchain(Blockchain* bc) { blockchain = bc; }
-    void set_on_blockchain_updated(std::function<void()> callback) { on_blockchain_updated = callback; }
+    void set_on_blockchain_updated(std::function<void()> callback) { on_blockchain_updated = std::move(callback); }
     void set_miner(Miner* m) { 
-        miner = m; 
+        miner = m;
         if (m) {
             m->set_node(this);
             m->set_mempool_mutex(&mempool_mutex_);
@@ -77,7 +75,7 @@ public:
     void broadcast_block(const Block& block) noexcept;
     void notify_tx_processed(const std::vector<Transaction>& txs) noexcept;
     std::mutex* get_mempool_mutex() { return &mempool_mutex_; }
-    Blockchain* get_blockchain() { return blockchain; }
+    [[nodiscard]] Blockchain* get_blockchain() const { return blockchain; }
 };
 
 #endif

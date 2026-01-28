@@ -16,10 +16,10 @@ public:
     std::chrono::system_clock::time_point time_creation;
 
     User();
-    const unsigned char* get_private_key() const { return private_key; }
-    const unsigned char* get_public_key() const { return public_key; }
-    const unsigned char* get_address_bytes() const { return address_bytes; }
-    const std::string& get_address() const { return address; }
+    [[nodiscard]] const unsigned char* get_private_key() const { return private_key; }
+    [[nodiscard]] const unsigned char* get_public_key() const { return public_key; }
+    [[nodiscard]] const unsigned char* get_address_bytes() const { return address_bytes; }
+    [[nodiscard]] const std::string& get_address() const { return address; }
     void print_wallet_data() const;
     ~User();
 };

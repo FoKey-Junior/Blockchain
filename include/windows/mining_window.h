@@ -3,7 +3,6 @@
 
 #include <QMainWindow>
 
-#include "../../include/blockchain/User.h"
 #include "../../include/blockchain/Blockchain.h"
 #include "../../include/blockchain/Miner.h"
 #include "../../include/blockchain/Transaction.h"
@@ -21,7 +20,7 @@ class MiningWindow : public QMainWindow
 
 public:
     MiningWindow(QWidget *parent = nullptr);
-    ~MiningWindow();
+    ~MiningWindow() override;
 
 private:
     Ui::MiningWindow *ui;

@@ -9,7 +9,6 @@
 #include "../../include/blockchain/User.h"
 #include "../../include/blockchain/Blockchain.h"
 #include "../../include/network/Node.h"
-#include <QTimer>
 
 namespace Ui {
     class MainWindow;
@@ -37,7 +36,7 @@ private:
     QTimer* blockchain_update_timer;
     
     void update_blockchain_view();
-    QString format_block_html(const Block& block, size_t index) const;
+    [[nodiscard]] QString format_block_html(const Block& block, size_t index) const;
     QString address_to_hex(const unsigned char* addr, size_t len) const;
 
 private slots:

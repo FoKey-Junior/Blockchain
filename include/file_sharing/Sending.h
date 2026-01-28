@@ -1,5 +1,5 @@
-#ifndef BLOCKCHAIN_SENDINGFILE_H
-#define BLOCKCHAIN_SENDINGFILE_H
+#ifndef BLOCKCHAIN_SENDING_H
+#define BLOCKCHAIN_SENDING_H
 
 #include <sodium.h>
 #include <string>

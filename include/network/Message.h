@@ -2,8 +2,6 @@
 #define BLOCKCHAIN_MESSAGE_H
 
 
-#include "sodium.h"
-#include <cstdint>
 #include <vector>
 #include <array>
 

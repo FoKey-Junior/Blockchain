@@ -3,7 +3,6 @@
 
 #include <deque>
 #include <mutex>
-#include <ranges>
 #include <optional>
 #include <sodium.h>
 #include "Transaction.h"

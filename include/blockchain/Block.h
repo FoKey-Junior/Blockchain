@@ -1,7 +1,9 @@
 #ifndef BLOCKCHAIN_BLOCK_H
 #define BLOCKCHAIN_BLOCK_H
 
+
 #include <sodium.h>
+#include <cstring>
 #include <unordered_map>
 #include <chrono>
 #include <array>
@@ -12,6 +14,20 @@
 struct FileMetadata {
     std::array<unsigned char, crypto_hash_sha256_BYTES> content;
 };
+
+static bool read_bytes(
+    const std::vector<uint8_t>& data,
+    size_t& offset,
+    void* dst,
+    size_t size
+) {
+    if (offset + size > data.size()) {
+        return false;
+    }
+    std::memcpy(dst, data.data() + offset, size);
+    offset += size;
+    return true;
+}
 
 class Block {
 private:
@@ -30,13 +46,13 @@ public:
           std::chrono::system_clock::time_point time_creation_,
           const std::unordered_map<std::string, FileMetadata>& files_);
 
-    const unsigned char* get_address() const { return address; }
-    const unsigned char* get_previous_address() const { return previous_address; }
-    const unsigned char* get_sender() const { return sender; }
-    const unsigned char* get_receiver() const { return receiver; }
-    const std::unordered_map<std::string, FileMetadata>& get_files() const { return files; }
-    const std::chrono::system_clock::time_point& get_time() const { return time_creation; }
-    
+    [[nodiscard]] const unsigned char* get_address() const { return address; }
+    [[nodiscard]] const unsigned char* get_previous_address() const { return previous_address; }
+    [[nodiscard]] const unsigned char* get_sender() const { return sender; }
+    [[nodiscard]] const unsigned char* get_receiver() const { return receiver; }
+    [[nodiscard]] const std::unordered_map<std::string, FileMetadata>& get_files() const { return files; }
+    [[nodiscard]] const std::chrono::system_clock::time_point& get_time() const { return time_creation; }
+
     [[nodiscard]] std::vector<uint8_t> serialize() const noexcept;
     static std::optional<Block> deserialize(const std::vector<uint8_t>& data) noexcept;
 };

@@ -1,3 +1,4 @@
+#include <sodium.h>
 #include "../../include/network/CryptoUtils.h"
 
 std::vector<uint8_t> CryptoUtils::sign_message(const std::vector<uint8_t>& msg, const unsigned char* priv_key) {

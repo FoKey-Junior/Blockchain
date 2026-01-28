@@ -1,6 +1,7 @@
 #ifndef BLOCKCHAIN_TRANSACTION_H
 #define BLOCKCHAIN_TRANSACTION_H
 
+#include <sodium.h>
 #include <unordered_map>
 #include <chrono>
 #include <vector>
