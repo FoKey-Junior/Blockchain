@@ -27,13 +27,17 @@ Transaction::Transaction(
 
     std::memcpy(this->sender, sender_, crypto_generichash_BYTES);
     std::memcpy(this->receiver, receiver_, crypto_generichash_BYTES);
+    time_creation = std::chrono::system_clock::now();
 
+    // Адрес = хеш(sender, receiver, time), чтобы каждая отправка была уникальной
+    auto time_ns = std::chrono::duration_cast<std::chrono::nanoseconds>(
+        time_creation.time_since_epoch()).count();
     crypto_generichash_state state;
     crypto_generichash_init(&state, nullptr, 0, crypto_generichash_BYTES);
     crypto_generichash_update(&state, this->sender, crypto_generichash_BYTES);
     crypto_generichash_update(&state, this->receiver, crypto_generichash_BYTES);
+    crypto_generichash_update(&state, reinterpret_cast<const unsigned char*>(&time_ns), sizeof(time_ns));
     crypto_generichash_final(&state, this->address, crypto_generichash_BYTES);
-    time_creation = std::chrono::system_clock::now();
 }
 
 Transaction::~Transaction() {

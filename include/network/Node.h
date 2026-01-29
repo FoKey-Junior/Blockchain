@@ -12,6 +12,8 @@
 #include <vector>
 #include <deque>
 #include <mutex>
+#include <condition_variable>
+#include <chrono>
 #include <memory>
 
 struct PeerConnection {
@@ -33,6 +35,7 @@ private:
 
     std::deque<std::vector<uint8_t>> mempool_;
     std::mutex mempool_mutex_;
+    std::condition_variable mempool_cv_;
     std::vector<PeerConnection> peers_;
     std::mutex peers_mutex_;
 
@@ -74,6 +77,10 @@ public:
     void connect_to_server(const std::string& host, uint16_t port) noexcept;
     void broadcast_block(const Block& block) noexcept;
     void notify_tx_processed(const std::vector<Transaction>& txs) noexcept;
+    /** Разбудить майнер при появлении транзакций (вызывать с захваченным mempool_mutex_). */
+    void notify_mempool_changed() noexcept;
+    /** Ждать уведомления или таймаут (lock должен быть mempool_mutex_). */
+    void wait_for_mempool(std::unique_lock<std::mutex>& lock, std::chrono::milliseconds timeout) noexcept;
     std::mutex* get_mempool_mutex() { return &mempool_mutex_; }
     [[nodiscard]] Blockchain* get_blockchain() const { return blockchain; }
 };

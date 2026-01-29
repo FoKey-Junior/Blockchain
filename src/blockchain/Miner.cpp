@@ -14,7 +14,18 @@ void Miner::start_mining() {
         while (true) {
             std::vector<Transaction> txs;
             {
-                if (mempool_mutex_ptr) {
+                if (mempool_mutex_ptr && node_ptr) {
+                    std::unique_lock<std::mutex> lock(*mempool_mutex_ptr);
+                    while (mempool.empty()) {
+                        node_ptr->wait_for_mempool(lock, std::chrono::milliseconds(200));
+                    }
+                    if (!mempool.empty()) {
+                        std::cout << "[Miner] Found " << mempool.size() << " transaction(s) in mempool\n";
+                        txs = mempool;
+                        mempool.clear();
+                        std::cout << "[Miner] Mempool cleared, starting block creation\n";
+                    }
+                } else if (mempool_mutex_ptr) {
                     std::lock_guard<std::mutex> lock(*mempool_mutex_ptr);
                     if (!mempool.empty()) {
                         std::cout << "[Miner] Found " << mempool.size() << " transaction(s) in mempool\n";
@@ -23,7 +34,6 @@ void Miner::start_mining() {
                         std::cout << "[Miner] Mempool cleared, starting block creation\n";
                     }
                 } else {
-                    // Если мьютекс не установлен, используем небезопасный доступ (для обратной совместимости)
                     if (!mempool.empty()) {
                         std::cout << "[Miner] Found " << mempool.size() << " transaction(s) in mempool (no mutex)\n";
                         txs = mempool;

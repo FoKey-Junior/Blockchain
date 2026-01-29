@@ -135,6 +135,14 @@ void Node::add_transaction(const std::vector<uint8_t>& tx) noexcept {
     process_mempool();
 }
 
+void Node::notify_mempool_changed() noexcept {
+    mempool_cv_.notify_one();
+}
+
+void Node::wait_for_mempool(std::unique_lock<std::mutex>& lock, std::chrono::milliseconds timeout) noexcept {
+    mempool_cv_.wait_for(lock, timeout);
+}
+
 // Обработка мемпула - рассылка транзакций другим пирам
 void Node::process_mempool() noexcept {
     while (!mempool_.empty()) {
@@ -172,6 +180,7 @@ void Node::handle_message(MessageType type, const std::vector<uint8_t>& payload)
                 }
                 if (!exists) {
                     mempool->push_back(tx_opt.value());
+                    mempool_cv_.notify_one();
                     std::cout << "[Node] ✓ New transaction received and added to mempool\n";
                     std::cout << "[Node] Transaction will be processed by miner shortly...\n";
                 } else {
