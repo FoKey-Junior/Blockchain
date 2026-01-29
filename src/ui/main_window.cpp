@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent)
     , io_context()
     , node(
         io_context,
-        12345, // локальный порт клиента (можно любой свободный)
+        8546, // локальный порт клиента (можно любой свободный)
         user.get_public_key(),
         user.get_private_key()
       )
@@ -55,7 +55,7 @@ MainWindow::MainWindow(QWidget *parent)
     }).detach();
 
     // Подключаемся к серверу через публичный метод Node
-    node.connect_to_server("213.176.117.68", 12345);
+    node.connect_to_server("213.176.117.68", 8546);
 
     // Настройка таймера для обновления отображения блокчейна
     blockchain_update_timer = new QTimer(this);

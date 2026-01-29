@@ -19,7 +19,7 @@ int main() {
     }
 
     asio::io_context io;
-    Node node(io, 12345, miner_user.get_public_key(), miner_user.get_private_key());
+    Node node(io, 30334, miner_user.get_public_key(), miner_user.get_private_key());
     node.set_mempool(&mempool_vec);
     node.set_blockchain(&blockchain);
     node.set_miner(&miner);

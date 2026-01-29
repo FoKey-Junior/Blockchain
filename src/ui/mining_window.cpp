@@ -22,7 +22,7 @@ MiningWindow::MiningWindow(QWidget *parent)
     User miner_user;
 
     io_context = std::make_unique<asio::io_context>();
-    node = std::make_unique<Node>(*io_context, 12345, miner_user.get_public_key(), miner_user.get_private_key());
+    node = std::make_unique<Node>(*io_context, 30334, miner_user.get_public_key(), miner_user.get_private_key());
 
     mempool_vec = std::make_unique<std::vector<Transaction>>();
     blockchain = std::make_unique<Blockchain>(miner_user.get_address_bytes());
@@ -42,7 +42,7 @@ MiningWindow::MiningWindow(QWidget *parent)
     std::thread([this]() {
         std::this_thread::sleep_for(std::chrono::seconds(1)); // Ждем запуска API
         // Регистрируем майнера локально (можно также отправить HTTP запрос)
-        ApiRegistry::register_miner("127.0.0.1", 12345);
+        ApiRegistry::register_miner("127.0.0.1", 30334);
         std::cout << "[MiningWindow] Miner registered in API\n";
     }).detach();
 
