@@ -20,7 +20,7 @@ void Node::start() noexcept {
     accept();
 }
 
-// Асинхронный accept
+ // Асинхронный accept
 void Node::accept() noexcept {
     auto socket = std::make_shared<asio::ip::tcp::socket>(io_context_);
     acceptor_.async_accept(*socket, [this, socket](auto ec) {
