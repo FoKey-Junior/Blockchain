@@ -185,6 +185,7 @@ set(COMMON_HEADERS
     include/network/Message.h
     include/network/CryptoUtils.h
     include/network/Node.h
+    include/network/PortUtils.h
 )
 
 # Заголовки API (только для macOS GUI версии)

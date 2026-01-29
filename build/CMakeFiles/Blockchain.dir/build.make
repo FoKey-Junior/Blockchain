@@ -53,10 +53,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/dmitrij/projects/blockchain
+CMAKE_SOURCE_DIR = /Users/dmitrij/projects/Blockchain
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/dmitrij/projects/blockchain/build
+CMAKE_BINARY_DIR = /Users/dmitrij/projects/Blockchain/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Blockchain.dir/depend.make
@@ -75,226 +75,226 @@ CMakeFiles/Blockchain.dir/codegen:
 CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.o: CMakeFiles/Blockchain.dir/flags.make
 CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.o: Blockchain_autogen/mocs_compilation.cpp
 CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.o: CMakeFiles/Blockchain.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.o -MF CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.o -c /Users/dmitrij/projects/blockchain/build/Blockchain_autogen/mocs_compilation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/Blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.o -MF CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.o -c /Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/mocs_compilation.cpp
 
 CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/blockchain/build/Blockchain_autogen/mocs_compilation.cpp > CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/mocs_compilation.cpp > CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.i
 
 CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/blockchain/build/Blockchain_autogen/mocs_compilation.cpp -o CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/mocs_compilation.cpp -o CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.s
 
 CMakeFiles/Blockchain.dir/src/main.cpp.o: CMakeFiles/Blockchain.dir/flags.make
-CMakeFiles/Blockchain.dir/src/main.cpp.o: /Users/dmitrij/projects/blockchain/src/main.cpp
+CMakeFiles/Blockchain.dir/src/main.cpp.o: /Users/dmitrij/projects/Blockchain/src/main.cpp
 CMakeFiles/Blockchain.dir/src/main.cpp.o: CMakeFiles/Blockchain.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Blockchain.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/main.cpp.o -MF CMakeFiles/Blockchain.dir/src/main.cpp.o.d -o CMakeFiles/Blockchain.dir/src/main.cpp.o -c /Users/dmitrij/projects/blockchain/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/Blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Blockchain.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/main.cpp.o -MF CMakeFiles/Blockchain.dir/src/main.cpp.o.d -o CMakeFiles/Blockchain.dir/src/main.cpp.o -c /Users/dmitrij/projects/Blockchain/src/main.cpp
 
 CMakeFiles/Blockchain.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Blockchain.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/blockchain/src/main.cpp > CMakeFiles/Blockchain.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/Blockchain/src/main.cpp > CMakeFiles/Blockchain.dir/src/main.cpp.i
 
 CMakeFiles/Blockchain.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Blockchain.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/blockchain/src/main.cpp -o CMakeFiles/Blockchain.dir/src/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/Blockchain/src/main.cpp -o CMakeFiles/Blockchain.dir/src/main.cpp.s
 
 CMakeFiles/Blockchain.dir/src/ui/start_window.cpp.o: CMakeFiles/Blockchain.dir/flags.make
-CMakeFiles/Blockchain.dir/src/ui/start_window.cpp.o: /Users/dmitrij/projects/blockchain/src/ui/start_window.cpp
+CMakeFiles/Blockchain.dir/src/ui/start_window.cpp.o: /Users/dmitrij/projects/Blockchain/src/ui/start_window.cpp
 CMakeFiles/Blockchain.dir/src/ui/start_window.cpp.o: CMakeFiles/Blockchain.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Blockchain.dir/src/ui/start_window.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/ui/start_window.cpp.o -MF CMakeFiles/Blockchain.dir/src/ui/start_window.cpp.o.d -o CMakeFiles/Blockchain.dir/src/ui/start_window.cpp.o -c /Users/dmitrij/projects/blockchain/src/ui/start_window.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/Blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Blockchain.dir/src/ui/start_window.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/ui/start_window.cpp.o -MF CMakeFiles/Blockchain.dir/src/ui/start_window.cpp.o.d -o CMakeFiles/Blockchain.dir/src/ui/start_window.cpp.o -c /Users/dmitrij/projects/Blockchain/src/ui/start_window.cpp
 
 CMakeFiles/Blockchain.dir/src/ui/start_window.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Blockchain.dir/src/ui/start_window.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/blockchain/src/ui/start_window.cpp > CMakeFiles/Blockchain.dir/src/ui/start_window.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/Blockchain/src/ui/start_window.cpp > CMakeFiles/Blockchain.dir/src/ui/start_window.cpp.i
 
 CMakeFiles/Blockchain.dir/src/ui/start_window.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Blockchain.dir/src/ui/start_window.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/blockchain/src/ui/start_window.cpp -o CMakeFiles/Blockchain.dir/src/ui/start_window.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/Blockchain/src/ui/start_window.cpp -o CMakeFiles/Blockchain.dir/src/ui/start_window.cpp.s
 
 CMakeFiles/Blockchain.dir/src/ui/main_window.cpp.o: CMakeFiles/Blockchain.dir/flags.make
-CMakeFiles/Blockchain.dir/src/ui/main_window.cpp.o: /Users/dmitrij/projects/blockchain/src/ui/main_window.cpp
+CMakeFiles/Blockchain.dir/src/ui/main_window.cpp.o: /Users/dmitrij/projects/Blockchain/src/ui/main_window.cpp
 CMakeFiles/Blockchain.dir/src/ui/main_window.cpp.o: CMakeFiles/Blockchain.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Blockchain.dir/src/ui/main_window.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/ui/main_window.cpp.o -MF CMakeFiles/Blockchain.dir/src/ui/main_window.cpp.o.d -o CMakeFiles/Blockchain.dir/src/ui/main_window.cpp.o -c /Users/dmitrij/projects/blockchain/src/ui/main_window.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/Blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Blockchain.dir/src/ui/main_window.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/ui/main_window.cpp.o -MF CMakeFiles/Blockchain.dir/src/ui/main_window.cpp.o.d -o CMakeFiles/Blockchain.dir/src/ui/main_window.cpp.o -c /Users/dmitrij/projects/Blockchain/src/ui/main_window.cpp
 
 CMakeFiles/Blockchain.dir/src/ui/main_window.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Blockchain.dir/src/ui/main_window.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/blockchain/src/ui/main_window.cpp > CMakeFiles/Blockchain.dir/src/ui/main_window.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/Blockchain/src/ui/main_window.cpp > CMakeFiles/Blockchain.dir/src/ui/main_window.cpp.i
 
 CMakeFiles/Blockchain.dir/src/ui/main_window.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Blockchain.dir/src/ui/main_window.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/blockchain/src/ui/main_window.cpp -o CMakeFiles/Blockchain.dir/src/ui/main_window.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/Blockchain/src/ui/main_window.cpp -o CMakeFiles/Blockchain.dir/src/ui/main_window.cpp.s
 
 CMakeFiles/Blockchain.dir/src/ui/mining_window.cpp.o: CMakeFiles/Blockchain.dir/flags.make
-CMakeFiles/Blockchain.dir/src/ui/mining_window.cpp.o: /Users/dmitrij/projects/blockchain/src/ui/mining_window.cpp
+CMakeFiles/Blockchain.dir/src/ui/mining_window.cpp.o: /Users/dmitrij/projects/Blockchain/src/ui/mining_window.cpp
 CMakeFiles/Blockchain.dir/src/ui/mining_window.cpp.o: CMakeFiles/Blockchain.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Blockchain.dir/src/ui/mining_window.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/ui/mining_window.cpp.o -MF CMakeFiles/Blockchain.dir/src/ui/mining_window.cpp.o.d -o CMakeFiles/Blockchain.dir/src/ui/mining_window.cpp.o -c /Users/dmitrij/projects/blockchain/src/ui/mining_window.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/Blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Blockchain.dir/src/ui/mining_window.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/ui/mining_window.cpp.o -MF CMakeFiles/Blockchain.dir/src/ui/mining_window.cpp.o.d -o CMakeFiles/Blockchain.dir/src/ui/mining_window.cpp.o -c /Users/dmitrij/projects/Blockchain/src/ui/mining_window.cpp
 
 CMakeFiles/Blockchain.dir/src/ui/mining_window.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Blockchain.dir/src/ui/mining_window.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/blockchain/src/ui/mining_window.cpp > CMakeFiles/Blockchain.dir/src/ui/mining_window.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/Blockchain/src/ui/mining_window.cpp > CMakeFiles/Blockchain.dir/src/ui/mining_window.cpp.i
 
 CMakeFiles/Blockchain.dir/src/ui/mining_window.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Blockchain.dir/src/ui/mining_window.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/blockchain/src/ui/mining_window.cpp -o CMakeFiles/Blockchain.dir/src/ui/mining_window.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/Blockchain/src/ui/mining_window.cpp -o CMakeFiles/Blockchain.dir/src/ui/mining_window.cpp.s
 
 CMakeFiles/Blockchain.dir/src/blockchain/User.cpp.o: CMakeFiles/Blockchain.dir/flags.make
-CMakeFiles/Blockchain.dir/src/blockchain/User.cpp.o: /Users/dmitrij/projects/blockchain/src/blockchain/User.cpp
+CMakeFiles/Blockchain.dir/src/blockchain/User.cpp.o: /Users/dmitrij/projects/Blockchain/src/blockchain/User.cpp
 CMakeFiles/Blockchain.dir/src/blockchain/User.cpp.o: CMakeFiles/Blockchain.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Blockchain.dir/src/blockchain/User.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/blockchain/User.cpp.o -MF CMakeFiles/Blockchain.dir/src/blockchain/User.cpp.o.d -o CMakeFiles/Blockchain.dir/src/blockchain/User.cpp.o -c /Users/dmitrij/projects/blockchain/src/blockchain/User.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/Blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Blockchain.dir/src/blockchain/User.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/blockchain/User.cpp.o -MF CMakeFiles/Blockchain.dir/src/blockchain/User.cpp.o.d -o CMakeFiles/Blockchain.dir/src/blockchain/User.cpp.o -c /Users/dmitrij/projects/Blockchain/src/blockchain/User.cpp
 
 CMakeFiles/Blockchain.dir/src/blockchain/User.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Blockchain.dir/src/blockchain/User.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/blockchain/src/blockchain/User.cpp > CMakeFiles/Blockchain.dir/src/blockchain/User.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/Blockchain/src/blockchain/User.cpp > CMakeFiles/Blockchain.dir/src/blockchain/User.cpp.i
 
 CMakeFiles/Blockchain.dir/src/blockchain/User.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Blockchain.dir/src/blockchain/User.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/blockchain/src/blockchain/User.cpp -o CMakeFiles/Blockchain.dir/src/blockchain/User.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/Blockchain/src/blockchain/User.cpp -o CMakeFiles/Blockchain.dir/src/blockchain/User.cpp.s
 
 CMakeFiles/Blockchain.dir/src/blockchain/Transaction.cpp.o: CMakeFiles/Blockchain.dir/flags.make
-CMakeFiles/Blockchain.dir/src/blockchain/Transaction.cpp.o: /Users/dmitrij/projects/blockchain/src/blockchain/Transaction.cpp
+CMakeFiles/Blockchain.dir/src/blockchain/Transaction.cpp.o: /Users/dmitrij/projects/Blockchain/src/blockchain/Transaction.cpp
 CMakeFiles/Blockchain.dir/src/blockchain/Transaction.cpp.o: CMakeFiles/Blockchain.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Blockchain.dir/src/blockchain/Transaction.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/blockchain/Transaction.cpp.o -MF CMakeFiles/Blockchain.dir/src/blockchain/Transaction.cpp.o.d -o CMakeFiles/Blockchain.dir/src/blockchain/Transaction.cpp.o -c /Users/dmitrij/projects/blockchain/src/blockchain/Transaction.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/Blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Blockchain.dir/src/blockchain/Transaction.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/blockchain/Transaction.cpp.o -MF CMakeFiles/Blockchain.dir/src/blockchain/Transaction.cpp.o.d -o CMakeFiles/Blockchain.dir/src/blockchain/Transaction.cpp.o -c /Users/dmitrij/projects/Blockchain/src/blockchain/Transaction.cpp
 
 CMakeFiles/Blockchain.dir/src/blockchain/Transaction.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Blockchain.dir/src/blockchain/Transaction.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/blockchain/src/blockchain/Transaction.cpp > CMakeFiles/Blockchain.dir/src/blockchain/Transaction.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/Blockchain/src/blockchain/Transaction.cpp > CMakeFiles/Blockchain.dir/src/blockchain/Transaction.cpp.i
 
 CMakeFiles/Blockchain.dir/src/blockchain/Transaction.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Blockchain.dir/src/blockchain/Transaction.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/blockchain/src/blockchain/Transaction.cpp -o CMakeFiles/Blockchain.dir/src/blockchain/Transaction.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/Blockchain/src/blockchain/Transaction.cpp -o CMakeFiles/Blockchain.dir/src/blockchain/Transaction.cpp.s
 
 CMakeFiles/Blockchain.dir/src/blockchain/Miner.cpp.o: CMakeFiles/Blockchain.dir/flags.make
-CMakeFiles/Blockchain.dir/src/blockchain/Miner.cpp.o: /Users/dmitrij/projects/blockchain/src/blockchain/Miner.cpp
+CMakeFiles/Blockchain.dir/src/blockchain/Miner.cpp.o: /Users/dmitrij/projects/Blockchain/src/blockchain/Miner.cpp
 CMakeFiles/Blockchain.dir/src/blockchain/Miner.cpp.o: CMakeFiles/Blockchain.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Blockchain.dir/src/blockchain/Miner.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/blockchain/Miner.cpp.o -MF CMakeFiles/Blockchain.dir/src/blockchain/Miner.cpp.o.d -o CMakeFiles/Blockchain.dir/src/blockchain/Miner.cpp.o -c /Users/dmitrij/projects/blockchain/src/blockchain/Miner.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/Blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Blockchain.dir/src/blockchain/Miner.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/blockchain/Miner.cpp.o -MF CMakeFiles/Blockchain.dir/src/blockchain/Miner.cpp.o.d -o CMakeFiles/Blockchain.dir/src/blockchain/Miner.cpp.o -c /Users/dmitrij/projects/Blockchain/src/blockchain/Miner.cpp
 
 CMakeFiles/Blockchain.dir/src/blockchain/Miner.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Blockchain.dir/src/blockchain/Miner.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/blockchain/src/blockchain/Miner.cpp > CMakeFiles/Blockchain.dir/src/blockchain/Miner.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/Blockchain/src/blockchain/Miner.cpp > CMakeFiles/Blockchain.dir/src/blockchain/Miner.cpp.i
 
 CMakeFiles/Blockchain.dir/src/blockchain/Miner.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Blockchain.dir/src/blockchain/Miner.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/blockchain/src/blockchain/Miner.cpp -o CMakeFiles/Blockchain.dir/src/blockchain/Miner.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/Blockchain/src/blockchain/Miner.cpp -o CMakeFiles/Blockchain.dir/src/blockchain/Miner.cpp.s
 
 CMakeFiles/Blockchain.dir/src/blockchain/Block.cpp.o: CMakeFiles/Blockchain.dir/flags.make
-CMakeFiles/Blockchain.dir/src/blockchain/Block.cpp.o: /Users/dmitrij/projects/blockchain/src/blockchain/Block.cpp
+CMakeFiles/Blockchain.dir/src/blockchain/Block.cpp.o: /Users/dmitrij/projects/Blockchain/src/blockchain/Block.cpp
 CMakeFiles/Blockchain.dir/src/blockchain/Block.cpp.o: CMakeFiles/Blockchain.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Blockchain.dir/src/blockchain/Block.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/blockchain/Block.cpp.o -MF CMakeFiles/Blockchain.dir/src/blockchain/Block.cpp.o.d -o CMakeFiles/Blockchain.dir/src/blockchain/Block.cpp.o -c /Users/dmitrij/projects/blockchain/src/blockchain/Block.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/Blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Blockchain.dir/src/blockchain/Block.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/blockchain/Block.cpp.o -MF CMakeFiles/Blockchain.dir/src/blockchain/Block.cpp.o.d -o CMakeFiles/Blockchain.dir/src/blockchain/Block.cpp.o -c /Users/dmitrij/projects/Blockchain/src/blockchain/Block.cpp
 
 CMakeFiles/Blockchain.dir/src/blockchain/Block.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Blockchain.dir/src/blockchain/Block.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/blockchain/src/blockchain/Block.cpp > CMakeFiles/Blockchain.dir/src/blockchain/Block.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/Blockchain/src/blockchain/Block.cpp > CMakeFiles/Blockchain.dir/src/blockchain/Block.cpp.i
 
 CMakeFiles/Blockchain.dir/src/blockchain/Block.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Blockchain.dir/src/blockchain/Block.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/blockchain/src/blockchain/Block.cpp -o CMakeFiles/Blockchain.dir/src/blockchain/Block.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/Blockchain/src/blockchain/Block.cpp -o CMakeFiles/Blockchain.dir/src/blockchain/Block.cpp.s
 
 CMakeFiles/Blockchain.dir/src/blockchain/Blockchain.cpp.o: CMakeFiles/Blockchain.dir/flags.make
-CMakeFiles/Blockchain.dir/src/blockchain/Blockchain.cpp.o: /Users/dmitrij/projects/blockchain/src/blockchain/Blockchain.cpp
+CMakeFiles/Blockchain.dir/src/blockchain/Blockchain.cpp.o: /Users/dmitrij/projects/Blockchain/src/blockchain/Blockchain.cpp
 CMakeFiles/Blockchain.dir/src/blockchain/Blockchain.cpp.o: CMakeFiles/Blockchain.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Blockchain.dir/src/blockchain/Blockchain.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/blockchain/Blockchain.cpp.o -MF CMakeFiles/Blockchain.dir/src/blockchain/Blockchain.cpp.o.d -o CMakeFiles/Blockchain.dir/src/blockchain/Blockchain.cpp.o -c /Users/dmitrij/projects/blockchain/src/blockchain/Blockchain.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/Blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Blockchain.dir/src/blockchain/Blockchain.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/blockchain/Blockchain.cpp.o -MF CMakeFiles/Blockchain.dir/src/blockchain/Blockchain.cpp.o.d -o CMakeFiles/Blockchain.dir/src/blockchain/Blockchain.cpp.o -c /Users/dmitrij/projects/Blockchain/src/blockchain/Blockchain.cpp
 
 CMakeFiles/Blockchain.dir/src/blockchain/Blockchain.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Blockchain.dir/src/blockchain/Blockchain.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/blockchain/src/blockchain/Blockchain.cpp > CMakeFiles/Blockchain.dir/src/blockchain/Blockchain.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/Blockchain/src/blockchain/Blockchain.cpp > CMakeFiles/Blockchain.dir/src/blockchain/Blockchain.cpp.i
 
 CMakeFiles/Blockchain.dir/src/blockchain/Blockchain.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Blockchain.dir/src/blockchain/Blockchain.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/blockchain/src/blockchain/Blockchain.cpp -o CMakeFiles/Blockchain.dir/src/blockchain/Blockchain.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/Blockchain/src/blockchain/Blockchain.cpp -o CMakeFiles/Blockchain.dir/src/blockchain/Blockchain.cpp.s
 
 CMakeFiles/Blockchain.dir/src/blockchain/Mempool.cpp.o: CMakeFiles/Blockchain.dir/flags.make
-CMakeFiles/Blockchain.dir/src/blockchain/Mempool.cpp.o: /Users/dmitrij/projects/blockchain/src/blockchain/Mempool.cpp
+CMakeFiles/Blockchain.dir/src/blockchain/Mempool.cpp.o: /Users/dmitrij/projects/Blockchain/src/blockchain/Mempool.cpp
 CMakeFiles/Blockchain.dir/src/blockchain/Mempool.cpp.o: CMakeFiles/Blockchain.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Blockchain.dir/src/blockchain/Mempool.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/blockchain/Mempool.cpp.o -MF CMakeFiles/Blockchain.dir/src/blockchain/Mempool.cpp.o.d -o CMakeFiles/Blockchain.dir/src/blockchain/Mempool.cpp.o -c /Users/dmitrij/projects/blockchain/src/blockchain/Mempool.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/Blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Blockchain.dir/src/blockchain/Mempool.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/blockchain/Mempool.cpp.o -MF CMakeFiles/Blockchain.dir/src/blockchain/Mempool.cpp.o.d -o CMakeFiles/Blockchain.dir/src/blockchain/Mempool.cpp.o -c /Users/dmitrij/projects/Blockchain/src/blockchain/Mempool.cpp
 
 CMakeFiles/Blockchain.dir/src/blockchain/Mempool.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Blockchain.dir/src/blockchain/Mempool.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/blockchain/src/blockchain/Mempool.cpp > CMakeFiles/Blockchain.dir/src/blockchain/Mempool.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/Blockchain/src/blockchain/Mempool.cpp > CMakeFiles/Blockchain.dir/src/blockchain/Mempool.cpp.i
 
 CMakeFiles/Blockchain.dir/src/blockchain/Mempool.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Blockchain.dir/src/blockchain/Mempool.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/blockchain/src/blockchain/Mempool.cpp -o CMakeFiles/Blockchain.dir/src/blockchain/Mempool.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/Blockchain/src/blockchain/Mempool.cpp -o CMakeFiles/Blockchain.dir/src/blockchain/Mempool.cpp.s
 
 CMakeFiles/Blockchain.dir/src/file_sharing/Sending.cpp.o: CMakeFiles/Blockchain.dir/flags.make
-CMakeFiles/Blockchain.dir/src/file_sharing/Sending.cpp.o: /Users/dmitrij/projects/blockchain/src/file_sharing/Sending.cpp
+CMakeFiles/Blockchain.dir/src/file_sharing/Sending.cpp.o: /Users/dmitrij/projects/Blockchain/src/file_sharing/Sending.cpp
 CMakeFiles/Blockchain.dir/src/file_sharing/Sending.cpp.o: CMakeFiles/Blockchain.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Blockchain.dir/src/file_sharing/Sending.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/file_sharing/Sending.cpp.o -MF CMakeFiles/Blockchain.dir/src/file_sharing/Sending.cpp.o.d -o CMakeFiles/Blockchain.dir/src/file_sharing/Sending.cpp.o -c /Users/dmitrij/projects/blockchain/src/file_sharing/Sending.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/Blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Blockchain.dir/src/file_sharing/Sending.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/file_sharing/Sending.cpp.o -MF CMakeFiles/Blockchain.dir/src/file_sharing/Sending.cpp.o.d -o CMakeFiles/Blockchain.dir/src/file_sharing/Sending.cpp.o -c /Users/dmitrij/projects/Blockchain/src/file_sharing/Sending.cpp
 
 CMakeFiles/Blockchain.dir/src/file_sharing/Sending.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Blockchain.dir/src/file_sharing/Sending.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/blockchain/src/file_sharing/Sending.cpp > CMakeFiles/Blockchain.dir/src/file_sharing/Sending.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/Blockchain/src/file_sharing/Sending.cpp > CMakeFiles/Blockchain.dir/src/file_sharing/Sending.cpp.i
 
 CMakeFiles/Blockchain.dir/src/file_sharing/Sending.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Blockchain.dir/src/file_sharing/Sending.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/blockchain/src/file_sharing/Sending.cpp -o CMakeFiles/Blockchain.dir/src/file_sharing/Sending.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/Blockchain/src/file_sharing/Sending.cpp -o CMakeFiles/Blockchain.dir/src/file_sharing/Sending.cpp.s
 
 CMakeFiles/Blockchain.dir/src/network/Peer.cpp.o: CMakeFiles/Blockchain.dir/flags.make
-CMakeFiles/Blockchain.dir/src/network/Peer.cpp.o: /Users/dmitrij/projects/blockchain/src/network/Peer.cpp
+CMakeFiles/Blockchain.dir/src/network/Peer.cpp.o: /Users/dmitrij/projects/Blockchain/src/network/Peer.cpp
 CMakeFiles/Blockchain.dir/src/network/Peer.cpp.o: CMakeFiles/Blockchain.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Blockchain.dir/src/network/Peer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/network/Peer.cpp.o -MF CMakeFiles/Blockchain.dir/src/network/Peer.cpp.o.d -o CMakeFiles/Blockchain.dir/src/network/Peer.cpp.o -c /Users/dmitrij/projects/blockchain/src/network/Peer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/Blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Blockchain.dir/src/network/Peer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/network/Peer.cpp.o -MF CMakeFiles/Blockchain.dir/src/network/Peer.cpp.o.d -o CMakeFiles/Blockchain.dir/src/network/Peer.cpp.o -c /Users/dmitrij/projects/Blockchain/src/network/Peer.cpp
 
 CMakeFiles/Blockchain.dir/src/network/Peer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Blockchain.dir/src/network/Peer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/blockchain/src/network/Peer.cpp > CMakeFiles/Blockchain.dir/src/network/Peer.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/Blockchain/src/network/Peer.cpp > CMakeFiles/Blockchain.dir/src/network/Peer.cpp.i
 
 CMakeFiles/Blockchain.dir/src/network/Peer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Blockchain.dir/src/network/Peer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/blockchain/src/network/Peer.cpp -o CMakeFiles/Blockchain.dir/src/network/Peer.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/Blockchain/src/network/Peer.cpp -o CMakeFiles/Blockchain.dir/src/network/Peer.cpp.s
 
 CMakeFiles/Blockchain.dir/src/network/CryptoUtils.cpp.o: CMakeFiles/Blockchain.dir/flags.make
-CMakeFiles/Blockchain.dir/src/network/CryptoUtils.cpp.o: /Users/dmitrij/projects/blockchain/src/network/CryptoUtils.cpp
+CMakeFiles/Blockchain.dir/src/network/CryptoUtils.cpp.o: /Users/dmitrij/projects/Blockchain/src/network/CryptoUtils.cpp
 CMakeFiles/Blockchain.dir/src/network/CryptoUtils.cpp.o: CMakeFiles/Blockchain.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/Blockchain.dir/src/network/CryptoUtils.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/network/CryptoUtils.cpp.o -MF CMakeFiles/Blockchain.dir/src/network/CryptoUtils.cpp.o.d -o CMakeFiles/Blockchain.dir/src/network/CryptoUtils.cpp.o -c /Users/dmitrij/projects/blockchain/src/network/CryptoUtils.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/Blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/Blockchain.dir/src/network/CryptoUtils.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/network/CryptoUtils.cpp.o -MF CMakeFiles/Blockchain.dir/src/network/CryptoUtils.cpp.o.d -o CMakeFiles/Blockchain.dir/src/network/CryptoUtils.cpp.o -c /Users/dmitrij/projects/Blockchain/src/network/CryptoUtils.cpp
 
 CMakeFiles/Blockchain.dir/src/network/CryptoUtils.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Blockchain.dir/src/network/CryptoUtils.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/blockchain/src/network/CryptoUtils.cpp > CMakeFiles/Blockchain.dir/src/network/CryptoUtils.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/Blockchain/src/network/CryptoUtils.cpp > CMakeFiles/Blockchain.dir/src/network/CryptoUtils.cpp.i
 
 CMakeFiles/Blockchain.dir/src/network/CryptoUtils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Blockchain.dir/src/network/CryptoUtils.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/blockchain/src/network/CryptoUtils.cpp -o CMakeFiles/Blockchain.dir/src/network/CryptoUtils.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/Blockchain/src/network/CryptoUtils.cpp -o CMakeFiles/Blockchain.dir/src/network/CryptoUtils.cpp.s
 
 CMakeFiles/Blockchain.dir/src/network/Node.cpp.o: CMakeFiles/Blockchain.dir/flags.make
-CMakeFiles/Blockchain.dir/src/network/Node.cpp.o: /Users/dmitrij/projects/blockchain/src/network/Node.cpp
+CMakeFiles/Blockchain.dir/src/network/Node.cpp.o: /Users/dmitrij/projects/Blockchain/src/network/Node.cpp
 CMakeFiles/Blockchain.dir/src/network/Node.cpp.o: CMakeFiles/Blockchain.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/Blockchain.dir/src/network/Node.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/network/Node.cpp.o -MF CMakeFiles/Blockchain.dir/src/network/Node.cpp.o.d -o CMakeFiles/Blockchain.dir/src/network/Node.cpp.o -c /Users/dmitrij/projects/blockchain/src/network/Node.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/Blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/Blockchain.dir/src/network/Node.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/network/Node.cpp.o -MF CMakeFiles/Blockchain.dir/src/network/Node.cpp.o.d -o CMakeFiles/Blockchain.dir/src/network/Node.cpp.o -c /Users/dmitrij/projects/Blockchain/src/network/Node.cpp
 
 CMakeFiles/Blockchain.dir/src/network/Node.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Blockchain.dir/src/network/Node.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/blockchain/src/network/Node.cpp > CMakeFiles/Blockchain.dir/src/network/Node.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/Blockchain/src/network/Node.cpp > CMakeFiles/Blockchain.dir/src/network/Node.cpp.i
 
 CMakeFiles/Blockchain.dir/src/network/Node.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Blockchain.dir/src/network/Node.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/blockchain/src/network/Node.cpp -o CMakeFiles/Blockchain.dir/src/network/Node.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/Blockchain/src/network/Node.cpp -o CMakeFiles/Blockchain.dir/src/network/Node.cpp.s
 
 CMakeFiles/Blockchain.dir/src/api/Api.cpp.o: CMakeFiles/Blockchain.dir/flags.make
-CMakeFiles/Blockchain.dir/src/api/Api.cpp.o: /Users/dmitrij/projects/blockchain/src/api/Api.cpp
+CMakeFiles/Blockchain.dir/src/api/Api.cpp.o: /Users/dmitrij/projects/Blockchain/src/api/Api.cpp
 CMakeFiles/Blockchain.dir/src/api/Api.cpp.o: CMakeFiles/Blockchain.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/Blockchain.dir/src/api/Api.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/api/Api.cpp.o -MF CMakeFiles/Blockchain.dir/src/api/Api.cpp.o.d -o CMakeFiles/Blockchain.dir/src/api/Api.cpp.o -c /Users/dmitrij/projects/blockchain/src/api/Api.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dmitrij/projects/Blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/Blockchain.dir/src/api/Api.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blockchain.dir/src/api/Api.cpp.o -MF CMakeFiles/Blockchain.dir/src/api/Api.cpp.o.d -o CMakeFiles/Blockchain.dir/src/api/Api.cpp.o -c /Users/dmitrij/projects/Blockchain/src/api/Api.cpp
 
 CMakeFiles/Blockchain.dir/src/api/Api.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Blockchain.dir/src/api/Api.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/blockchain/src/api/Api.cpp > CMakeFiles/Blockchain.dir/src/api/Api.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dmitrij/projects/Blockchain/src/api/Api.cpp > CMakeFiles/Blockchain.dir/src/api/Api.cpp.i
 
 CMakeFiles/Blockchain.dir/src/api/Api.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Blockchain.dir/src/api/Api.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/blockchain/src/api/Api.cpp -o CMakeFiles/Blockchain.dir/src/api/Api.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dmitrij/projects/Blockchain/src/api/Api.cpp -o CMakeFiles/Blockchain.dir/src/api/Api.cpp.s
 
 # Object files for target Blockchain
 Blockchain_OBJECTS = \
@@ -340,7 +340,7 @@ Blockchain: /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libsqlit
 Blockchain: /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Versions/A/QtGui
 Blockchain: /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/QtCore
 Blockchain: CMakeFiles/Blockchain.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/dmitrij/projects/blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable Blockchain"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/dmitrij/projects/Blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable Blockchain"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Blockchain.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -352,6 +352,6 @@ CMakeFiles/Blockchain.dir/clean:
 .PHONY : CMakeFiles/Blockchain.dir/clean
 
 CMakeFiles/Blockchain.dir/depend:
-	cd /Users/dmitrij/projects/blockchain/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/dmitrij/projects/blockchain /Users/dmitrij/projects/blockchain /Users/dmitrij/projects/blockchain/build /Users/dmitrij/projects/blockchain/build /Users/dmitrij/projects/blockchain/build/CMakeFiles/Blockchain.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /Users/dmitrij/projects/Blockchain/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/dmitrij/projects/Blockchain /Users/dmitrij/projects/Blockchain /Users/dmitrij/projects/Blockchain/build /Users/dmitrij/projects/Blockchain/build /Users/dmitrij/projects/Blockchain/build/CMakeFiles/Blockchain.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/Blockchain.dir/depend
 

@@ -12,7 +12,20 @@
 #include <thread>
 #include <chrono>
 #include <iostream>
+#include <stdexcept>
 #include "../../include/blockchain/Block.h"
+#include "../../include/network/PortUtils.h"
+
+namespace {
+uint16_t get_client_port() {
+    auto p = find_free_port(CLIENT_PORT_MIN, CLIENT_PORT_MAX);
+    if (!p) {
+        throw std::runtime_error("No free client port in range " + std::to_string(CLIENT_PORT_MIN) + "-" + std::to_string(CLIENT_PORT_MAX));
+    }
+    std::cout << "[Client] Using local port " << *p << "\n";
+    return *p;
+}
+}
 
 MainWindow::MainWindow(QWidget *parent)
     : QWidget(parent)
@@ -21,7 +34,7 @@ MainWindow::MainWindow(QWidget *parent)
     , io_context()
     , node(
         io_context,
-        8546, // локальный порт клиента (можно любой свободный)
+        get_client_port(),
         user.get_public_key(),
         user.get_private_key()
       )
@@ -55,7 +68,7 @@ MainWindow::MainWindow(QWidget *parent)
     }).detach();
 
     // Подключаемся к серверу через публичный метод Node
-    node.connect_to_server("213.176.117.68", 8546);
+    node.connect_to_server(SERVER_CONNECT_HOST, SERVER_CONNECT_PORT);
 
     // Настройка таймера для обновления отображения блокчейна
     blockchain_update_timer = new QTimer(this);
@@ -64,6 +77,31 @@ MainWindow::MainWindow(QWidget *parent)
     
     // Первоначальное обновление
     update_blockchain_view();
+
+    // Вывод всех блоков в консоль при запуске клиента
+    {
+        const auto& chain = local_blockchain.get_chain();
+        std::cout << "[Client] Blockchain at startup, blocks: " << chain.size() << "\n";
+        for (size_t i = 0; i < chain.size(); ++i) {
+            const Block& b = chain[i];
+            std::cout << "  Block #" << (i + 1)
+                << " address=" << address_to_hex(b.get_address(), crypto_generichash_BYTES).toStdString()
+                << " prev=" << address_to_hex(b.get_previous_address(), crypto_generichash_BYTES).toStdString()
+                << " sender=" << address_to_hex(b.get_sender(), crypto_generichash_BYTES).toStdString()
+                << " receiver=" << address_to_hex(b.get_receiver(), crypto_generichash_BYTES).toStdString();
+            auto t = std::chrono::system_clock::to_time_t(b.get_time());
+            std::tm tm_buf;
+#ifdef _WIN32
+            localtime_s(&tm_buf, &t);
+#else
+            localtime_r(&t, &tm_buf);
+#endif
+            std::ostringstream time_stream;
+            time_stream << std::put_time(&tm_buf, "%H:%M %d.%m.%Y");
+            std::cout << " time=" << time_stream.str();
+            std::cout << " files=" << b.get_files().size() << "\n";
+        }
+    }
 
     std::cout << "Client node started and connecting to server\n";
 }

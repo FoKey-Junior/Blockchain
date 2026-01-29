@@ -53,10 +53,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/dmitrij/projects/blockchain
+CMAKE_SOURCE_DIR = /Users/dmitrij/projects/Blockchain
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/dmitrij/projects/blockchain/build
+CMAKE_BINARY_DIR = /Users/dmitrij/projects/Blockchain/build
 
 # Utility rule file for Blockchain_autogen.
 
@@ -71,9 +71,9 @@ CMakeFiles/Blockchain_autogen: Blockchain_autogen/timestamp
 Blockchain_autogen/timestamp: /Users/dmitrij/Qt/6.10.1/macos/libexec/moc
 Blockchain_autogen/timestamp: /Users/dmitrij/Qt/6.10.1/macos/libexec/uic
 Blockchain_autogen/timestamp: CMakeFiles/Blockchain_autogen.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/dmitrij/projects/blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target Blockchain"
-	/opt/homebrew/bin/cmake -E cmake_autogen /Users/dmitrij/projects/blockchain/build/CMakeFiles/Blockchain_autogen.dir/AutogenInfo.json ""
-	/opt/homebrew/bin/cmake -E touch /Users/dmitrij/projects/blockchain/build/Blockchain_autogen/timestamp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/dmitrij/projects/Blockchain/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target Blockchain"
+	/opt/homebrew/bin/cmake -E cmake_autogen /Users/dmitrij/projects/Blockchain/build/CMakeFiles/Blockchain_autogen.dir/AutogenInfo.json ""
+	/opt/homebrew/bin/cmake -E touch /Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/timestamp
 
 CMakeFiles/Blockchain_autogen.dir/codegen:
 .PHONY : CMakeFiles/Blockchain_autogen.dir/codegen
@@ -92,6 +92,6 @@ CMakeFiles/Blockchain_autogen.dir/clean:
 .PHONY : CMakeFiles/Blockchain_autogen.dir/clean
 
 CMakeFiles/Blockchain_autogen.dir/depend:
-	cd /Users/dmitrij/projects/blockchain/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/dmitrij/projects/blockchain /Users/dmitrij/projects/blockchain /Users/dmitrij/projects/blockchain/build /Users/dmitrij/projects/blockchain/build /Users/dmitrij/projects/blockchain/build/CMakeFiles/Blockchain_autogen.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /Users/dmitrij/projects/Blockchain/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/dmitrij/projects/Blockchain /Users/dmitrij/projects/Blockchain /Users/dmitrij/projects/Blockchain/build /Users/dmitrij/projects/Blockchain/build /Users/dmitrij/projects/Blockchain/build/CMakeFiles/Blockchain_autogen.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/Blockchain_autogen.dir/depend
 

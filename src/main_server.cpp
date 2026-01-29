@@ -5,6 +5,7 @@
 #include "blockchain/Miner.h"
 #include "blockchain/User.h"
 #include "network/Node.h"
+#include "network/PortUtils.h"
 
 int main() {
     User miner_user;
@@ -18,8 +19,16 @@ int main() {
         return 1;
     }
 
+    auto port_opt = find_free_port(SERVER_PORT_MIN, SERVER_PORT_MAX);
+    if (!port_opt) {
+        std::cerr << "No free server port in range " << SERVER_PORT_MIN << "-" << SERVER_PORT_MAX << "\n";
+        return 1;
+    }
+    uint16_t server_port = *port_opt;
+    std::cout << "[Server] Using port " << server_port << "\n";
+
     asio::io_context io;
-    Node node(io, 30334, miner_user.get_public_key(), miner_user.get_private_key());
+    Node node(io, server_port, miner_user.get_public_key(), miner_user.get_private_key());
     node.set_mempool(&mempool_vec);
     node.set_blockchain(&blockchain);
     node.set_miner(&miner);
@@ -32,7 +41,8 @@ int main() {
     mining_thread.detach();
 
     std::cout << "========================================\n";
-    std::cout << "Server node started on port 12345\n";
+    std::cout << "Server node started on port " << server_port << "\n";
+    std::cout << "Clients should connect to host:port " << server_port << "\n";
     std::cout << "Waiting for connections...\n";
     std::cout << "========================================\n";
 

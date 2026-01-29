@@ -1,5 +1,5 @@
-/Users/dmitrij/projects/blockchain/build/Blockchain_autogen/JC67YXOMDV/moc_main_window.cpp: /Users/dmitrij/projects/blockchain/include/windows/main_window.h \
-  /Users/dmitrij/projects/blockchain/build/Blockchain_autogen/moc_predefs.h \
+/Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/JC67YXOMDV/moc_main_window.cpp: /Users/dmitrij/projects/Blockchain/include/windows/main_window.h \
+  /Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/moc_predefs.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.5.sdk/usr/include/Availability.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.5.sdk/usr/include/AvailabilityInternal.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.5.sdk/usr/include/AvailabilityInternalLegacy.h \
@@ -1054,7 +1054,6 @@
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/__stdarg_va_list.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/ptrcheck.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdarg.h \
-  /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/QTimer \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/q17memory.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/q20functional.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/q20iterator.h \
@@ -1063,7 +1062,6 @@
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/q20utility.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/q23type_traits.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/q23utility.h \
-  /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qabstracteventdispatcher.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qalgorithms.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qalloc.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qanystringview.h \
@@ -1074,7 +1072,6 @@
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qatomic.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qatomic_cxx11.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qbasicatomic.h \
-  /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qbasictimer.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qbindingstorage.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qbytearray.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qbytearrayalgorithms.h \
@@ -1094,10 +1091,8 @@
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qcontiguouscache.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qdarwinhelpers.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qdatastream.h \
-  /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qdeadlinetimer.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qdebug.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qendian.h \
-  /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qeventloop.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qexceptionhandling.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qflags.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qfloat16.h \
@@ -1170,7 +1165,6 @@
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qtenvironmentvariables.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qtextstream.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qtformat_impl.h \
-  /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qtimer.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qtmetamacros.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qtnoop.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qtpreprocessorsupport.h \
@@ -1218,15 +1212,14 @@
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Versions/A/Headers/qtwidgetsexports.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Versions/A/Headers/qtwidgetsglobal.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Versions/A/Headers/qwidget.h \
-  /Users/dmitrij/projects/blockchain/include/blockchain/Block.h \
-  /Users/dmitrij/projects/blockchain/include/blockchain/Blockchain.h \
-  /Users/dmitrij/projects/blockchain/include/blockchain/Miner.h \
-  /Users/dmitrij/projects/blockchain/include/blockchain/Transaction.h \
-  /Users/dmitrij/projects/blockchain/include/blockchain/User.h \
-  /Users/dmitrij/projects/blockchain/include/network/CryptoUtils.h \
-  /Users/dmitrij/projects/blockchain/include/network/Message.h \
-  /Users/dmitrij/projects/blockchain/include/network/Node.h \
-  /Users/dmitrij/projects/blockchain/include/network/Peer.h \
+  /Users/dmitrij/projects/Blockchain/include/blockchain/Block.h \
+  /Users/dmitrij/projects/Blockchain/include/blockchain/Blockchain.h \
+  /Users/dmitrij/projects/Blockchain/include/blockchain/Miner.h \
+  /Users/dmitrij/projects/Blockchain/include/blockchain/Transaction.h \
+  /Users/dmitrij/projects/Blockchain/include/blockchain/User.h \
+  /Users/dmitrij/projects/Blockchain/include/network/Message.h \
+  /Users/dmitrij/projects/Blockchain/include/network/Node.h \
+  /Users/dmitrij/projects/Blockchain/include/network/Peer.h \
   /opt/homebrew/Cellar/asio/1.36.0/include/asio.hpp \
   /opt/homebrew/Cellar/asio/1.36.0/include/asio/any_completion_executor.hpp \
   /opt/homebrew/Cellar/asio/1.36.0/include/asio/any_completion_handler.hpp \
