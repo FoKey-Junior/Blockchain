@@ -1,6 +1,6 @@
 CMakeFiles/Blockchain.dir/src/network/Peer.cpp.o: \
-  /Users/dmitrij/projects/blockchain/src/network/Peer.cpp \
-  /Users/dmitrij/projects/blockchain/src/network/../../include/network/Peer.h \
+  /Users/dmitrij/projects/Blockchain/src/network/Peer.cpp \
+  /Users/dmitrij/projects/Blockchain/src/network/../../include/network/Peer.h \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium.h \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium/version.h \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium/export.h \

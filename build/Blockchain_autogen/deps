@@ -1053,7 +1053,6 @@ Blockchain_autogen/timestamp: \
 	/Library/Developer/CommandLineTools/usr/lib/clang/17/include/__stdarg_va_list.h \
 	/Library/Developer/CommandLineTools/usr/lib/clang/17/include/ptrcheck.h \
 	/Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdarg.h \
-	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/QTimer \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/q17memory.h \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/q20functional.h \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/q20iterator.h \
@@ -1062,7 +1061,6 @@ Blockchain_autogen/timestamp: \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/q20utility.h \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/q23type_traits.h \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/q23utility.h \
-	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qabstracteventdispatcher.h \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qalgorithms.h \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qalloc.h \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qanystringview.h \
@@ -1073,7 +1071,6 @@ Blockchain_autogen/timestamp: \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qatomic.h \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qatomic_cxx11.h \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qbasicatomic.h \
-	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qbasictimer.h \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qbindingstorage.h \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qbytearray.h \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qbytearrayalgorithms.h \
@@ -1093,10 +1090,8 @@ Blockchain_autogen/timestamp: \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qcontiguouscache.h \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qdarwinhelpers.h \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qdatastream.h \
-	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qdeadlinetimer.h \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qdebug.h \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qendian.h \
-	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qeventloop.h \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qexceptionhandling.h \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qflags.h \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qfloat16.h \
@@ -1169,7 +1164,6 @@ Blockchain_autogen/timestamp: \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qtenvironmentvariables.h \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qtextstream.h \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qtformat_impl.h \
-	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qtimer.h \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qtmetamacros.h \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qtnoop.h \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Versions/A/Headers/qtpreprocessorsupport.h \
@@ -1402,41 +1396,42 @@ Blockchain_autogen/timestamp: \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets-relwithdebinfo.cmake \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets.cmake \
 	/Users/dmitrij/Qt/6.10.1/macos/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsVersionlessTargets.cmake \
-	/Users/dmitrij/projects/blockchain/CMakeLists.txt \
-	/Users/dmitrij/projects/blockchain/build/Blockchain_autogen/moc_predefs.h \
-	/Users/dmitrij/projects/blockchain/build/CMakeFiles/4.1.2/CMakeCXXCompiler.cmake \
-	/Users/dmitrij/projects/blockchain/build/CMakeFiles/4.1.2/CMakeSystem.cmake \
-	/Users/dmitrij/projects/blockchain/include/api/Api.h \
-	/Users/dmitrij/projects/blockchain/include/api/ApiRegistry.h \
-	/Users/dmitrij/projects/blockchain/include/blockchain/Block.h \
-	/Users/dmitrij/projects/blockchain/include/blockchain/Blockchain.h \
-	/Users/dmitrij/projects/blockchain/include/blockchain/Mempool.h \
-	/Users/dmitrij/projects/blockchain/include/blockchain/Miner.h \
-	/Users/dmitrij/projects/blockchain/include/blockchain/Transaction.h \
-	/Users/dmitrij/projects/blockchain/include/blockchain/User.h \
-	/Users/dmitrij/projects/blockchain/include/file_sharing/Sending.h \
-	/Users/dmitrij/projects/blockchain/include/network/CryptoUtils.h \
-	/Users/dmitrij/projects/blockchain/include/network/Message.h \
-	/Users/dmitrij/projects/blockchain/include/network/Node.h \
-	/Users/dmitrij/projects/blockchain/include/network/Peer.h \
-	/Users/dmitrij/projects/blockchain/include/windows/main_window.h \
-	/Users/dmitrij/projects/blockchain/include/windows/mining_window.h \
-	/Users/dmitrij/projects/blockchain/include/windows/start_window.h \
-	/Users/dmitrij/projects/blockchain/src/api/Api.cpp \
-	/Users/dmitrij/projects/blockchain/src/blockchain/Block.cpp \
-	/Users/dmitrij/projects/blockchain/src/blockchain/Blockchain.cpp \
-	/Users/dmitrij/projects/blockchain/src/blockchain/Mempool.cpp \
-	/Users/dmitrij/projects/blockchain/src/blockchain/Miner.cpp \
-	/Users/dmitrij/projects/blockchain/src/blockchain/Transaction.cpp \
-	/Users/dmitrij/projects/blockchain/src/blockchain/User.cpp \
-	/Users/dmitrij/projects/blockchain/src/file_sharing/Sending.cpp \
-	/Users/dmitrij/projects/blockchain/src/main.cpp \
-	/Users/dmitrij/projects/blockchain/src/network/CryptoUtils.cpp \
-	/Users/dmitrij/projects/blockchain/src/network/Node.cpp \
-	/Users/dmitrij/projects/blockchain/src/network/Peer.cpp \
-	/Users/dmitrij/projects/blockchain/src/ui/main_window.cpp \
-	/Users/dmitrij/projects/blockchain/src/ui/mining_window.cpp \
-	/Users/dmitrij/projects/blockchain/src/ui/start_window.cpp \
+	/Users/dmitrij/projects/Blockchain/CMakeLists.txt \
+	/Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/moc_predefs.h \
+	/Users/dmitrij/projects/Blockchain/build/CMakeFiles/4.1.2/CMakeCXXCompiler.cmake \
+	/Users/dmitrij/projects/Blockchain/build/CMakeFiles/4.1.2/CMakeSystem.cmake \
+	/Users/dmitrij/projects/Blockchain/include/api/Api.h \
+	/Users/dmitrij/projects/Blockchain/include/api/ApiRegistry.h \
+	/Users/dmitrij/projects/Blockchain/include/blockchain/Block.h \
+	/Users/dmitrij/projects/Blockchain/include/blockchain/Blockchain.h \
+	/Users/dmitrij/projects/Blockchain/include/blockchain/Mempool.h \
+	/Users/dmitrij/projects/Blockchain/include/blockchain/Miner.h \
+	/Users/dmitrij/projects/Blockchain/include/blockchain/Transaction.h \
+	/Users/dmitrij/projects/Blockchain/include/blockchain/User.h \
+	/Users/dmitrij/projects/Blockchain/include/file_sharing/Sending.h \
+	/Users/dmitrij/projects/Blockchain/include/network/CryptoUtils.h \
+	/Users/dmitrij/projects/Blockchain/include/network/Message.h \
+	/Users/dmitrij/projects/Blockchain/include/network/Node.h \
+	/Users/dmitrij/projects/Blockchain/include/network/Peer.h \
+	/Users/dmitrij/projects/Blockchain/include/network/PortUtils.h \
+	/Users/dmitrij/projects/Blockchain/include/windows/main_window.h \
+	/Users/dmitrij/projects/Blockchain/include/windows/mining_window.h \
+	/Users/dmitrij/projects/Blockchain/include/windows/start_window.h \
+	/Users/dmitrij/projects/Blockchain/src/api/Api.cpp \
+	/Users/dmitrij/projects/Blockchain/src/blockchain/Block.cpp \
+	/Users/dmitrij/projects/Blockchain/src/blockchain/Blockchain.cpp \
+	/Users/dmitrij/projects/Blockchain/src/blockchain/Mempool.cpp \
+	/Users/dmitrij/projects/Blockchain/src/blockchain/Miner.cpp \
+	/Users/dmitrij/projects/Blockchain/src/blockchain/Transaction.cpp \
+	/Users/dmitrij/projects/Blockchain/src/blockchain/User.cpp \
+	/Users/dmitrij/projects/Blockchain/src/file_sharing/Sending.cpp \
+	/Users/dmitrij/projects/Blockchain/src/main.cpp \
+	/Users/dmitrij/projects/Blockchain/src/network/CryptoUtils.cpp \
+	/Users/dmitrij/projects/Blockchain/src/network/Node.cpp \
+	/Users/dmitrij/projects/Blockchain/src/network/Peer.cpp \
+	/Users/dmitrij/projects/Blockchain/src/ui/main_window.cpp \
+	/Users/dmitrij/projects/Blockchain/src/ui/mining_window.cpp \
+	/Users/dmitrij/projects/Blockchain/src/ui/start_window.cpp \
 	/opt/homebrew/Cellar/asio/1.36.0/include/asio.hpp \
 	/opt/homebrew/Cellar/asio/1.36.0/include/asio/any_completion_executor.hpp \
 	/opt/homebrew/Cellar/asio/1.36.0/include/asio/any_completion_handler.hpp \
@@ -1934,81 +1929,23 @@ Blockchain_autogen/timestamp: \
 	/opt/homebrew/Cellar/libsodium/1.0.20/include/sodium/runtime.h \
 	/opt/homebrew/Cellar/libsodium/1.0.20/include/sodium/utils.h \
 	/opt/homebrew/Cellar/libsodium/1.0.20/include/sodium/version.h \
-	/opt/homebrew/share/cmake/Modules/CMakeCXXCompiler.cmake.in \
-	/opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp \
 	/opt/homebrew/share/cmake/Modules/CMakeCXXInformation.cmake \
 	/opt/homebrew/share/cmake/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake \
 	/opt/homebrew/share/cmake/Modules/CMakeCommonLanguageInclude.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeCompilerIdDetection.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeDetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerSupport.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeDetermineSystem.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake \
 	/opt/homebrew/share/cmake/Modules/CMakeFindDependencyMacro.cmake \
 	/opt/homebrew/share/cmake/Modules/CMakeGenericSystem.cmake \
 	/opt/homebrew/share/cmake/Modules/CMakeInitializeConfigs.cmake \
 	/opt/homebrew/share/cmake/Modules/CMakeLanguageInformation.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeParseImplicitIncludeInfo.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeParseImplicitLinkInfo.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeParseLibraryArchitecture.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeSystem.cmake.in \
 	/opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInformation.cmake \
 	/opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeTestCXXCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeTestCompilerCommon.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeUnixFindMake.cmake \
 	/opt/homebrew/share/cmake/Modules/CheckCXXCompilerFlag.cmake \
 	/opt/homebrew/share/cmake/Modules/CheckCXXSourceCompiles.cmake \
 	/opt/homebrew/share/cmake/Modules/CheckIncludeFileCXX.cmake \
 	/opt/homebrew/share/cmake/Modules/CheckLibraryExists.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/ADSP-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/ARMCC-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/ARMClang-DetermineCompiler.cmake \
 	/opt/homebrew/share/cmake/Modules/Compiler/AppleClang-CXX.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/AppleClang-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Borland-DetermineCompiler.cmake \
 	/opt/homebrew/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Clang-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Clang-DetermineCompilerInternal.cmake \
 	/opt/homebrew/share/cmake/Modules/Compiler/Clang.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Cray-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/CrayClang-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Diab-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Embarcadero-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Fujitsu-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/GHS-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake \
 	/opt/homebrew/share/cmake/Modules/Compiler/GNU.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/HP-CXX-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/IAR-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Intel-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/MSVC-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/NVHPC-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/NVIDIA-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/OrangeC-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/PGI-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/PathScale-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Renesas-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/SCO-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/TI-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/TIClang-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Tasking-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Watcom-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/XL-CXX-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake \
 	/opt/homebrew/share/cmake/Modules/FindOpenGL.cmake \
 	/opt/homebrew/share/cmake/Modules/FindPackageHandleStandardArgs.cmake \
 	/opt/homebrew/share/cmake/Modules/FindPackageMessage.cmake \
@@ -2018,25 +1955,21 @@ Blockchain_autogen/timestamp: \
 	/opt/homebrew/share/cmake/Modules/GNUInstallDirs.cmake \
 	/opt/homebrew/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake \
 	/opt/homebrew/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake \
-	/opt/homebrew/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake \
-	/opt/homebrew/share/cmake/Modules/Internal/CMakeInspectCXXLinker.cmake \
 	/opt/homebrew/share/cmake/Modules/Internal/CheckCompilerFlag.cmake \
 	/opt/homebrew/share/cmake/Modules/Internal/CheckFlagCommonConfig.cmake \
 	/opt/homebrew/share/cmake/Modules/Internal/CheckSourceCompiles.cmake \
-	/opt/homebrew/share/cmake/Modules/Internal/FeatureTesting.cmake \
 	/opt/homebrew/share/cmake/Modules/Linker/AppleClang-CXX.cmake \
 	/opt/homebrew/share/cmake/Modules/Linker/AppleClang.cmake \
 	/opt/homebrew/share/cmake/Modules/MacroAddFileDependencies.cmake \
 	/opt/homebrew/share/cmake/Modules/Platform/Apple-AppleClang-CXX.cmake \
 	/opt/homebrew/share/cmake/Modules/Platform/Apple-Clang-CXX.cmake \
 	/opt/homebrew/share/cmake/Modules/Platform/Apple-Clang.cmake \
-	/opt/homebrew/share/cmake/Modules/Platform/Darwin-Determine-CXX.cmake \
 	/opt/homebrew/share/cmake/Modules/Platform/Darwin-Initialize.cmake \
 	/opt/homebrew/share/cmake/Modules/Platform/Darwin.cmake \
 	/opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang-CXX.cmake \
 	/opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang.cmake \
 	/opt/homebrew/share/cmake/Modules/Platform/UnixPaths.cmake \
-	/Users/dmitrij/projects/blockchain/src/ui/main_window.ui \
-	/Users/dmitrij/projects/blockchain/src/ui/mining_window.ui \
-	/Users/dmitrij/projects/blockchain/src/ui/start_window.ui \
+	/Users/dmitrij/projects/Blockchain/src/ui/main_window.ui \
+	/Users/dmitrij/projects/Blockchain/src/ui/mining_window.ui \
+	/Users/dmitrij/projects/Blockchain/src/ui/start_window.ui \
 	/opt/homebrew/bin/cmake

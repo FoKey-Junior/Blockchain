@@ -1,6 +1,5 @@
 CMakeFiles/Blockchain.dir/src/network/CryptoUtils.cpp.o: \
-  /Users/dmitrij/projects/blockchain/src/network/CryptoUtils.cpp \
-  /Users/dmitrij/projects/blockchain/src/network/../../include/network/CryptoUtils.h \
+  /Users/dmitrij/projects/Blockchain/src/network/CryptoUtils.cpp \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium.h \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium/version.h \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium/export.h \
@@ -216,6 +215,7 @@ CMakeFiles/Blockchain.dir/src/network/CryptoUtils.cpp.o: \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium/crypto_secretbox_xchacha20poly1305.h \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium/crypto_stream_salsa2012.h \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium/crypto_stream_salsa208.h \
+  /Users/dmitrij/projects/Blockchain/src/network/../../include/network/CryptoUtils.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/vector \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/copy.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/copy_move_common.h \

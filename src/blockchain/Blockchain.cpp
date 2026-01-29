@@ -1,22 +1,38 @@
 #include <sodium.h>
 #include <chrono>
+#include <cstring>
 
 #include "../../include/blockchain/Blockchain.h"
 
-Blockchain::Blockchain(const unsigned char* my_address) {
-    std::unordered_map<std::string, FileMetadata> files;
-    const auto now = std::chrono::system_clock::now();
+namespace {
+// Фиксированный genesis для всей сети — один и тот же на сервере и всех клиентах,
+// иначе блоки с сервера отклоняются («previous address doesn't match»).
+Block make_genesis_block() {
+    const char* genesis_seed = "BlockchainGenesisBlock";
+    unsigned char genesis_address[crypto_generichash_BYTES];
+    crypto_generichash(genesis_address, sizeof(genesis_address),
+                       reinterpret_cast<const unsigned char*>(genesis_seed),
+                       static_cast<std::size_t>(std::strlen(genesis_seed)),
+                       nullptr, 0);
 
-    const Block genesis(
-        my_address,
-        my_address,
-        my_address,
-        my_address,
-        now,
+    unsigned char zeros[crypto_generichash_BYTES] = {};
+
+    std::unordered_map<std::string, FileMetadata> files;
+    const auto epoch_zero = std::chrono::system_clock::from_time_t(0);
+
+    return Block(
+        genesis_address,
+        genesis_address,
+        zeros,
+        zeros,
+        epoch_zero,
         files
     );
+}
+}
 
-    chain.push_back(genesis);
+Blockchain::Blockchain(const unsigned char* /* my_address */) {
+    chain.push_back(make_genesis_block());
 }
 
 void Blockchain::add_block(const std::vector<Transaction>& transactions) {

@@ -1,5 +1,5 @@
 CMakeFiles/Blockchain.dir/src/blockchain/User.cpp.o: \
-  /Users/dmitrij/projects/blockchain/src/blockchain/User.cpp \
+  /Users/dmitrij/projects/Blockchain/src/blockchain/User.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config_site \
@@ -664,7 +664,7 @@ CMakeFiles/Blockchain.dir/src/blockchain/User.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/print \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/unistd.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iomanip \
-  /Users/dmitrij/projects/blockchain/src/blockchain/../../include/blockchain/User.h \
+  /Users/dmitrij/projects/Blockchain/src/blockchain/../../include/blockchain/User.h \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium.h \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium/version.h \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium/export.h \
@@ -755,7 +755,7 @@ CMakeFiles/Blockchain.dir/src/blockchain/User.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__chrono/ostream.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__chrono/parser_std_format_spec.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/sstream \
-  /Users/dmitrij/projects/blockchain/src/blockchain/../../include/blockchain/Transaction.h \
+  /Users/dmitrij/projects/Blockchain/src/blockchain/../../include/blockchain/Transaction.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/unordered_map \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/is_permutation.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/is_transparent.h \
@@ -771,4 +771,4 @@ CMakeFiles/Blockchain.dir/src/blockchain/User.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__split_buffer \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/move_iterator.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/move_sentinel.h \
-  /Users/dmitrij/projects/blockchain/src/blockchain/../../include/blockchain/Block.h
+  /Users/dmitrij/projects/Blockchain/src/blockchain/../../include/blockchain/Block.h

@@ -1,5 +1,5 @@
 CMakeFiles/Blockchain.dir/src/blockchain/Transaction.cpp.o: \
-  /Users/dmitrij/projects/blockchain/src/blockchain/Transaction.cpp \
+  /Users/dmitrij/projects/Blockchain/src/blockchain/Transaction.cpp \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium.h \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium/version.h \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium/export.h \
@@ -490,7 +490,7 @@ CMakeFiles/Blockchain.dir/src/blockchain/Transaction.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/view_interface.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/empty.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/size.h \
-  /Users/dmitrij/projects/blockchain/src/blockchain/../../include/blockchain/Transaction.h \
+  /Users/dmitrij/projects/Blockchain/src/blockchain/../../include/blockchain/Transaction.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/chrono \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__chrono/duration.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/ratio \
@@ -755,4 +755,4 @@ CMakeFiles/Blockchain.dir/src/blockchain/Transaction.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__split_buffer \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/move_iterator.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/move_sentinel.h \
-  /Users/dmitrij/projects/blockchain/src/blockchain/../../include/blockchain/Block.h
+  /Users/dmitrij/projects/Blockchain/src/blockchain/../../include/blockchain/Block.h

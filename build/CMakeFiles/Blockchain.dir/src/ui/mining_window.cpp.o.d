@@ -1,6 +1,6 @@
 CMakeFiles/Blockchain.dir/src/ui/mining_window.cpp.o: \
-  /Users/dmitrij/projects/blockchain/src/ui/mining_window.cpp \
-  /Users/dmitrij/projects/blockchain/include/windows/mining_window.h \
+  /Users/dmitrij/projects/Blockchain/src/ui/mining_window.cpp \
+  /Users/dmitrij/projects/Blockchain/include/windows/mining_window.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers/QMainWindow \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
@@ -1168,7 +1168,8 @@ CMakeFiles/Blockchain.dir/src/ui/mining_window.cpp.o: \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers/qcursor.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtGui.framework/Headers/qbitmap.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers/qtabwidget.h \
-  /Users/dmitrij/projects/blockchain/include/windows/../../include/blockchain/User.h \
+  /Users/dmitrij/projects/Blockchain/include/windows/../../include/blockchain/Blockchain.h \
+  /Users/dmitrij/projects/Blockchain/include/windows/../../include/blockchain/Block.h \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium.h \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium/version.h \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium/export.h \
@@ -1235,10 +1236,8 @@ CMakeFiles/Blockchain.dir/src/ui/mining_window.cpp.o: \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium/crypto_secretbox_xchacha20poly1305.h \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium/crypto_stream_salsa2012.h \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium/crypto_stream_salsa208.h \
-  /Users/dmitrij/projects/blockchain/include/windows/../../include/blockchain/Blockchain.h \
-  /Users/dmitrij/projects/blockchain/include/windows/../../include/blockchain/Block.h \
-  /Users/dmitrij/projects/blockchain/include/windows/../../include/blockchain/Transaction.h \
-  /Users/dmitrij/projects/blockchain/include/windows/../../include/blockchain/Miner.h \
+  /Users/dmitrij/projects/Blockchain/include/windows/../../include/blockchain/Transaction.h \
+  /Users/dmitrij/projects/Blockchain/include/windows/../../include/blockchain/Miner.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/mutex \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__condition_variable/condition_variable.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__mutex/mutex.h \
@@ -1246,14 +1245,13 @@ CMakeFiles/Blockchain.dir/src/ui/mining_window.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__mutex/tag_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__mutex/lock_guard.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__thread/id.h \
-  /Users/dmitrij/projects/blockchain/include/windows/../../include/network/Node.h \
-  /Users/dmitrij/projects/blockchain/include/windows/../../include/network/../blockchain/Transaction.h \
-  /Users/dmitrij/projects/blockchain/include/windows/../../include/network/../blockchain/Blockchain.h \
-  /Users/dmitrij/projects/blockchain/include/windows/../../include/network/../blockchain/Miner.h \
-  /Users/dmitrij/projects/blockchain/include/windows/../../include/network/../blockchain/Block.h \
-  /Users/dmitrij/projects/blockchain/include/windows/../../include/network/Peer.h \
-  /Users/dmitrij/projects/blockchain/include/windows/../../include/network/Message.h \
-  /Users/dmitrij/projects/blockchain/include/windows/../../include/network/CryptoUtils.h \
+  /Users/dmitrij/projects/Blockchain/include/windows/../../include/network/Node.h \
+  /Users/dmitrij/projects/Blockchain/include/windows/../../include/network/../blockchain/Transaction.h \
+  /Users/dmitrij/projects/Blockchain/include/windows/../../include/network/../blockchain/Blockchain.h \
+  /Users/dmitrij/projects/Blockchain/include/windows/../../include/network/../blockchain/Miner.h \
+  /Users/dmitrij/projects/Blockchain/include/windows/../../include/network/../blockchain/Block.h \
+  /Users/dmitrij/projects/Blockchain/include/windows/../../include/network/Peer.h \
+  /Users/dmitrij/projects/Blockchain/include/windows/../../include/network/Message.h \
   /opt/homebrew/include/asio.hpp \
   /opt/homebrew/include/asio/any_completion_executor.hpp \
   /opt/homebrew/include/asio/detail/config.hpp \
@@ -1760,7 +1758,7 @@ CMakeFiles/Blockchain.dir/src/ui/mining_window.cpp.o: \
   /opt/homebrew/include/asio/write_at.hpp \
   /opt/homebrew/include/asio/impl/write_at.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/deque \
-  /Users/dmitrij/projects/blockchain/build/Blockchain_autogen/include/./ui_mining_window.h \
+  /Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/include/./ui_mining_window.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers/QVariant \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers/QApplication \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers/qapplication.h \
@@ -1779,10 +1777,11 @@ CMakeFiles/Blockchain.dir/src/ui/mining_window.cpp.o: \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers/QStatusBar \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers/qstatusbar.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers/QWidget \
-  /Users/dmitrij/projects/blockchain/src/ui/../../include/blockchain/User.h \
-  /Users/dmitrij/projects/blockchain/src/ui/../../include/blockchain/Blockchain.h \
-  /Users/dmitrij/projects/blockchain/src/ui/../../include/blockchain/Miner.h \
-  /Users/dmitrij/projects/blockchain/src/ui/../../include/blockchain/Transaction.h \
-  /Users/dmitrij/projects/blockchain/src/ui/../../include/network/Node.h \
-  /Users/dmitrij/projects/blockchain/src/ui/../../include/api/ApiRegistry.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream
+  /Users/dmitrij/projects/Blockchain/src/ui/../../include/blockchain/User.h \
+  /Users/dmitrij/projects/Blockchain/src/ui/../../include/blockchain/Blockchain.h \
+  /Users/dmitrij/projects/Blockchain/src/ui/../../include/blockchain/Miner.h \
+  /Users/dmitrij/projects/Blockchain/src/ui/../../include/blockchain/Transaction.h \
+  /Users/dmitrij/projects/Blockchain/src/ui/../../include/network/Node.h \
+  /Users/dmitrij/projects/Blockchain/src/ui/../../include/network/PortUtils.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
+  /Users/dmitrij/projects/Blockchain/src/ui/../../include/api/ApiRegistry.h

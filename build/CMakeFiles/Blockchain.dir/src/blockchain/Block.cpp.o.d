@@ -1,5 +1,5 @@
 CMakeFiles/Blockchain.dir/src/blockchain/Block.cpp.o: \
-  /Users/dmitrij/projects/blockchain/src/blockchain/Block.cpp \
+  /Users/dmitrij/projects/Blockchain/src/blockchain/Block.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/cstring \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config_site \
@@ -222,7 +222,7 @@ CMakeFiles/Blockchain.dir/src/blockchain/Block.cpp.o: \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium/crypto_secretbox_xchacha20poly1305.h \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium/crypto_stream_salsa2012.h \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium/crypto_stream_salsa208.h \
-  /Users/dmitrij/projects/blockchain/src/blockchain/../../include/blockchain/Block.h \
+  /Users/dmitrij/projects/Blockchain/src/blockchain/../../include/blockchain/Block.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/unordered_map \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/is_permutation.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/comp.h \

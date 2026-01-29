@@ -1,5 +1,5 @@
 CMakeFiles/Blockchain.dir/src/file_sharing/Sending.cpp.o: \
-  /Users/dmitrij/projects/blockchain/src/file_sharing/Sending.cpp \
+  /Users/dmitrij/projects/Blockchain/src/file_sharing/Sending.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/fstream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/max.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/comp.h \
@@ -692,7 +692,7 @@ CMakeFiles/Blockchain.dir/src/file_sharing/Sending.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__split_buffer \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/move_iterator.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/move_sentinel.h \
-  /Users/dmitrij/projects/blockchain/src/file_sharing/../../include/file_sharing/Sending.h \
+  /Users/dmitrij/projects/Blockchain/src/file_sharing/../../include/file_sharing/Sending.h \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium.h \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium/version.h \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium/export.h \
@@ -768,7 +768,7 @@ CMakeFiles/Blockchain.dir/src/file_sharing/Sending.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/erase_if_container.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/ranges_iterator_traits.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__node_handle \
-  /Users/dmitrij/projects/blockchain/src/file_sharing/../../include/file_sharing/../blockchain/User.h \
+  /Users/dmitrij/projects/Blockchain/src/file_sharing/../../include/file_sharing/../blockchain/User.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/chrono \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__chrono/calendar.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__chrono/day.h \
@@ -791,12 +791,12 @@ CMakeFiles/Blockchain.dir/src/file_sharing/Sending.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__chrono/zoned_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__chrono/ostream.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__chrono/parser_std_format_spec.h \
-  /Users/dmitrij/projects/blockchain/src/file_sharing/../../include/file_sharing/../blockchain/Block.h \
-  /Users/dmitrij/projects/blockchain/src/file_sharing/../../include/file_sharing/../network/Node.h \
-  /Users/dmitrij/projects/blockchain/src/file_sharing/../../include/file_sharing/../network/../blockchain/Transaction.h \
-  /Users/dmitrij/projects/blockchain/src/file_sharing/../../include/file_sharing/../network/../blockchain/Block.h \
-  /Users/dmitrij/projects/blockchain/src/file_sharing/../../include/file_sharing/../network/../blockchain/Blockchain.h \
-  /Users/dmitrij/projects/blockchain/src/file_sharing/../../include/file_sharing/../network/../blockchain/Miner.h \
+  /Users/dmitrij/projects/Blockchain/src/file_sharing/../../include/file_sharing/../blockchain/Block.h \
+  /Users/dmitrij/projects/Blockchain/src/file_sharing/../../include/file_sharing/../network/Node.h \
+  /Users/dmitrij/projects/Blockchain/src/file_sharing/../../include/file_sharing/../network/../blockchain/Transaction.h \
+  /Users/dmitrij/projects/Blockchain/src/file_sharing/../../include/file_sharing/../network/../blockchain/Block.h \
+  /Users/dmitrij/projects/Blockchain/src/file_sharing/../../include/file_sharing/../network/../blockchain/Blockchain.h \
+  /Users/dmitrij/projects/Blockchain/src/file_sharing/../../include/file_sharing/../network/../blockchain/Miner.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/mutex \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__condition_variable/condition_variable.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__mutex/mutex.h \
@@ -804,9 +804,8 @@ CMakeFiles/Blockchain.dir/src/file_sharing/Sending.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__mutex/tag_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__mutex/lock_guard.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__thread/id.h \
-  /Users/dmitrij/projects/blockchain/src/file_sharing/../../include/file_sharing/../network/Peer.h \
-  /Users/dmitrij/projects/blockchain/src/file_sharing/../../include/file_sharing/../network/Message.h \
-  /Users/dmitrij/projects/blockchain/src/file_sharing/../../include/file_sharing/../network/CryptoUtils.h \
+  /Users/dmitrij/projects/Blockchain/src/file_sharing/../../include/file_sharing/../network/Peer.h \
+  /Users/dmitrij/projects/Blockchain/src/file_sharing/../../include/file_sharing/../network/Message.h \
   /opt/homebrew/include/asio.hpp \
   /opt/homebrew/include/asio/any_completion_executor.hpp \
   /opt/homebrew/include/asio/detail/config.hpp \
@@ -1548,41 +1547,5 @@ CMakeFiles/Blockchain.dir/src/file_sharing/Sending.cpp.o: \
   /opt/homebrew/include/asio/write_at.hpp \
   /opt/homebrew/include/asio/impl/write_at.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/deque \
-  /Users/dmitrij/projects/blockchain/src/file_sharing/../../include/blockchain/Transaction.h \
-  /Users/dmitrij/projects/blockchain/src/file_sharing/../../include/blockchain/Mempool.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/ranges \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/all.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/compose.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/owning_view.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/range_adaptor.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/common_view.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/counted.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/span \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/span.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/drop_view.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/empty_view.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/iota_view.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/non_propagating_cache.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/repeat_view.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/drop_while_view.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/elements_view.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__tuple/tuple_like.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/filter_view.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/join_view.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/iterator_with_data.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/as_lvalue.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/lazy_split_view.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/single_view.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/rbegin.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/rend.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/reverse_view.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/split_view.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/take_view.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/take_while_view.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/transform_view.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/views.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/istream_view.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/as_rvalue_view.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/chunk_by_view.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/to.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/zip_view.h
+  /Users/dmitrij/projects/Blockchain/src/file_sharing/../../include/blockchain/Transaction.h \
+  /Users/dmitrij/projects/Blockchain/src/file_sharing/../../include/blockchain/Mempool.h

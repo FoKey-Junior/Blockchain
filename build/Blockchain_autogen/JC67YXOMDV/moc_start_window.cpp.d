@@ -1,5 +1,5 @@
-/Users/dmitrij/projects/blockchain/build/Blockchain_autogen/JC67YXOMDV/moc_start_window.cpp: /Users/dmitrij/projects/blockchain/include/windows/start_window.h \
-  /Users/dmitrij/projects/blockchain/build/Blockchain_autogen/moc_predefs.h \
+/Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/JC67YXOMDV/moc_start_window.cpp: /Users/dmitrij/projects/Blockchain/include/windows/start_window.h \
+  /Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/moc_predefs.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.5.sdk/usr/include/Availability.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.5.sdk/usr/include/AvailabilityInternal.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.5.sdk/usr/include/AvailabilityInternalLegacy.h \

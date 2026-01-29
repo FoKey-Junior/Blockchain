@@ -1,7 +1,7 @@
 CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.o: \
-  /Users/dmitrij/projects/blockchain/build/Blockchain_autogen/mocs_compilation.cpp \
-  /Users/dmitrij/projects/blockchain/build/Blockchain_autogen/JC67YXOMDV/moc_main_window.cpp \
-  /Users/dmitrij/projects/blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/main_window.h \
+  /Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/mocs_compilation.cpp \
+  /Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/JC67YXOMDV/moc_main_window.cpp \
+  /Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/main_window.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers/QWidget \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers/qwidget.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
@@ -1233,14 +1233,14 @@ CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.o: \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium/crypto_secretbox_xchacha20poly1305.h \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium/crypto_stream_salsa2012.h \
   /opt/homebrew/Cellar/libsodium/1.0.20/include/sodium/crypto_stream_salsa208.h \
-  /Users/dmitrij/projects/blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/../../include/blockchain/User.h \
-  /Users/dmitrij/projects/blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/../../include/blockchain/Blockchain.h \
-  /Users/dmitrij/projects/blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/../../include/blockchain/Block.h \
-  /Users/dmitrij/projects/blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/../../include/blockchain/Transaction.h \
-  /Users/dmitrij/projects/blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/../../include/network/Node.h \
-  /Users/dmitrij/projects/blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/../../include/network/../blockchain/Transaction.h \
-  /Users/dmitrij/projects/blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/../../include/network/../blockchain/Blockchain.h \
-  /Users/dmitrij/projects/blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/../../include/network/../blockchain/Miner.h \
+  /Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/../../include/blockchain/User.h \
+  /Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/../../include/blockchain/Blockchain.h \
+  /Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/../../include/blockchain/Block.h \
+  /Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/../../include/blockchain/Transaction.h \
+  /Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/../../include/network/Node.h \
+  /Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/../../include/network/../blockchain/Transaction.h \
+  /Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/../../include/network/../blockchain/Blockchain.h \
+  /Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/../../include/network/../blockchain/Miner.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/mutex \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__condition_variable/condition_variable.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__mutex/mutex.h \
@@ -1248,10 +1248,9 @@ CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__mutex/tag_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__mutex/lock_guard.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__thread/id.h \
-  /Users/dmitrij/projects/blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/../../include/network/../blockchain/Block.h \
-  /Users/dmitrij/projects/blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/../../include/network/Peer.h \
-  /Users/dmitrij/projects/blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/../../include/network/Message.h \
-  /Users/dmitrij/projects/blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/../../include/network/CryptoUtils.h \
+  /Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/../../include/network/../blockchain/Block.h \
+  /Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/../../include/network/Peer.h \
+  /Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/../../include/network/Message.h \
   /opt/homebrew/include/asio.hpp \
   /opt/homebrew/include/asio/any_completion_executor.hpp \
   /opt/homebrew/include/asio/detail/config.hpp \
@@ -1758,20 +1757,14 @@ CMakeFiles/Blockchain.dir/Blockchain_autogen/mocs_compilation.cpp.o: \
   /opt/homebrew/include/asio/write_at.hpp \
   /opt/homebrew/include/asio/impl/write_at.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/deque \
-  /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers/QTimer \
-  /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers/qtimer.h \
-  /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers/qbasictimer.h \
-  /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers/qabstracteventdispatcher.h \
-  /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers/qeventloop.h \
-  /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers/qdeadlinetimer.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers/qtmochelpers.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers/qtmocconstants.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtCore.framework/Headers/q20algorithm.h \
-  /Users/dmitrij/projects/blockchain/build/Blockchain_autogen/JC67YXOMDV/moc_mining_window.cpp \
-  /Users/dmitrij/projects/blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/mining_window.h \
+  /Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/JC67YXOMDV/moc_mining_window.cpp \
+  /Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/mining_window.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers/QMainWindow \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
   /Users/dmitrij/Qt/6.10.1/macos/lib/QtWidgets.framework/Headers/qtabwidget.h \
-  /Users/dmitrij/projects/blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/../../include/blockchain/Miner.h \
-  /Users/dmitrij/projects/blockchain/build/Blockchain_autogen/JC67YXOMDV/moc_start_window.cpp \
-  /Users/dmitrij/projects/blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/start_window.h
+  /Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/../../include/blockchain/Miner.h \
+  /Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/JC67YXOMDV/moc_start_window.cpp \
+  /Users/dmitrij/projects/Blockchain/build/Blockchain_autogen/JC67YXOMDV/../../../include/windows/start_window.h
