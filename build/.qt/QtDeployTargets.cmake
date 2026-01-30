@@ -1,2 +1,0 @@
-set(__QT_DEPLOY_TARGET_Blockchain_FILE /Users/dmitrij/projects/Blockchain/build/Blockchain)
-set(__QT_DEPLOY_TARGET_Blockchain_TYPE EXECUTABLE)
