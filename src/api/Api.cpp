@@ -55,21 +55,17 @@ void Api::start_server(unsigned short const port) {
     User api_user;
     asio::io_context io_context;
     Node api_node(io_context, 0, api_user.get_public_key(), api_user.get_private_key());
-    
-    // Запускаем io_context в отдельном потоке
+
     std::thread io_thread([&io_context]() {
         io_context.run();
     });
     io_thread.detach();
-    
-    // Запускаем Node
     api_node.start();
 
     CROW_ROUTE(app, "/favicon.ico")([]() {
         return crow::response(200, "");
     });
 
-    // Регистрация майнера
     CROW_ROUTE(app, "/api/register/miner").methods("POST"_method)
     ([](const crow::request& req) {
         try {
@@ -149,7 +145,6 @@ void Api::start_server(unsigned short const port) {
             auto miners = Api::get_miners();
             for (const auto& [ip, port] : miners) {
                 api_node.connect_to_peer(ip, port);
-                // Небольшая задержка для установки соединения
                 std::this_thread::sleep_for(std::chrono::milliseconds(100));
                 api_node.add_transaction(tx_data);
             }
@@ -161,42 +156,6 @@ void Api::start_server(unsigned short const port) {
             return crow::response(400, "Unknown error");
         }
     });
-
-    //
-    // CROW_ROUTE(app, "/api/new/miner")([&mempool, &alice, &bob](){
-    //     Transaction transaction(alice.get_address_bytes(), bob.get_address_bytes());
-    //     transaction.sign(alice.get_private_key());
-    //
-    //     if (transaction.verify(alice.get_public_key())) {
-    //         mempool.add_transaction(transaction);
-    //         std::cout << "Signature valid!\n";
-    //     }
-    //
-    //     transaction.print();
-    //
-    //     return "miner started";
-    // });
-    //
-    // CROW_ROUTE(app, "/api/mempool/pop")
-    // ([&mempool](const crow::request& req) {
-    //     auto txid = req.url_params.get("txid");
-    //     if (!txid) {
-    //         return crow::response(400, "txid required");
-    //     }
-    //
-    //     bool removed = mempool.remove_transaction(
-    //         reinterpret_cast<const unsigned char*>(txid)
-    //     );
-    //
-    //     return removed
-    //         ? crow::response(200, "transaction removed")
-    //         : crow::response(404, "transaction not found");
-    // });
-    //
-    // CROW_ROUTE(app, "/api/new/user")([](){
-    //     User user;
-    //     return "the new wallet has been successfully created";
-    // });
 
     app.port(port).run();
 }
