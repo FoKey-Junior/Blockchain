@@ -87,7 +87,7 @@ void node::handle_message(message_type type, const std::vector<std::uint8_t>& pa
                     const address_bytes& prev_address = blockchain_ptr_->get_last_block().get_previous_address();
                     const address_bytes& received_prev_address = new_block.get_previous_address();
 
-                    if (std::memcmp(prev_address.data(), received_prev_address.data(), address_bytes::size()) != 0) {
+                    if (std::memcmp(prev_address.data(), received_prev_address.data(), crypto_generichash_BYTES) != 0) {
                         break;
                     }
                 }
@@ -204,7 +204,7 @@ void node::wait_for_mempool(std::unique_lock<std::mutex>& lock, std::chrono::mil
 
 std::vector<std::uint8_t> node::serialize_message(const message& msg) const noexcept {
     std::vector<std::uint8_t> buffer;
-    buffer.reserve(1 + public_key_bytes::size() + msg.payload.size());
+    buffer.reserve(1 + crypto_sign_PUBLICKEYBYTES + msg.payload.size());
     buffer.push_back(static_cast<std::uint8_t>(msg.type));
     buffer.insert(buffer.end(), msg.sender_public_key.begin(), msg.sender_public_key.end());
     buffer.insert(buffer.end(), msg.payload.begin(), msg.payload.end());
@@ -213,10 +213,10 @@ std::vector<std::uint8_t> node::serialize_message(const message& msg) const noex
 
 message node::deserialize_message(const std::vector<std::uint8_t>& buffer) const noexcept {
     message msg;
-    if (buffer.size() >= 1 + public_key_bytes::size()) {
+    if (buffer.size() >= 1 + crypto_sign_PUBLICKEYBYTES) {
         msg.type = static_cast<message_type>(buffer[0]);
-        std::memcpy(msg.sender_public_key.data(), buffer.data() + 1, public_key_bytes::size());
-        msg.payload.assign(buffer.begin() + 1 + public_key_bytes::size(), buffer.end());
+        std::memcpy(msg.sender_public_key.data(), buffer.data() + 1, crypto_sign_PUBLICKEYBYTES);
+        msg.payload.assign(buffer.begin() + 1 + crypto_sign_PUBLICKEYBYTES, buffer.end());
     }
     return msg;
 }

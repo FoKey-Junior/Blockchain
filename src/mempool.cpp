@@ -5,7 +5,7 @@
 bool mempool::contains_transaction(const address_bytes& address) const noexcept {
     return std::any_of(queue_.begin(), queue_.end(),
         [&address](const transaction& tx) {
-            return std::memcmp(tx.get_address().data(), address.data(), address_bytes::size()) == 0;
+            return std::memcmp(tx.get_address().data(), address.data(), crypto_generichash_BYTES) == 0;
         });
 }
 
@@ -29,7 +29,7 @@ bool mempool::remove_transaction(const address_bytes& address) noexcept {
 
     const auto it = std::find_if(queue_.begin(), queue_.end(),
         [&address](const transaction& tx) {
-            return std::memcmp(tx.get_address().data(), address.data(), address_bytes::size()) == 0;
+            return std::memcmp(tx.get_address().data(), address.data(), crypto_generichash_BYTES) == 0;
         });
 
     if (it == queue_.end()) {

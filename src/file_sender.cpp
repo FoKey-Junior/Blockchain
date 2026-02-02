@@ -40,9 +40,9 @@ std::unordered_map<std::string, file_metadata> file_sender::prepare_files() cons
                           reinterpret_cast<const unsigned char*>(file_name.data()),
                           file_name.size());
 
-        char name_hash_hex[hash_bytes::size() * 2 + 1]{};
+        char name_hash_hex[crypto_hash_sha256_BYTES * 2 + 1]{};
         sodium_bin2hex(name_hash_hex, sizeof(name_hash_hex),
-                      name_hash.data(), hash_bytes::size());
+                      name_hash.data(), crypto_hash_sha256_BYTES);
 
         std::ifstream file(file_path, std::ios::binary);
         if (!file.is_open()) {

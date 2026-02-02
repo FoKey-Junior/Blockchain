@@ -1,6 +1,8 @@
 #include "../include/crypto_utils.h"
 #include <sodium.h>
 #include <cstring>
+#include <array>
+#include <tuple>
 
 std::vector<std::uint8_t> crypto_utils::sign_message(
     const std::vector<std::uint8_t>& message,
@@ -59,6 +61,6 @@ bool crypto_utils::verify_file_integrity(
 ) noexcept {
     hash_bytes computed_hash;
     compute_file_hash(file_data, computed_hash);
-    return std::memcmp(computed_hash.data(), expected_hash.data(), hash_bytes::size()) == 0;
+    return std::memcmp(computed_hash.data(), expected_hash.data(), crypto_hash_sha256_BYTES) == 0;
 }
 

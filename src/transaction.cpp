@@ -57,7 +57,7 @@ void transaction::compute_address() noexcept {
         creation_time_.time_since_epoch()).count();
     
     crypto_generichash_state state;
-    crypto_generichash_init(&state, nullptr, 0, address_bytes::size());
+    crypto_generichash_init(&state, nullptr, 0, crypto_generichash_BYTES);
     crypto_generichash_update(&state, sender_address_.data(), sender_address_.size());
     crypto_generichash_update(&state, receiver_address_.data(), receiver_address_.size());
     crypto_generichash_update(&state, reinterpret_cast<const unsigned char*>(&time_ns), sizeof(time_ns));
@@ -82,9 +82,9 @@ bool transaction::verify(const public_key_bytes& sender_public_key) const noexce
 
 std::vector<std::uint8_t> transaction::serialize() const noexcept {
     std::vector<std::uint8_t> buffer;
-    buffer.reserve(address_bytes::size() * 3 + signature_bytes::size() + 
-                   sizeof(std::uint64_t) + sizeof(std::uint32_t) +
-                   files_.size() * (sizeof(std::uint32_t) + hash_bytes::size()));
+    buffer.reserve(crypto_generichash_BYTES * 3 + crypto_sign_BYTES + 
+                   sizeof(std::int64_t) + sizeof(std::uint32_t) +
+                   files_.size() * (sizeof(std::uint32_t) + crypto_hash_sha256_BYTES));
 
     buffer.insert(buffer.end(), address_.begin(), address_.end());
     buffer.insert(buffer.end(), signature_.begin(), signature_.end());
@@ -113,7 +113,7 @@ std::vector<std::uint8_t> transaction::serialize() const noexcept {
 }
 
 std::optional<transaction> transaction::deserialize(const std::vector<std::uint8_t>& data) noexcept {
-    constexpr std::size_t min_size = address_bytes::size() * 3 + signature_bytes::size() + 
+    constexpr std::size_t min_size = crypto_generichash_BYTES * 3 + crypto_sign_BYTES + 
                                      sizeof(std::int64_t) + sizeof(std::uint32_t);
     if (data.size() < min_size) {
         return std::nullopt;
@@ -127,10 +127,10 @@ std::optional<transaction> transaction::deserialize(const std::vector<std::uint8
     std::int64_t time_seconds = 0;
     std::uint32_t file_count = 0;
 
-    if (!read_bytes(data, offset, address.data(), address_bytes::size()) ||
-        !read_bytes(data, offset, signature.data(), signature_bytes::size()) ||
-        !read_bytes(data, offset, sender_address.data(), address_bytes::size()) ||
-        !read_bytes(data, offset, receiver_address.data(), address_bytes::size()) ||
+    if (!read_bytes(data, offset, address.data(), crypto_generichash_BYTES) ||
+        !read_bytes(data, offset, signature.data(), crypto_sign_BYTES) ||
+        !read_bytes(data, offset, sender_address.data(), crypto_generichash_BYTES) ||
+        !read_bytes(data, offset, receiver_address.data(), crypto_generichash_BYTES) ||
         !read_bytes(data, offset, &time_seconds, sizeof(time_seconds)) ||
         !read_bytes(data, offset, &file_count, sizeof(file_count))) {
         return std::nullopt;
@@ -153,7 +153,7 @@ std::optional<transaction> transaction::deserialize(const std::vector<std::uint8
         offset += name_length;
 
         file_metadata file;
-        if (!read_bytes(data, offset, file.content_hash.data(), hash_bytes::size())) {
+        if (!read_bytes(data, offset, file.content_hash.data(), crypto_hash_sha256_BYTES)) {
             return std::nullopt;
         }
 

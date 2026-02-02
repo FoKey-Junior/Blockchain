@@ -34,8 +34,8 @@ block::block(
 
 std::vector<std::uint8_t> block::serialize() const noexcept {
     std::vector<std::uint8_t> buffer;
-    buffer.reserve(address_bytes::size() * 4 + sizeof(std::int64_t) + 
-                   sizeof(std::uint32_t) + files_.size() * (sizeof(std::uint32_t) + hash_bytes::size()));
+    buffer.reserve(crypto_generichash_BYTES * 4 + sizeof(std::int64_t) + 
+                   sizeof(std::uint32_t) + files_.size() * (sizeof(std::uint32_t) + crypto_hash_sha256_BYTES));
 
     buffer.insert(buffer.end(), address_.begin(), address_.end());
     buffer.insert(buffer.end(), previous_address_.begin(), previous_address_.end());
@@ -64,7 +64,7 @@ std::vector<std::uint8_t> block::serialize() const noexcept {
 }
 
 std::optional<block> block::deserialize(const std::vector<std::uint8_t>& data) noexcept {
-    constexpr std::size_t min_size = address_bytes::size() * 4 + sizeof(std::int64_t) + sizeof(std::uint32_t);
+    constexpr std::size_t min_size = crypto_generichash_BYTES * 4 + sizeof(std::int64_t) + sizeof(std::uint32_t);
     if (data.size() < min_size) {
         return std::nullopt;
     }
@@ -77,10 +77,10 @@ std::optional<block> block::deserialize(const std::vector<std::uint8_t>& data) n
     std::int64_t time_seconds = 0;
     std::uint32_t file_count = 0;
 
-    if (!read_bytes(data, offset, address.data(), address_bytes::size()) ||
-        !read_bytes(data, offset, previous_address.data(), address_bytes::size()) ||
-        !read_bytes(data, offset, sender_address.data(), address_bytes::size()) ||
-        !read_bytes(data, offset, receiver_address.data(), address_bytes::size()) ||
+    if (!read_bytes(data, offset, address.data(), crypto_generichash_BYTES) ||
+        !read_bytes(data, offset, previous_address.data(), crypto_generichash_BYTES) ||
+        !read_bytes(data, offset, sender_address.data(), crypto_generichash_BYTES) ||
+        !read_bytes(data, offset, receiver_address.data(), crypto_generichash_BYTES) ||
         !read_bytes(data, offset, &time_seconds, sizeof(time_seconds)) ||
         !read_bytes(data, offset, &file_count, sizeof(file_count))) {
         return std::nullopt;
@@ -103,7 +103,7 @@ std::optional<block> block::deserialize(const std::vector<std::uint8_t>& data) n
         offset += name_length;
 
         file_metadata file;
-        if (!read_bytes(data, offset, file.content_hash.data(), hash_bytes::size())) {
+        if (!read_bytes(data, offset, file.content_hash.data(), crypto_hash_sha256_BYTES)) {
             return std::nullopt;
         }
 

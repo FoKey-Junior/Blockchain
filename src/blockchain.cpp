@@ -38,7 +38,7 @@ void blockchain::add_block(const std::vector<transaction>& transactions) noexcep
 
     address_bytes block_address;
     crypto_generichash_state state;
-    crypto_generichash_init(&state, nullptr, 0, address_bytes::size());
+    crypto_generichash_init(&state, nullptr, 0, crypto_generichash_BYTES);
     crypto_generichash_update(&state, previous_address.data(), previous_address.size());
     for (const auto& tx : transactions) {
         crypto_generichash_update(&state, tx.get_address().data(), tx.get_address().size());
@@ -65,7 +65,7 @@ bool blockchain::validate_chain() const noexcept {
         const address_bytes& current_previous = chain_[i].get_previous_address();
         const address_bytes& previous_address = chain_[i - 1].get_address();
 
-        if (std::memcmp(current_previous.data(), previous_address.data(), address_bytes::size()) != 0) {
+        if (std::memcmp(current_previous.data(), previous_address.data(), crypto_generichash_BYTES) != 0) {
             return false;
         }
     }
