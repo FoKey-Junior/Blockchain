@@ -388,36 +388,19 @@ Blockchain/
 
 ---
 
-## 👥 Авторы
-
-- **Команда разработки** — первоначальная разработка и поддержка
-
----
-
-## 🙏 Благодарности
-
-- **libsodium** — за отличную криптографическую библиотеку
-- **ASIO** — за высокопроизводительный асинхронный I/O
-- **Catch2** — за удобный фреймворк тестирования
-
----
-
----
-
 <div align="center">
 
 <table>
-<tr>
+<!-- <tr>
 <td align="center" width="50%">
 <img src="https://i.pinimg.com/originals/8a/3f/8b/8a3f8b5c5e5e5e5e5e5e5e5e5e5e5e5.jpg" alt="Guardian" width="200" style="border-radius: 20px; box-shadow: 0 10px 25px rgba(138, 43, 226, 0.4); border: 2px solid rgba(138, 43, 226, 0.2);"/>
-</td>
+</td> -->
 <td align="center" width="50%">
 
 **Сделано с ❤️ для децентрализованного будущего**
 
 [⭐ Поставить звезду](https://github.com/yourusername/blockchain-project)  
 [🐛 Сообщить об ошибке](https://github.com/yourusername/blockchain-project/issues)  
-[💡 Предложить функцию](https://github.com/yourusername/blockchain-project/issues)
 
 *Наш цифровой хранитель всегда на страже ваших данных* 🛡️
 
