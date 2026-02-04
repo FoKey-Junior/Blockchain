@@ -4,7 +4,6 @@
 #include <deque>
 #include <mutex>
 #include <optional>
-#include <sodium.h>
 #include "Transaction.h"
 
 class Mempool {
