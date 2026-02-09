@@ -3,8 +3,7 @@
 <img src="https://github.com/FoKey-Junior/Blockchain/blob/main/assets/background.jpg?raw=true" alt="Blockchain Guardian" width="450" style="border-radius: 30px; box-shadow: 0 25px 50px rgba(138, 43, 226, 0.6); margin-bottom: 35px; border: 5px solid rgba(138, 43, 226, 0.4); display: block; margin-left: auto; margin-right: auto;"/>
 
 # 🔗 Blockchain File Transfer System
-> ⚠️ Проект в разработке  
-> Этот проект находится на этапе активной разработки. Функционал может меняться, но уже демонстрирует работу серверной части на C++20 и клиентской части на Qt
+
 ---
 
 **Безопасная децентрализованная система передачи файлов через блокчейн**
@@ -22,6 +21,8 @@
 
 </div>
 
+> ⚠️ Проект в разработке  
+> Этот проект находится на этапе активной разработки. Функционал может меняться, но уже демонстрирует работу серверной части на C++23 и клиентской части на Qt
 ---
 
 ## 📋 Содержание
