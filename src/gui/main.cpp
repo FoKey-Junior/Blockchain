@@ -9,6 +9,7 @@
 #include <QTextStream>
 #include <QUrl>
 #include <QByteArray>
+#include <QWindow>
 #include <iostream>
 
 #include "gui/app_controller.h"
@@ -79,6 +80,7 @@ void sanitize_qt_env_var(const char* key) {
 
 int main(int argc, char* argv[]) {
     QGuiApplication app(argc, argv);
+    app.setQuitOnLastWindowClosed(false);
     app.setWindowIcon(QIcon(":/qml/icon.png"));
 
     init_file_logging();
@@ -102,7 +104,12 @@ int main(int argc, char* argv[]) {
 
     engine.rootContext()->setContextProperty("appController", &controller);
     if (!load_ui(engine)) {
-        return -1;
+        // Если основной UI не загрузился, держим процесс живым с аварийным окном.
+        auto* fallback_window = new QWindow();
+        fallback_window->setTitle(QStringLiteral("BlockchainApp: ошибка загрузки UI"));
+        fallback_window->resize(960, 640);
+        fallback_window->show();
+        write_log_line("[WARN] Fallback window is shown to keep app running");
     }
 
     return app.exec();
