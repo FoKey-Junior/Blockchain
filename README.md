@@ -1,9 +1,18 @@
-<div align="center">
+# Blockchain File Transfer (Qt Quick + C++23)
 
-<img src="https://github.com/FoKey-Junior/Blockchain/blob/main/assets/background.jpg?raw=true" alt="Blockchain Guardian" width="450" style="border-radius: 30px; box-shadow: 0 25px 50px rgba(138, 43, 226, 0.6); margin-bottom: 35px; border: 5px solid rgba(138, 43, 226, 0.4); display: block; margin-left: auto; margin-right: auto;"/>
+Production-ready pet‑project: регистрация/авторизация по ключам, передача файлов и проверка происхождения через собственный блокчейн.
 
-# 🔗 Blockchain File Transfer System
+## Возможности
+- Регистрация пользователя (генерация Ed25519 ключей)
+- Авторизация по адресу
+- Передача файлов между узлами (TCP)
+- Хранение в блокчейне: SHA‑256 хэш и метаданные
+- Проверка файла: отправитель, получатель, блок
+- FIFO mempool без комиссий
+- PoA консенсус (локальный валидатор)
+- Светлая и тёмная темы в UI
 
+<<<<<<< HEAD
 ---
 
 **Безопасная децентрализованная система передачи файлов через блокчейн**
@@ -155,57 +164,46 @@
 - **pkg-config** — для поиска зависимостей
 
 ### Linux (Debian/Ubuntu)
+=======
+## Архитектура
+- `core/` — блокчейн, криптография, mempool
+- `network/` — TCP узел и протокол передачи файла
+- `storage/` — SQLite хранение пользователей, блоков, транзакций
+- `gui/` — Qt Quick, модели и контроллеры
+>>>>>>> 16be0f0 (1.10.2)
 
+## Сборка (Linux/macOS)
 ```bash
-# Установка зависимостей
-sudo apt-get update
-sudo apt-get install -y \
-    build-essential \
-    cmake \
-    libsodium-dev \
-    pkg-config \
-    libasio-dev
-
-# Клонирование репозитория
-git clone https://github.com/yourusername/blockchain-project.git
-cd blockchain-project
-
-# Сборка
-mkdir build && cd build
-cmake ..
-make -j$(nproc)
-
-# Запуск сервера
-./server
+mkdir -p build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
+cmake --build . -j
 ```
+
+## Запуск
+```bash
+./BlockchainApp
+```
+
+## Зависимости
+- CMake 3.25+
+- Qt 6 (Quick, QuickControls2, QuickDialogs2)
+- libsodium
+- SQLite3
+- ASIO (header-only)
 
 ### macOS
-
 ```bash
-# Установка зависимостей через Homebrew
-brew install cmake libsodium pkg-config
-
-# Сборка
-mkdir build && cd build
-cmake ..
-make -j$(sysctl -n hw.ncpu)
-
-# Запуск
-./server
+brew install qt@6 libsodium sqlite asio
 ```
 
-### Сборка с тестами
-
+### Linux (Debian/Ubuntu)
 ```bash
-cmake -DBUILD_TESTS=ON ..
-make -j$(nproc)
-
-# Запуск тестов
-ctest --output-on-failure
-# или
-./Blockchain_tests
+sudo apt-get update
+sudo apt-get install -y qt6-base-dev qt6-declarative-dev libsodium-dev libsqlite3-dev libasio-dev
 ```
 
+<<<<<<< HEAD
 ---
 
 ## 🚀 Использование
@@ -411,3 +409,7 @@ Blockchain/
 </table>
 
 </div>
+=======
+## Обоснование консенсуса
+PoA выбран для pet‑проекта: быстрое подтверждение, отсутствие комиссий и контролируемая предсказуемость блоков. Это позволяет сфокусироваться на логике и безопасности данных.
+>>>>>>> 16be0f0 (1.10.2)
