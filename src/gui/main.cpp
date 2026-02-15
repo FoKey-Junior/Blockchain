@@ -2,6 +2,7 @@
 #include <QFile>
 #include <QGuiApplication>
 #include <QIcon>
+#include <QStringList>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQmlError>
@@ -56,10 +57,19 @@ void init_file_logging() {
 }
 
 bool load_ui(QQmlApplicationEngine& engine) {
-    engine.load(QUrl(QStringLiteral("qrc:/qml/Main.qml")));
-    if (!engine.rootObjects().isEmpty()) {
-        write_log_line("[INFO] QML loaded from qrc:/qml/Main.qml");
-        return true;
+    const QStringList candidates = {
+        QStringLiteral("qrc:/qml/Main.qml"),
+        QStringLiteral("qrc:/qml/qml/Main.qml"),
+        QStringLiteral("qrc:/Main.qml")
+    };
+
+    for (const QString& candidate : candidates) {
+        engine.load(QUrl(candidate));
+        if (!engine.rootObjects().isEmpty()) {
+            write_log_line(QString("[INFO] QML loaded from %1").arg(candidate));
+            return true;
+        }
+        write_log_line(QString("[WARN] Failed to load %1").arg(candidate));
     }
 
     write_log_line("[FATAL] QML root object was not created");
@@ -81,7 +91,11 @@ void sanitize_qt_env_var(const char* key) {
 int main(int argc, char* argv[]) {
     QGuiApplication app(argc, argv);
     app.setQuitOnLastWindowClosed(false);
-    app.setWindowIcon(QIcon(":/qml/icon.png"));
+    if (QFile::exists(":/qml/icon.png")) {
+        app.setWindowIcon(QIcon(":/qml/icon.png"));
+    } else if (QFile::exists(":/qml/assets/icon.png")) {
+        app.setWindowIcon(QIcon(":/qml/assets/icon.png"));
+    }
 
     init_file_logging();
 
