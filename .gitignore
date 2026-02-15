@@ -43,4 +43,3 @@ ui_*.h
 *.out
 *.a
 *.lib
-*.dSYM/
