@@ -174,8 +174,6 @@ brew install qt@6 libsodium sqlite asio
 sudo apt-get update
 sudo apt-get install -y qt6-base-dev qt6-declarative-dev libsodium-dev libsqlite3-dev libasio-dev
 ```
-
-<<<<<<< HEAD
 ---
 
 ## 🚀 Использование
