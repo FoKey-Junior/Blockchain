@@ -246,21 +246,6 @@ const block& last = chain.get_last_block();
 
 ## 🧪 Тестирование
 
-Проект включает comprehensive unit-тесты для всех ключевых компонентов:
-
-```bash
-# Запуск всех тестов
-./Blockchain_tests
-
-# Запуск конкретного теста
-./Blockchain_tests "[mempool]"
-
-# Запуск с подробным выводом
-./Blockchain_tests --success
-```
-
-### Покрытие тестами
-
 - ✅ **mempool** — FIFO очередь, потокобезопасность, дубликаты
 - ✅ **blockchain** — валидация, добавление блоков, genesis
 - ✅ **transaction** — создание, подпись, верификация, сериализация
