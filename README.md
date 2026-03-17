@@ -6,8 +6,8 @@ Production-ready pet‑project: регистрация/авторизация п
 
 [![C++](https://img.shields.io/badge/C++-23-blue.svg)](https://isocpp.org/)
 [![CMake](https://img.shields.io/badge/CMake-3.25+-green.svg)](https://cmake.org/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![libsodium](https://img.shields.io/badge/libsodium-✓-success.svg)](https://libsodium.org/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ## Возможности
 Регистрация пользователя (генерация Ed25519 ключей)
