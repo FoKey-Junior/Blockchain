@@ -28,6 +28,8 @@ std::uint64_t decode_u64(const std::uint8_t* data) {
 
 std::vector<std::uint8_t> signable_payload(const Block& block) {
     std::vector<std::uint8_t> out;
+    out.reserve(256);
+
     append_bytes(out, block.previous_hash().data(), block.previous_hash().size());
     for (const auto& tx : block.transactions()) {
         const auto tx_data = tx.serialize();
@@ -59,6 +61,8 @@ Block::Block(HashBytes previous_hash, std::vector<Transaction> transactions,
 
 void Block::compute_hash() noexcept {
     std::vector<std::uint8_t> data;
+    data.reserve(256);
+
     append_bytes(data, previous_hash_.data(), previous_hash_.size());
     for (const auto& tx : transactions_) {
         const auto tx_data = tx.serialize();
@@ -81,6 +85,8 @@ bool Block::verify_authority() const noexcept {
 
 std::vector<std::uint8_t> Block::serialize() const {
     std::vector<std::uint8_t> out;
+    out.reserve(256);
+
     append_bytes(out, hash_.data(), hash_.size());
     append_bytes(out, previous_hash_.data(), previous_hash_.size());
     const auto count_bytes = encode_u64(static_cast<std::uint64_t>(transactions_.size()));
