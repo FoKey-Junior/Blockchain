@@ -4,6 +4,7 @@
 #include "storage/database.h"
 #include <vector>
 #include <string>
+#include <cstdint>
 
 namespace storage {
 

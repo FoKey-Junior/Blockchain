@@ -2,6 +2,7 @@
 
 #include <sqlite3.h>
 #include <stdexcept>
+#include <cstdint>
 
 namespace storage {
 

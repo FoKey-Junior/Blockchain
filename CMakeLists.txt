@@ -19,8 +19,8 @@ pkg_check_modules(SODIUM IMPORTED_TARGET libsodium)
 if(SODIUM_FOUND)
     set(SODIUM_LINK_LIBS PkgConfig::SODIUM)
 else()
-    find_library(SODIUM_LIB_FOUND NAMES sodium libsodium PATHS /opt/homebrew/lib /usr/local/lib /usr/lib)
-    find_path(SODIUM_INCLUDE_FOUND NAMES sodium.h PATHS /opt/homebrew/include /usr/local/include /usr/include)
+    find_library(SODIUM_LIB_FOUND NAMES sodium libsodium)
+    find_path(SODIUM_INCLUDE_FOUND NAMES sodium.h)
     if(SODIUM_LIB_FOUND AND SODIUM_INCLUDE_FOUND)
         set(SODIUM_LINK_LIBS ${SODIUM_LIB_FOUND})
         set(SODIUM_INCLUDE_DIRS ${SODIUM_INCLUDE_FOUND})
@@ -32,9 +32,6 @@ endif()
 find_path(ASIO_INCLUDE_DIR asio.hpp
     PATHS
         $ENV{ASIO_ROOT}/include
-        /usr/include
-        /usr/local/include
-        /opt/homebrew/include
 )
 if(NOT ASIO_INCLUDE_DIR)
     message(FATAL_ERROR "ASIO not found. Install libasio-dev or set ASIO_ROOT.")

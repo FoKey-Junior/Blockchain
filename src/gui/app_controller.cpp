@@ -260,7 +260,7 @@ QVariantMap AppController::verifyFile(const QString& filePath) {
     result["hash"] = QString::fromStdString(tx.file_hash);
     result["sender"] = QString::fromStdString(tx.sender);
     result["receiver"] = QString::fromStdString(tx.receiver);
-    result["blockIndex"] = tx.block_index;
+    result["blockIndex"] = static_cast<qint64>(tx.block_index);
     result["fileName"] = QString::fromStdString(tx.file_name);
     return result;
 }
