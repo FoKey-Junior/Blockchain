@@ -39,7 +39,7 @@ std::vector<StoredBlock> BlockStore::list() {
         block.previous_hash = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 1));
         block.timestamp_ms = sqlite3_column_int64(stmt, 2);
         block.authority = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 3));
-        out.push_back(block);
+        out.push_back(std::move(block));
     }
     sqlite3_finalize(stmt);
     return out;

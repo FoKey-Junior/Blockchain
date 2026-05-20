@@ -9,13 +9,13 @@ namespace core::log {
 namespace {
 std::mutex log_mutex;
 
-const char* level_to_string(Level level) {
+constexpr const char* level_to_string(Level level) noexcept {
     switch (level) {
         case Level::Debug: return "DEBUG";
-        case Level::Info: return "INFO";
-        case Level::Warn: return "WARN";
+        case Level::Info:  return "INFO";
+        case Level::Warn:  return "WARN";
         case Level::Error: return "ERROR";
-        default: return "INFO";
+        default:           return "INFO";
     }
 }
 } // namespace
