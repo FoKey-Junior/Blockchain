@@ -2,290 +2,152 @@
   
 # Blockchain File Transfer (Qt Quick + C++23)
 
-Production-ready pet‑project: регистрация/авторизация по ключам, передача файлов и проверка происхождения через собственный блокчейн.
+Production-ready pet project: key-based registration/authorization, file transfer, and origin verification via a custom blockchain.
 
 [![C++](https://img.shields.io/badge/C++-23-blue.svg)](https://isocpp.org/)
 [![CMake](https://img.shields.io/badge/CMake-3.25+-green.svg)](https://cmake.org/)
 [![libsodium](https://img.shields.io/badge/libsodium-✓-success.svg)](https://libsodium.org/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## Возможности
-Регистрация пользователя (генерация Ed25519 ключей)
-Авторизация по адресу
-Передача файлов между узлами (TCP)
-Хранение в блокчейне: SHA‑256 хэш и метаданные
-Проверка файла: отправитель, получатель, блок
-FIFO mempool без комиссий
-PoA консенсус (локальный валидатор)
-Светлая и тёмная темы в UI
+## Features
+- User registration (Ed25519 key generation)
+- Address-based authorization
+- Node-to-node file transfer (TCP)
+- Blockchain storage: SHA-256 hash and metadata
+- File verification: sender, recipient, block
+- Feeless FIFO mempool
+- PoA consensus (local validator)
+- Light and dark UI themes
 
-**Безопасная децентрализованная система передачи файлов через блокчейн**
+**Secure decentralized blockchain-based file transfer system**
 
-*Профессиональная реализация блокчейна с честной FIFO очередью транзакций*
+*Professional blockchain implementation with a fair FIFO transaction queue*
 
 <div style="margin-top: 20px; font-style: italic; color: #8a2be2; font-size: 0.95em;">
-✨ Защищая ваши данные с элегантностью и надежностью ✨ <br><br>
+✨ Securing your data with elegance and reliability ✨ <br><br>
 
-> ⚠️ Проект в разработке ⚠️  
-> Этот проект находится на этапе активной разработки. Функционал может меняться, но уже демонстрирует работу серверной части на C++23 и клиентской части на Qt️
+> ⚠️ Project under development ⚠️  
+> This project is under active development. Features are subject to change, but it already demonstrates a fully functional C++23 backend and a Qt-based frontend.
 </div>
 </div>
 
 ---
 
-## Содержание
+## Table of Contents
 
-- [О проекте](#-о-проекте)
-- [Ключевые особенности](#-ключевые-особенности)
-- [Архитектура](#-архитектура)
-- [Технологии](#-технологии)
-- [Установка](#-установка)
-- [Использование](#-использование)
-- [Тестирование](#-тестирование)
-- [Структура проекта](#-структура-проекта)
-- [Безопасность](#-безопасность)
-- [Вклад в проект](#-вклад-в-проект)
-
----
-
-## О проекте
-
-**Blockchain File Transfer System** - это высокопроизводительная блокчейн-система для безопасной передачи и проверки файлов в децентрализованной сети. Проект реализован с использованием современных стандартов C++23 и следует принципам production-ready разработки.
-
-### Основные принципы
-
-- **Честность** - FIFO очередь транзакций без скрытых приоритетов
-- **Безопасность** - полная защита памяти (RAII), криптографическая валидация
-- **Надежность** - потокобезопасность, отсутствие гонок данных и утечек памяти
-- **Производительность** - оптимизированная архитектура для высоких нагрузок
-- **Прозрачность** - детерминированный порядок обработки транзакций
+- [About the Project](#about-the-project)
+- [Key Features](#key-features)
+- [Architecture](#architecture)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Testing](#testing)
+- [Project Structure](#project-structure)
+- [Security](#security)
+- [Contributing](#contributing)
 
 ---
 
-## Ключевые особенности
+## About the Project
 
-### Криптография
-- **Ed25519** подписи для транзакций
-- **SHA-256** хеширование файлов
-- **BLAKE2b** для адресов и блоков
-- Полная проверка целостности данных
+**Blockchain File Transfer System** is a high-performance blockchain system designed for secure file transfer and verification within a decentralized network. The project is built using modern C++23 standards and adheres to production-ready development principles.
+
+### Core Principles
+
+- **Fairness:** FIFO transaction queue with no hidden priorities.
+- **Security:** Full memory safety (RAII) and cryptographic validation.
+- **Reliability:** Thread safety, with zero data races or memory leaks.
+- **Performance:** Highly optimized architecture designed for heavy workloads.
+- **Transparency:** Deterministic transaction processing order.
+
+---
+
+## Key Features
+
+### Cryptography
+- **Ed25519** signatures for transactions.
+- **SHA-256** file hashing.
+- **BLAKE2b** hashing for addresses and blocks.
+- Comprehensive data integrity verification.
 
 ### Mempool
-- **Честная FIFO очередь** - первый пришел, первый обработан
-- **Потокобезопасность** - корректная работа в многопоточной среде
-- **Детерминированный порядок** - предсказуемая обработка транзакций
-- **Защита от дубликатов** - автоматическая проверка уникальности
+- **Fair FIFO Queue:** First in, first out processing.
+- **Thread Safety:** Robust execution in multi-threaded environments.
+- **Deterministic Order:** Predictable transaction handling.
+- **Duplicate Protection:** Automatic uniqueness validation.
 
-### Майнинг/Валидация
-- **Без комиссий** - транзакции обрабатываются бесплатно
-- **Протокольное вознаграждение** - майнеры получают награду через механизм протокола
-- **Быстрое подтверждение** - эффективная обработка транзакций
+### Mining / Validation
+- **Feeless:** Transactions are processed completely free of charge.
+- **Protocol Rewards:** Miners are incentivized through a built-in protocol mechanism.
+- **Fast Confirmation:** Highly efficient transaction processing.
 
-### Сеть
-- **P2P архитектура** - децентрализованная сеть узлов
-- **Асинхронная обработка** - ASIO для высокопроизводительного I/O
-- **Автоматическое обнаружение** - динамическое подключение к сети
+### Networking
+- **P2P Architecture:** Decentralized node network.
+- **Asynchronous Processing:** Powered by ASIO for high-performance I/O.
+- **Auto-Discovery:** Dynamic network connection and peer routing.
 
-### Передача файлов
-- **Проверка целостности** - автоматическая валидация хешей
-- **Метаданные** - полная информация о передаваемых файлах
-- **Безопасная передача** - криптографическая защита данных
+### File Transfer
+- **Integrity Checks:** Automatic hash validation.
+- **Metadata:** Comprehensive information attached to transferred files.
+- **Secure Transfer:** Cryptographically protected data exchange.
 
 ---
 
-## Архитектура
+## Architecture
 
 <div align="center"> <img src="https://github.com/user-attachments/assets/9b64c70b-871d-494e-9310-a4ecf0a3cfaf" alt="Blockchain Network" width="700"/> </div>
 
-### Компоненты системы
+### System Components
 
-- **`user`** - управление ключами и адресами
-- **`transaction`** - создание и валидация транзакций
-- **`mempool`** - честная FIFO очередь транзакций
-- **`miner`** - майнинг и валидация блоков
-- **`block`** - структура блока с файлами
-- **`blockchain`** - цепочка блоков с валидацией
-- **`node`** - P2P узел сети
-- **`file_sender`** - отправка файлов через блокчейн
-
----
-
-## Технологии
-
-### Языки и стандарты
-- **C++23** - современный стандарт C++
-- **CMake 3.25+** - система сборки
-
-### Библиотеки
-- **libsodium** - криптографические операции
-- **ASIO** - асинхронный сетевой I/O
-- **Catch2** - фреймворк для unit-тестов
-
-### Принципы разработки
-- **RAII** - управление ресурсами
-- **constexpr** - вычисления на этапе компиляции
-- **noexcept** - гарантии исключений
-- **std::optional** - безопасная обработка опциональных значений
-- **enum class** - типобезопасные перечисления
+- **`user`:** Key and address management.
+- **`transaction`:** Transaction creation and validation.
+- **`mempool`:** Fair FIFO transaction queue.
+- **`miner`:** Block mining and validation.
+- **`block`:** Block structure carrying files.
+- **`blockchain`:** Block sequence with built-in validation.
+- **`node`:** P2P network node.
+- **`file_sender`:** File transmission via the blockchain.
 
 ---
 
-## Установка
+## Tech Stack
 
-### Требования
+### Languages and Standards
+- **C++23:** Modern C++ standard.
+- **CMake 3.25+:** Build system.
 
-- **Компилятор** с поддержкой C++23 (GCC 13+, Clang 16+)
-- **CMake** 3.25 или выше
-- **libsodium** - криптографическая библиотека
-- **pkg-config** - для поиска зависимостей
+### Libraries
+- **libsodium:** Cryptographic operations.
+- **ASIO:** Asynchronous network I/O.
+- **Catch2:** Unit testing framework.
 
+### Development Principles
+- **RAII:** Strict resource management.
+- **constexpr:** Compile-time evaluations.
+- **noexcept:** Exception safety guarantees.
+- **std::optional:** Safe handling of optional values.
+- **enum class:** Type-safe enumerations.
 
-## Архитектура
-- `core/` - блокчейн, криптография, mempool
-- `network/` - TCP узел и протокол передачи файла
-- `storage/` - SQLite хранение пользователей, блоков, транзакций
-- `gui/` - Qt Quick, модели и контроллеры
+---
 
-## Сборка (Linux/macOS)
+## Installation
+
+### Prerequisites
+
+- **Compiler** with C++23 support (GCC 13+, Clang 16+).
+- **CMake** 3.25 or higher.
+- **libsodium:** Cryptographic library.
+- **pkg-config:** For dependency resolution.
+
+## Architecture Modules
+- `core/` - Blockchain, cryptography, mempool.
+- `network/` - TCP node and file transfer protocol.
+- `storage/` - SQLite storage for users, blocks, and transactions.
+- `gui/` - Qt Quick UI, models, and controllers.
+
+## Build Instructions (Linux/macOS)
 ```bash
 mkdir -p build
 cd build
 cmake -DCMAKE_BUILD_TYPE=Release ..
 cmake --build . -j
-```
-
-## Запуск
-```bash
-./BlockchainApp
-```
-
-## Зависимости
-- CMake 3.25+
-- Qt 6 (Quick, QuickControls2, QuickDialogs2)
-- libsodium
-- SQLite3
-- ASIO (header-only)
-
-### macOS
-```bash
-brew install qt@6 libsodium sqlite asio
-```
-
-### Linux (Debian/Ubuntu)
-```bash
-sudo apt-get update
-sudo apt-get install -y qt6-base-dev qt6-declarative-dev libsodium-dev libsqlite3-dev libasio-dev
-```
----
-
-## Использование
-
-### Запуск серверного узла
-
-```bash
-./server
-```
-
-Сервер автоматически:
-- Создает genesis блок
-- Инициализирует майнера
-- Запускает P2P сеть на свободном порту (39150-39199)
-- Начинает обработку транзакций
-
----
-
-## Тестирование
-
-- **mempool** - FIFO очередь, потокобезопасность, дубликаты
-- **blockchain** - валидация, добавление блоков, genesis
-- **transaction** - создание, подпись, верификация, сериализация
-- **block** - создание, сериализация, десериализация
-**crypto_utils** - подписи, верификация, хеширование
-
----
-
-## Структура проекта
-
-```
-Blockchain/
-├── include/                 # Заголовочные файлы
-│   ├── types.h             # Базовые типы (address_bytes, hash_bytes)
-│   ├── crypto_utils.h      # Криптографические утилиты
-│   ├── user.h              # Пользователь/кошелек
-│   ├── transaction.h       # Транзакции
-│   ├── block.h             # Блоки
-│   ├── blockchain.h        # Блокчейн
-│   ├── mempool.h           # Mempool (FIFO очередь)
-│   ├── miner.h             # Майнер/валидатор
-│   ├── file_sender.h       # Отправка файлов
-│   ├── node.h              # P2P узел
-│   ├── peer.h              # Пиры
-│   ├── message.h            # Сообщения сети
-│   └── port_utils.h        # Утилиты портов
-│
-├── src/                     # Исходный код
-│   ├── crypto_utils.cpp
-│   ├── user.cpp
-│   ├── transaction.cpp
-│   ├── block.cpp
-│   ├── blockchain.cpp
-│   ├── mempool.cpp
-│   ├── miner.cpp
-│   ├── file_sender.cpp
-│   ├── node.cpp
-│   ├── peer.cpp
-│   ├── port_utils.cpp
-│   └── main_server.cpp     # Точка входа сервера
-│
-├── tests/                   # Unit-тесты
-│   ├── test_mempool.cpp
-│   ├── test_blockchain.cpp
-│   ├── test_transaction.cpp
-│   ├── test_block.cpp
-│   ├── test_crypto_utils.cpp
-│   └── main.cpp
-│
-├── CMakeLists.txt           # Конфигурация сборки
-└── README.md               # Документация
-```
-
----
-
-## Безопасность
-
-### Реализованные меры
-
-- **Memory Safety** - RAII, отсутствие new/delete
-- **Thread Safety** - мьютексы, condition variables
-- **Cryptographic Security** - libsodium для всех криптоопераций
-- **Input Validation** - проверка всех входных данных
-- **No UB** - отсутствие неопределенного поведения
-**Exception Safety** - корректная обработка исключений
-
-### Рекомендации
-
-- Храните приватные ключи в безопасном месте
-- Используйте HTTPS для передачи данных между узлами
-- Регулярно обновляйте зависимости
-- Проверяйте целостность файлов перед обработкой
-
----
-
-## Вклад в проект
-
-Мы приветствуем вклад в развитие проекта! Пожалуйста:
-
-1. Форкните репозиторий
-2. Создайте ветку для новой функции (`git checkout -b feature/amazing-feature`)
-3. Закоммитьте изменения (`git commit -m 'Add amazing feature'`)
-4. Запушьте в ветку (`git push origin feature/amazing-feature`)
-5. Откройте Pull Request
-
-### Стандарты кода
-
-- **snake_case** для всех имен
-- **C++23** стандарт
-- **noexcept** где возможно
-- **constexpr** для вычислений на этапе компиляции
-- **RAII** для управления ресурсами
-- **Unit-тесты** для новой функциональности
